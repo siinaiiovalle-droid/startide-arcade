@@ -70,8 +70,10 @@
 
 ```bash
 git add -A
-git commit -m "game: 新增 XX / YY / ZZ 三款小游戏"
+git commit -m "game: add XX / YY games"      # 提交信息若含中文在部分终端会报编码错误，可用英文
 git push origin main
+# 若报 403 "denied to <其他账号>"，说明 git 用了错误凭据，改用 token 直连：
+# git push https://<owner>:<token>@github.com/siinaiiovalle-droid/startide-arcade.git main
 # 约 40–60 秒后 GitHub Pages 自动部署
 curl -s -o /dev/null -w "%{http_code}" https://siinaiiovalle-droid.github.io/startide-arcade/games.html
 # 期望输出 200
