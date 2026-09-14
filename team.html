@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>核心团队 — 星潮互动 STARTIDE</title>
+<meta name="description" content="星潮互动核心团队与组织架构：研发、发行、运营、数据一体化团队，覆盖网页游戏全生命周期。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .dept-row { display: grid; grid-template-columns: 150px minmax(0,1fr) 120px; gap: 18px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .dept-row:last-child { border-bottom: 0; }
+  .dept-row__name { font-weight: 700; font-size: 14.5px; }
+  .dept-row__out { font-size: 12.5px; color: var(--muted); }
+  .dept-row__num { font-family: var(--mono); font-weight: 800; text-align: right; font-size: 15px; }
+  .join-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); transition: .22s; }
+  .join-item:hover { border-color: rgba(56,225,255,.34); background: rgba(255,255,255,.055); }
+  .join-item__title { font-size: 15px; font-weight: 700; }
+  .value-card { border: 1px solid var(--line); border-radius: var(--r); padding: 22px; background: var(--panel); height: 100%; }
+  .value-card__no { font-family: var(--mono); font-size: 12px; color: var(--cyan); letter-spacing: .1em; }
+  .value-card h3 { font-size: 17px; margin: 10px 0 8px; }
+  .value-card p { font-size: 13.5px; color: var(--muted); margin: 0; }
+  @media (max-width: 640px) {
+    .dept-row { grid-template-columns: minmax(0,1fr) 90px; }
+    .dept-row__out { grid-column: 1 / -1; }
+    .join-item { flex-direction: column; align-items: stretch; }
+  }
+</style>
+</head>
+<body data-page="team">
+<div class="page">
+  <div data-nav></div>
+
+  <section class="section section--tight" style="padding-top:56px">
+    <div class="wrap">
+      <span class="eyebrow">Our Team</span>
+      <h1 class="h1" style="font-size:clamp(30px,4.2vw,46px)">一支把游戏当成长期生意做的团队</h1>
+      <p class="lead">
+        星潮互动现有 153 名成员，其中研发与美术占比超过 55%。我们不追求「一款爆款赌命」，
+        而是用做产品的方法论，把研发、发行、运营与数据打通成一条可复制的流水线。
+      </p>
+
+      <div class="grid g4 mt32">
+        <div class="card card--solid"><div class="stat__label">团队规模</div><div class="stat__value" id="kHead">—</div></div>
+        <div class="card card--solid"><div class="stat__label">研发 + 美术占比</div><div class="stat__value" id="kRd">—</div></div>
+        <div class="card card--solid"><div class="stat__label">核心成员平均司龄</div><div class="stat__value">4.2<span style="font-size:15px;color:var(--muted)"> 年</span></div></div>
+        <div class="card card--solid"><div class="stat__label">在营 / 在研产品</div><div class="stat__value" id="kGames">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Leadership &amp; Core</span>
+        <h2 class="h2">核心成员</h2>
+        <p class="lead">他们多数来自头部页游发行平台与知名研发工作室，曾主导过月流水过亿的网页游戏产品。</p>
+      </div>
+      <div class="grid g-2-1" id="teamGrid"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:rgba(9,14,26,.55);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="grid g-2-1" style="gap:40px;align-items:start">
+        <div class="reveal">
+          <span class="eyebrow">Organization</span>
+          <h2 class="h2">部门构成与人效</h2>
+          <p class="lead">七条业务线并行，各部门独立核算预算与产出。人效是我们唯一长期关注的成本指标。</p>
+          <div class="panel mt24">
+            <div class="panel__head"><h3>部门人数分布</h3><span class="muted small mono">单位：人</span></div>
+            <div class="panel__body"><canvas id="deptChart" style="width:100%;height:250px"></canvas></div>
+          </div>
+        </div>
+        <div class="panel reveal" data-delay="120">
+          <div class="panel__head"><h3>部门明细</h3><span class="badge badge--cyan"><i class="dot"></i><span id="deptSum">—</span> 人</span></div>
+          <div class="panel__body" id="deptList" style="padding-top:6px;padding-bottom:6px"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">How We Work</span>
+        <h2 class="h2">我们怎么做事</h2>
+        <p class="lead">四条被反复验证过的原则，写进了每一个项目的立项文档里。</p>
+      </div>
+      <div class="grid g4">
+        <div class="value-card reveal" data-delay="0">
+          <div class="value-card__no">PRINCIPLE 01</div>
+          <h3>先做可玩，再做精致</h3>
+          <p>两周内必须交出可玩原型，用手感和数据先验证方向，避免在错误方向上过度投入美术与内容。</p>
+        </div>
+        <div class="value-card reveal" data-delay="80">
+          <div class="value-card__no">PRINCIPLE 02</div>
+          <h3>上线只是开始</h3>
+          <p>把 80% 的运营精力放在上线后的版本节奏上，用赛季节奏代替一次性内容投放。</p>
+        </div>
+        <div class="value-card reveal" data-delay="160">
+          <div class="value-card__no">PRINCIPLE 03</div>
+          <h3>用数据说话，不用感觉说话</h3>
+          <p>所有玩法与商业化改动都要有对照实验，全链路埋点让每一次决策都能被复盘。</p>
+        </div>
+        <div class="value-card reveal" data-delay="240">
+          <div class="value-card__no">PRINCIPLE 04</div>
+          <h3>把能力沉淀成资产</h3>
+          <p>引擎、中台组件与运营 SOP 都必须可复用，一个项目踩过的坑，下一个项目不再踩。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="join" style="background:rgba(9,14,26,.55);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Join Us</span>
+        <h2 class="h2">在招岗位</h2>
+        <p class="lead">如果你也相信「网页游戏值得被认真对待」，欢迎加入我们。投递邮箱：<span class="mono c-cyan">join@startide.example</span></p>
+      </div>
+      <div class="grid g2" id="jobList"></div>
+      <div class="card card--solid mt32 reveal" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+        <div>
+          <div class="card__title">没有匹配的岗位？</div>
+          <p class="card__desc mb0">我们始终欢迎优秀的工程师、美术与产品同学。把作品集发给我们，合适就会联系你。</p>
+        </div>
+        <button class="btn btn--primary" id="applyBtn">发送自荐简历</button>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+</div>
+
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+(function () {
+  var db = Store.get();
+  var depts = db.departments;
+  var totalHead = db.company.headcount;
+
+  document.getElementById('kHead').textContent = totalHead + ' 人';
+
+  var rd = depts.filter(function (d) { return d.name === '制作中心' || d.name === '技术中心' || d.name === '美术中心'; })
+    .reduce(function (a, d) { return a + d.headcount; }, 0);
+  document.getElementById('kRd').textContent = Math.round((rd / totalHead) * 100) + '%';
+
+  var online = db.games.filter(function (g) { return g.online; }).length;
+  var coding = db.games.filter(function (g) { return !g.online && g.status !== '已下线'; }).length;
+  document.getElementById('kGames').textContent = online + ' / ' + coding;
+
+  /* ---------- 核心成员 ---------- */
+  document.getElementById('teamGrid').innerHTML = db.team.map(function (m, i) {
+    return '' +
+      '<div class="pcard reveal" data-delay="' + ((i % 4) * 60) + '">' +
+      '  <div class="avatar" style="background:linear-gradient(135deg,' + m.hue + ',rgba(255,255,255,.25))">' + UI.esc(m.avatar) + '</div>' +
+      '  <div style="min-width:0">' +
+      '    <div class="pcard__name">' + UI.esc(m.name) + ' <span class="muted mono tiny" style="font-weight:400">' + UI.esc(m.en) + '</span></div>' +
+      '    <div class="pcard__role" style="color:' + m.hue + '">' + UI.esc(m.role) + ' · ' + UI.esc(m.dept) + ' · ' + UI.esc(m.exp) + '经验</div>' +
+      '    <p class="pcard__bio">' + UI.esc(m.bio) + '</p>' +
+      '    <div class="wrapflex" style="gap:6px;margin-top:10px">' + m.tags.map(function (t) { return '<span class="tag">' + UI.esc(t) + '</span>'; }).join('') + '</div>' +
+      '  </div>' +
+      '</div>';
+  }).join('');
+
+  /* ---------- 部门明细 ---------- */
+  var deptSum = depts.reduce(function (a, d) { return a + d.headcount; }, 0);
+  document.getElementById('deptSum').textContent = deptSum;
+  document.getElementById('deptList').innerHTML = depts.map(function (d) {
+    return '' +
+      '<div class="dept-row">' +
+      '  <div><div class="dept-row__name">' + UI.esc(d.name) + '</div><div class="dept-row__out">' + UI.esc(d.output) + '</div></div>' +
+      '  <div class="bar" data-fill="' + Math.round((d.headcount / 40) * 100) + '"><i style="width:0"></i></div>' +
+      '  <div class="dept-row__num">' + d.headcount + ' <span class="muted tiny">/ ' + UI.fmtMoney(d.budget) + '</span></div>' +
+      '</div>';
+  }).join('');
+
+  /* ---------- 部门图表 ---------- */
+  var COLORS = ['#38e1ff', '#7a5cff', '#ff4d9d', '#ffb020', '#2ee6a8', '#8da0c4', '#b3a2ff'];
+  Charts.hbar(document.getElementById('deptChart'), {
+    items: depts.map(function (d, i) { return { label: d.name, value: d.headcount, color: COLORS[i % COLORS.length] }; }),
+    labelWidth: 88,
+    valueFmt: function (v) { return v + ' 人'; }
+  });
+
+  /* ---------- 在招岗位 ---------- */
+  var jobs = [
+    { title: '资深前端工程师（引擎组）', dept: '技术中心', type: '全职 · 深圳', tags: ['TypeScript', 'WebGL / WebGPU', '性能优化'], desc: '负责 StarCore 引擎的渲染管线与工具链开发，要求 3 年以上 Web 图形或游戏开发经验。' },
+    { title: '游戏服务端开发（Go/Node）', dept: '技术中心', type: '全职 · 深圳', tags: ['Go', '分布式', '长连接'], desc: '负责多产品账号、支付与战斗校验服务端，支撑百万级在线，熟悉高并发场景优先。' },
+    { title: '制作人（SLG / 策略方向）', dept: '制作中心', type: '全职 · 深圳', tags: ['SLG', '数值', '商业化'], desc: '从 0 到 1 主导一款策略类网页游戏，需完整操盘过一款上线产品的经验。' },
+    { title: '用户增长运营（买量方向）', dept: '发行中心', type: '全职 · 深圳', tags: ['投放', 'ROI', '短视频'], desc: '负责抖音 / 微信等渠道的投放策略与素材迭代，对 ROI 与新增成本直接负责。' },
+    { title: '数据分析师', dept: '数据中心', type: '全职 · 深圳', tags: ['SQL', 'AB 测试', '归因'], desc: '搭建埋点体系、用户分层模型与买量归因看板，用数据驱动产品与运营决策。' },
+    { title: '游戏 UI 设计师', dept: '美术中心', type: '全职 · 深圳', tags: ['UI', '动效', '多端适配'], desc: '负责 Web 与微信小游戏双端界面设计与交互落地，有休闲 / 策略品类经验优先。' }
+  ];
+  document.getElementById('jobList').innerHTML = jobs.map(function (j, i) {
+    return '' +
+      '<div class="join-item reveal" data-delay="' + ((i % 2) * 80) + '">' +
+      '  <div style="min-width:0">' +
+      '    <div class="join-item__title">' + UI.esc(j.title) + '</div>' +
+      '    <div class="muted small mb8">' + UI.esc(j.dept) + ' · ' + UI.esc(j.type) + '</div>' +
+      '    <p class="muted small mb8" style="margin:0 0 8px">' + UI.esc(j.desc) + '</p>' +
+      '    <div class="wrapflex" style="gap:6px">' + j.tags.map(function (t) { return '<span class="tag">' + UI.esc(t) + '</span>'; }).join('') + '</div>' +
+      '  </div>' +
+      '  <button class="btn btn--sm" data-job="' + UI.esc(j.title) + '">投递</button>' +
+      '</div>';
+  }).join('');
+
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-job]');
+    if (b) UI.toast('已记录你对「' + b.getAttribute('data-job') + '」的意向，请将简历发至 join@startide.example', 'ok');
+  });
+  document.getElementById('applyBtn').addEventListener('click', function () {
+    UI.toast('自荐简历请发送至 join@startide.example，我们会在一周内回复', 'ok');
+  });
+})();
+</script>
+</body>
+</html>

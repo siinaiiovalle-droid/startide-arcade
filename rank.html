@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>排行榜 · 星潮互动</title>
+  <meta name="description" content="星潮互动小游戏全球排行榜：查看各游戏最高分榜、我的排名与战绩，登录后成绩自动上榜。">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body data-page="rank">
+  <div class="page">
+    <div data-nav></div>
+
+    <main>
+      <section class="wrap" style="padding:52px 24px 20px">
+        <div class="eyebrow" data-i18n="nav.rank">排行榜</div>
+        <h1 class="h1 mb16"><span class="grad-text" data-i18n="nav.rank">排行榜</span></h1>
+        <p class="lead mb24" id="rankSub">各游戏最高分榜 · 登录后成绩自动上榜</p>
+        <div class="pill-row" id="gameTabs"></div>
+      </section>
+
+      <section class="wrap" style="padding:0 24px 30px">
+        <div class="grid g3" id="podium"></div>
+      </section>
+
+      <section class="wrap" style="padding:0 24px 24px">
+        <div class="panel reveal">
+          <div class="panel__head">
+            <h3><span id="curGameName">星际战机</span> · <span data-i18n="hall.all">全部游戏</span></h3>
+            <span class="badge badge--cyan" id="totalBadge">—</span>
+          </div>
+          <div class="panel__body">
+            <div class="rank-row" style="grid-template-columns:46px 44px minmax(0,1fr) 130px 110px">
+              <div class="tiny muted" style="text-align:center">#</div>
+              <div></div>
+              <div class="tiny muted" data-i18n="nav.profile">玩家</div>
+              <div class="tiny muted tar" data-i18n="common.score">得分</div>
+              <div class="tiny muted tar" data-i18n="common.time">用时</div>
+            </div>
+            <div id="rankList"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="wrap" style="padding:0 24px 70px">
+        <div class="grid g2" id="myCards"></div>
+      </section>
+    </main>
+
+    <div data-footer></div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sfx.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/games/catalog.js"></script>
+  <script>
+    (function () {
+      var T = function (k, f) { return I18N.t(k, f); };
+      var esc = UI.esc;
+      var params = new URLSearchParams(location.search);
+      var gid = CATALOG.get(params.get('g')) ? params.get('g') : 'shooter';
+
+      function renderTabs() {
+        document.getElementById('gameTabs').innerHTML = CATALOG.list.map(function (g) {
+          return '<button class="chip' + (gid === g.id ? ' is-on' : '') + '" data-g="' + g.id + '">' + g.icon + ' ' + esc(I18N.pick(g.name)) + '</button>';
+        }).join('');
+        document.getElementById('gameTabs').querySelectorAll('[data-g]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            gid = b.getAttribute('data-g');
+            history.replaceState(null, '', 'rank.html?g=' + gid);
+            render();
+          });
+        });
+      }
+
+      function renderPodium(rows) {
+        var host = document.getElementById('podium');
+        var medals = ['🥇', '🥈', '🥉'];
+        if (!rows.length) { host.innerHTML = ''; return; }
+        host.innerHTML = rows.slice(0, 3).map(function (r, i) {
+          return '<div class="card card--solid reveal" style="text-align:center">' +
+            '<div style="font-size:34px">' + medals[i] + '</div>' +
+            '<div class="rank-ava" style="margin:8px auto 10px;width:52px;height:52px;border-radius:16px;font-size:24px">' + esc((r.username || '?').slice(0, 1)) + '</div>' +
+            '<div style="font-weight:800;font-size:15px">' + esc(r.username) + '</div>' +
+            '<div class="mono" style="font-size:24px;color:var(--cyan);font-weight:800;margin-top:6px">' + UI.fmtNum(r.score) + '</div>' +
+            '<div class="tiny muted">' + esc(T('common.score')) + '</div>' +
+            '</div>';
+        }).join('');
+      }
+
+      function renderList(rows) {
+        var me = Auth.current();
+        var medal = function (i) { return ['🥇', '🥈', '🥉'][i] || (i + 1); };
+        var host = document.getElementById('rankList');
+        if (!rows.length) {
+          host.innerHTML = '<div class="empty-state"><div class="i">🏅</div>' + esc(T('common.empty')) + '</div>';
+          return;
+        }
+        host.innerHTML = rows.map(function (r, i) {
+          return '<div class="rank-row' + (me && r.uid === me.id ? ' is-me' : '') + '">' +
+            '<div class="rank-no">' + medal(i) + '</div>' +
+            '<div class="rank-ava">' + esc((r.username || '?').slice(0, 1)) + '</div>' +
+            '<div><div class="rank-name">' + esc(r.username) + (me && r.uid === me.id ? ' <span class="tag">我</span>' : '') + '</div>' +
+            '<div class="tiny muted">' + esc(UI.fmtTime(r.createdAt)) + '</div></div>' +
+            '<div class="rank-score">' + UI.fmtNum(r.score) + '</div>' +
+            '<div class="rank-meta">' + esc(r.duration ? r.duration + 's' : '—') + '</div>' +
+            '</div>';
+        }).join('');
+      }
+
+      function renderMine() {
+        var meta = CATALOG.get(gid);
+        var me = Auth.current();
+        var host = document.getElementById('myCards');
+        if (!me) {
+          host.innerHTML = '<div class="card card--solid reveal"><div class="card__title">' + esc(T('nav.login')) + '</div>' +
+            '<p class="card__desc">' + esc(T('game.guestTip')) + '</p>' +
+            '<a class="btn btn--primary btn--sm" href="login.html">' + esc(T('nav.login')) + '</a></div>' +
+            '<div class="card card--solid reveal"><div class="card__title">' + esc(T('hall.title')) + '</div>' +
+            '<p class="card__desc">' + esc(T('hall.sub')) + '</p>' +
+            '<a class="btn btn--sm" href="games.html">' + esc(T('nav.games')) + '</a></div>';
+          return;
+        }
+        var all = Auth.ranking(gid, 999);
+        var pos = -1;
+        for (var i = 0; i < all.length; i++) if (all[i].uid === me.id) { pos = i + 1; break; }
+        var myBest = Auth.bestOf(gid);
+        var mine = Auth.myRecords(gid).slice(0, 5);
+        host.innerHTML =
+          '<div class="card card--solid reveal"><div class="card__title">' + esc(T('nav.profile')) + '</div>' +
+          '<div class="between mb16"><span class="muted small">' + esc(I18N.pick(meta.name)) + '</span>' +
+          '<span class="badge badge--cyan">' + esc(T('user.level')) + ' ' + me.level + '</span></div>' +
+          '<div class="statmini mb16">' +
+          '<div><span class="tiny muted">' + esc(T('common.best')) + '</span><b>' + UI.fmtNum(myBest) + '</b></div>' +
+          '<div><span class="tiny muted">排名</span><b>' + (pos > 0 ? '#' + pos : '—') + '</b></div>' +
+          '<div><span class="tiny muted">🪙</span><b>' + UI.fmtNum(me.coins) + '</b></div>' +
+          '</div>' +
+          '<a class="btn btn--primary btn--sm btn--block" href="play.html?g=' + gid + '">▶ ' + esc(T('common.play')) + '</a></div>' +
+          '<div class="card card--solid reveal"><div class="card__title">' + esc(T('user.records')) + '</div>' +
+          (mine.length ? '<ul class="mini-rank">' + mine.map(function (r) {
+            return '<li><span class="n">' + UI.fmtNum(r.score) + '</span><span style="flex:1;min-width:0" class="muted small">' + esc(UI.fmtTime(r.createdAt)) + '</span></li>';
+          }).join('') + '</ul>' : '<p class="card__desc">' + esc(T('user.noRecords')) + '</p>') +
+          '</div>';
+      }
+
+      function render() {
+        var meta = CATALOG.get(gid);
+        document.getElementById('curGameName').textContent = I18N.pick(meta.name);
+        document.getElementById('rankSub').textContent = I18N.pick(meta.desc);
+        var rows = Auth.ranking(gid, 50);
+        document.getElementById('totalBadge').textContent = rows.length + ' ' + T('nav.profile');
+        renderTabs(); renderPodium(rows); renderList(rows); renderMine();
+        UI.initReveal();
+      }
+      render();
+      window.addEventListener('i18n:change', render);
+    })();
+  </script>
+</body>
+
+</html>

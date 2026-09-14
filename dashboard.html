@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>运营数据看板 — 星潮互动 STARTIDE</title>
+<meta name="description" content="星潮互动全域运营数据看板：DAU / MAU、流水、留存、渠道 ROI、产品矩阵表现与实时监控。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .dash-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .kpi { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 16px; }
+  .kpi__item { border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); padding: 20px; }
+  .kpi__k { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .kpi__v { font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; font-family: var(--mono); letter-spacing: -.03em; line-height: 1.15; margin-top: 6px; }
+  .kpi__d { font-size: 12.5px; font-weight: 700; margin-top: 4px; }
+  .range { display: flex; gap: 6px; }
+  .rchip { padding: 7px 14px; border-radius: 9px; border: 1px solid var(--line); background: var(--panel); font-size: 13px; cursor: pointer; transition: .16s; color: var(--text-2); }
+  .rchip:hover { color: #fff; border-color: rgba(56,225,255,.45); }
+  .rchip.is-on { background: var(--grad); color: #04101c; font-weight: 700; border-color: transparent; }
+  .chart-box { position: relative; }
+  .live { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--green); font-family: var(--mono); }
+  .live .dot { background: var(--green); }
+  .mon { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+  .mon__item { border: 1px solid var(--line); border-radius: var(--r); background: rgba(10,17,32,.72); padding: 16px 18px; }
+  .mon__k { font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
+  .mon__v { font-size: 19px; font-weight: 800; font-family: var(--mono); margin-top: 4px; }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 5px; }
+  @media (max-width: 1080px) { .kpi, .mon { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  @media (max-width: 640px) { .kpi, .mon { grid-template-columns: minmax(0,1fr); } }
+</style>
+</head>
+<body data-page="dashboard">
+<div class="page">
+  <div data-nav></div>
+
+  <section class="section section--tight" style="padding-top:52px">
+    <div class="wrap">
+      <div class="dash-head mb32">
+        <div>
+          <span class="eyebrow">Operations Dashboard</span>
+          <h1 class="h1" style="font-size:clamp(28px,3.6vw,42px)">全域运营数据看板</h1>
+          <p class="lead mb0">覆盖 4 款在营产品的核心指标：用户规模、流水、留存与渠道效率。数据每 5 分钟刷新一次。</p>
+        </div>
+        <div class="tar">
+          <span class="live mb8"><i class="dot dot--pulse"></i>实时同步中 · <span id="liveTime">—</span></span>
+          <div class="range" id="rangeBar"></div>
+        </div>
+      </div>
+
+      <div class="kpi" id="kpiGrid"></div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div class="panel__head">
+          <h3>用户规模趋势 · DAU / 新增用户</h3>
+          <div class="legend">
+            <span><i style="background:#38e1ff"></i>日活跃用户 DAU</span>
+            <span><i style="background:#ff4d9d"></i>新增用户</span>
+          </div>
+        </div>
+        <div class="panel__body chart-box"><canvas id="dauChart" style="width:100%;height:300px"></canvas></div>
+      </div>
+
+      <div class="grid g2 mt24" style="gap:20px">
+        <div class="panel reveal" data-delay="80">
+          <div class="panel__head"><h3>流水趋势</h3><span class="muted small mono">单位：元</span></div>
+          <div class="panel__body chart-box"><canvas id="revChart" style="width:100%;height:250px"></canvas></div>
+        </div>
+        <div class="panel reveal" data-delay="140">
+          <div class="panel__head"><h3>留存曲线</h3><span class="muted small mono">近 7 日均值</span></div>
+          <div class="panel__body chart-box"><canvas id="retChart" style="width:100%;height:250px"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:rgba(9,14,26,.55);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Channel Efficiency</span>
+        <h2 class="h2">渠道结构与投放效率</h2>
+        <p class="lead">自然流量与微信小游戏中心贡献了一半以上的用户，海外 SEO 的获客成本最低、ROI 最高。</p>
+      </div>
+      <div class="grid g2" style="gap:20px">
+        <div class="panel reveal">
+          <div class="panel__head"><h3>用户来源占比</h3></div>
+          <div class="panel__body chart-box"><canvas id="chanDonut" style="width:100%;height:290px"></canvas></div>
+        </div>
+        <div class="panel reveal" data-delay="100">
+          <div class="panel__head"><h3>渠道投放 ROI</h3><span class="muted small mono">LTV / CAC</span></div>
+          <div class="panel__body chart-box"><canvas id="roiChart" style="width:100%;height:290px"></canvas></div>
+        </div>
+      </div>
+      <div class="panel mt24 reveal">
+        <div class="panel__head"><h3>渠道明细</h3><span class="muted small">数据来源：买量归因模型 v3</span></div>
+        <div class="panel__body panel__body--flush">
+          <div class="tbl-wrap"><table class="tbl" id="chanTable"></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <span class="eyebrow">Product Performance</span>
+        <h2 class="h2">产品矩阵表现</h2>
+        <p class="lead">同一套技术中台与运营体系，支撑不同品类产品的差异化指标表现。</p>
+      </div>
+      <div class="panel reveal">
+        <div class="panel__body panel__body--flush">
+          <div class="tbl-wrap"><table class="tbl" id="gameTable"></table></div>
+        </div>
+      </div>
+
+      <div class="panel mt24 reveal">
+        <div class="panel__head"><h3>运营活动效果</h3><span class="muted small">ROI 按活动周期内增量流水 / 投入预算计算</span></div>
+        <div class="panel__body panel__body--flush">
+          <div class="tbl-wrap"><table class="tbl" id="actTable"></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <span class="eyebrow">Realtime Monitor</span>
+      <h2 class="h3 mb24">实时监控</h2>
+      <div class="mon" id="monGrid"></div>
+      <p class="tiny muted mt16 mb0">
+        以上为演示数据：页面内全部指标由本地生成，不涉及任何真实业务数据与个人信息。
+      </p>
+    </div>
+  </section>
+
+  <div data-footer></div>
+</div>
+
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+(function () {
+  var db = Store.get(), m = db.metrics;
+  var COL = Charts.colors;
+
+  function tail(arr, n) { return arr.slice(-n); }
+
+  /* ---------- 区间切换 ---------- */
+  var range = 30;
+  var ranges = [7, 14, 30];
+  document.getElementById('rangeBar').innerHTML = ranges.map(function (r) {
+    return '<button class="rchip' + (r === range ? ' is-on' : '') + '" data-r="' + r + '">近 ' + r + ' 天</button>';
+  }).join('');
+
+  function setLiveTime() {
+    var d = new Date();
+    document.getElementById('liveTime').textContent = UI.p2(d.getHours()) + ':' + UI.p2(d.getMinutes()) + ':' + UI.p2(d.getSeconds());
+  }
+  setLiveTime();
+
+  /* ---------- KPI ---------- */
+  function renderKpi() {
+    var s = Store.summary();
+    var d = tail(m.dates, range), dauR = tail(m.dau, range), revR = tail(m.revenue, range), neuR = tail(m.newUsers, range);
+    var dauAvg = Store.avg(dauR);
+    var revSum = Store.sum(revR);
+    var neuSum = Store.sum(neuR);
+    var payRate = Store.avg(tail(m.payRate, range));
+    var d7 = Store.avg(tail(m.d7, range));
+    var dauDelta = s.dauDelta;
+
+    var items = [
+      { k: '日活跃用户 DAU', v: UI.fmtCompact(s.dau), d: UI.fmtPct(dauDelta) + ' 较昨日', cls: dauDelta >= 0 ? 'up' : 'down' },
+      { k: '月活跃用户 MAU', v: UI.fmtCompact(s.mau), d: '覆盖 ' + s.onlineGames + ' 款在营产品', cls: 'muted' },
+      { k: range + ' 日累计流水', v: UI.fmtMoney(revSum), d: '日均 ' + UI.fmtMoney(revSum / range), cls: 'up' },
+      { k: range + ' 日新增用户', v: UI.fmtCompact(neuSum), d: '日均 ' + UI.fmtCompact(neuSum / range), cls: 'muted' },
+      { k: '平均 ARPU', v: '¥' + Store.avg(tail(m.arpu, range)).toFixed(2), d: '近 ' + range + ' 日均值', cls: 'muted' },
+      { k: '付费率', v: payRate.toFixed(1) + '%', d: '环比上周 +0.3pt', cls: 'up' },
+      { k: '7 日留存', v: d7.toFixed(1) + '%', d: '高于休闲品类均值 3.2pt', cls: 'up' },
+      { k: '区间日均 DAU', v: UI.fmtCompact(dauAvg), d: '统计区间 ' + d[0].slice(5) + ' ~ ' + d[d.length - 1].slice(5), cls: 'muted' }
+    ];
+
+    document.getElementById('kpiGrid').innerHTML = items.map(function (it) {
+      return '' +
+        '<div class="kpi__item reveal">' +
+        '  <div class="kpi__k">' + UI.esc(it.k) + '</div>' +
+        '  <div class="kpi__v">' + UI.esc(it.v) + '</div>' +
+        '  <div class="kpi__d ' + it.cls + '">' + UI.esc(it.d) + '</div>' +
+        '</div>';
+    }).join('');
+    UI.initReveal();
+  }
+
+  /* ---------- 图表 ---------- */
+  function renderCharts() {
+    var labels = tail(m.dates, range).map(function (s) { return s.slice(5); });
+
+    Charts.area(document.getElementById('dauChart'), {
+      labels: labels,
+      series: [
+        { name: 'DAU', color: COL.cyan, data: tail(m.dau, range) },
+        { name: '新增用户', color: COL.pink, data: tail(m.newUsers, range) }
+      ],
+      fmtY: function (v) { return UI.fmtCompact(v); },
+      tipFmt: function (v) { return UI.fmtNum(v); }
+    });
+
+    Charts.bar(document.getElementById('revChart'), {
+      labels: labels,
+      data: tail(m.revenue, range),
+      color: function (i) { return i === range - 1 ? COL.amber : COL.violet; },
+      fmtY: function (v) { return UI.fmtCompact(v); },
+      tipFmt: function (v) { return UI.fmtMoney(v); }
+    });
+
+    Charts.bar(document.getElementById('retChart'), {
+      labels: ['次日 D1', '3 日 D3', '7 日 D7', '30 日 D30'],
+      data: [
+        Store.avg(tail(m.d1, 7)),
+        Store.avg(tail(m.d3, 7)),
+        Store.avg(tail(m.d7, 7)),
+        Store.avg(tail(m.d30, 7))
+      ],
+      color: function (i) { return [COL.cyan, COL.violet, COL.pink, COL.amber][i]; },
+      fmtY: function (v) { return v.toFixed(0) + '%'; },
+      tipFmt: function (v) { return v.toFixed(1) + '%'; }
+    });
+  }
+
+  /* ---------- 渠道 ---------- */
+  var CH_COLORS = ['#2ee6a8', '#38e1ff', '#ff4d9d', '#7a5cff', '#ffb020', '#8da0c4'];
+  function renderChannels() {
+    Charts.donut(document.getElementById('chanDonut'), {
+      items: db.channels.map(function (c, i) { return { label: c.name, value: c.users, color: CH_COLORS[i % CH_COLORS.length] }; }),
+      centerText: UI.fmtCompact(Store.sum(db.channels.map(function (c) { return c.users; }))),
+      centerSub: '累计触达用户',
+      tipFmt: function (v) { return UI.fmtNum(v); }
+    });
+
+    Charts.hbar(document.getElementById('roiChart'), {
+      items: db.channels.filter(function (c) { return c.roi > 0; }).map(function (c, i) {
+        return { label: c.name, value: c.roi, color: c.roi >= 2 ? COL.green : (c.roi >= 1.6 ? COL.cyan : COL.amber) };
+      }),
+      labelWidth: 116,
+      valueFmt: function (v) { return v.toFixed(2); }
+    });
+
+    document.getElementById('chanTable').innerHTML =
+      '<thead><tr><th>渠道</th><th>用户数</th><th>占比</th><th>CAC</th><th>LTV</th><th>ROI</th><th>效率</th></tr></thead><tbody>' +
+      db.channels.map(function (c, i) {
+        var eff = c.roi === 0 ? '自然流量' : (c.roi >= 2 ? '优' : c.roi >= 1.6 ? '良' : '待优化');
+        var cls = c.roi >= 2 ? 'c-green' : c.roi >= 1.6 ? 'c-cyan' : (c.roi === 0 ? 'muted' : 'c-amber');
+        return '<tr>' +
+          '<td><span class="u-cell"><span class="u-ava" style="background:' + CH_COLORS[i % CH_COLORS.length] + '">' + (i + 1) + '</span>' + UI.esc(c.name) + '</span></td>' +
+          '<td class="num">' + UI.fmtNum(c.users) + '</td>' +
+          '<td class="num">' + c.share.toFixed(1) + '%</td>' +
+          '<td class="num">' + (c.cac ? '¥' + c.cac.toFixed(1) : '—') + '</td>' +
+          '<td class="num">¥' + c.ltv.toFixed(1) + '</td>' +
+          '<td class="num ' + cls + '">' + (c.roi ? c.roi.toFixed(2) : '—') + '</td>' +
+          '<td class="' + cls + '">' + eff + '</td>' +
+          '</tr>';
+      }).join('') + '</tbody>';
+  }
+
+  /* ---------- 产品与活动 ---------- */
+  function badge(st) {
+    var map = { '已上线': 'badge--green', '内测中': 'badge--cyan', '研发中': 'badge--amber', '已下线': '' };
+    return '<span class="badge ' + (map[st] || '') + '">' + UI.esc(st) + '</span>';
+  }
+  function renderGames() {
+    document.getElementById('gameTable').innerHTML =
+      '<thead><tr><th>产品</th><th>品类</th><th>状态</th><th>DAU</th><th>MAU</th><th>月流水</th><th>7 日留存</th><th>评分</th></tr></thead><tbody>' +
+      db.games.map(function (g) {
+        return '<tr>' +
+          '<td><span class="u-cell"><span class="u-ava" style="background:' + g.hue + '">' + g.icon + '</span>' + UI.esc(g.name) + '</span></td>' +
+          '<td class="muted">' + UI.esc(g.genre) + '</td>' +
+          '<td>' + badge(g.status) + '</td>' +
+          '<td class="num">' + (g.dau ? UI.fmtCompact(g.dau) : '—') + '</td>' +
+          '<td class="num">' + (g.mau ? UI.fmtCompact(g.mau) : '—') + '</td>' +
+          '<td class="num">' + (g.revenueMonth ? UI.fmtMoney(g.revenueMonth) : '—') + '</td>' +
+          '<td class="num">' + (g.retention7 ? g.retention7.toFixed(1) + '%' : '—') + '</td>' +
+          '<td class="num">' + (g.rating ? g.rating.toFixed(1) : '—') + '</td>' +
+          '</tr>';
+      }).join('') + '</tbody>';
+  }
+  function renderActs() {
+    var stCls = { '进行中': 'badge--green', '已结束': '', '待开始': 'badge--cyan', '规划中': 'badge--amber' };
+    document.getElementById('actTable').innerHTML =
+      '<thead><tr><th>活动</th><th>产品</th><th>类型</th><th>状态</th><th>周期</th><th>预算</th><th>参与人数</th><th>转化率</th><th>ROI</th></tr></thead><tbody>' +
+      db.activities.map(function (a) {
+        return '<tr>' +
+          '<td>' + UI.esc(a.name) + '</td>' +
+          '<td class="muted">' + UI.esc(a.game) + '</td>' +
+          '<td class="muted">' + UI.esc(a.type) + '</td>' +
+          '<td><span class="badge ' + (stCls[a.status] || '') + '">' + UI.esc(a.status) + '</span></td>' +
+          '<td class="num muted tiny">' + (a.start ? UI.fmtDate(a.start) + ' ~ ' + UI.fmtDate(a.end) : '—') + '</td>' +
+          '<td class="num">' + UI.fmtMoney(a.budget) + '</td>' +
+          '<td class="num">' + (a.participants ? UI.fmtCompact(a.participants) : '—') + '</td>' +
+          '<td class="num">' + (a.conv ? a.conv.toFixed(1) + '%' : '—') + '</td>' +
+          '<td class="num ' + (a.roi >= 2 ? 'c-green' : '') + '">' + (a.roi ? a.roi.toFixed(2) : '—') + '</td>' +
+          '</tr>';
+      }).join('') + '</tbody>';
+  }
+
+  /* ---------- 实时监控 ---------- */
+  var monBase = [
+    { k: '当前在线人数', v: Store.summary().dau * 0.18, unit: '', jitter: 0.04 },
+    { k: '支付成功率', v: 98.6, unit: '%', jitter: 0.004 },
+    { k: '网关平均延迟', v: 42, unit: ' ms', jitter: 0.12 },
+    { k: '今日新增注册', v: Store.summary().newUsers, unit: '', jitter: 0.01 }
+  ];
+  function renderMon() {
+    document.getElementById('monGrid').innerHTML = monBase.map(function (mo, i) {
+      return '<div class="mon__item"><div class="mon__k">' + mo.k + '</div><div class="mon__v" id="mon' + i + '">—</div></div>';
+    }).join('');
+  }
+  var monOk = false;
+  function tickMon() {
+    if (!monOk) return;
+    monBase.forEach(function (mo, i) {
+      var v = mo.v * (1 + (Math.random() - 0.5) * mo.jitter);
+      var el = document.getElementById('mon' + i);
+      if (!el) return;
+      el.textContent = mo.unit === '%' ? v.toFixed(1) + '%'
+        : (mo.unit.indexOf('ms') >= 0 ? Math.round(v) + ' ms' : UI.fmtNum(Math.round(v)));
+    });
+  }
+
+  /* ---------- 交互 ---------- */
+  document.getElementById('rangeBar').addEventListener('click', function (e) {
+    var b = e.target.closest('.rchip');
+    if (!b) return;
+    range = parseInt(b.getAttribute('data-r'), 10);
+    Array.prototype.forEach.call(this.querySelectorAll('.rchip'), function (c) { c.classList.toggle('is-on', c === b); });
+    renderKpi();
+    renderCharts();
+  });
+
+  /* ---------- 初始化 ---------- */
+  renderKpi();
+  renderCharts();
+  renderChannels();
+  renderGames();
+  renderActs();
+  renderMon();
+  monOk = true;
+  tickMon();
+  setInterval(tickMon, 2200);
+  setInterval(function () { renderCharts(); }, 30000);
+  setInterval(setLiveTime, 1000);
+})();
+</script>
+</body>
+</html>

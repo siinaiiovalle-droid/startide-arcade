@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>开始游戏 · 星潮互动</title>
+  <meta name="description" content="星潮互动小游戏在线游玩：超级冒险、星际战机、霓虹打砖块、霓虹贪吃蛇、俄罗斯方块、2048。打开即玩，无需下载。">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body data-page="games">
+  <div class="page">
+    <div data-nav></div>
+
+    <main class="wrap" style="padding-top:30px;padding-bottom:60px">
+      <div class="playwrap">
+        <div>
+          <div class="stage-wrap">
+            <div class="hudbar">
+              <div class="hudchips" id="hud"></div>
+              <div class="play-actions">
+                <button class="btn btn--primary btn--sm" id="btnStart" data-i18n="common.play">开始游戏</button>
+                <button class="btn btn--sm" id="btnPause" data-i18n="common.pause">暂停</button>
+                <button class="btn btn--sm" id="btnRestart" data-i18n="common.restart">重开</button>
+                <button class="btn btn--sm" id="btnPad">手柄</button>
+                <button class="btn btn--sm" id="btnSound">🔊</button>
+                <button class="btn btn--sm" id="btnFull" data-i18n="game.fullscreen">全屏</button>
+              </div>
+            </div>
+            <div id="stage"></div>
+            <div class="between mt16" style="gap:10px;flex-wrap:wrap">
+              <span class="small muted" id="gameTip"></span>
+              <span class="small muted" id="authTip"></span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="play-side">
+          <div class="card card--solid">
+            <div class="eyebrow mb8" id="ggenre">Game</div>
+            <h3 class="mb8" id="gname" style="font-size:20px">—</h3>
+            <p class="card__desc mb16" id="gdesc"></p>
+            <div class="wrapflex" id="gtags"></div>
+          </div>
+
+          <div class="card card--solid">
+            <div class="card__title" data-i18n="game.control">操作说明</div>
+            <ul class="ctrl-list" id="ctrls"></ul>
+          </div>
+
+          <div class="card card--solid">
+            <div class="between mb16">
+              <div class="card__title mb0" id="rankTitle">本游戏排行榜</div>
+              <span class="badge badge--cyan" id="bestBadge">—</span>
+            </div>
+            <ol class="mini-rank" id="minirank"></ol>
+            <a class="btn btn--sm btn--block mt16" id="fullRankLink" href="rank.html">查看完整排行榜</a>
+          </div>
+
+          <div class="card card--solid">
+            <div class="card__title" id="relTitle">换个游戏</div>
+            <div id="related"></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <div data-footer></div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sfx.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/games/engine.js"></script>
+  <script src="assets/js/games/catalog.js"></script>
+  <script>
+    (function () {
+      var T = function (k, f) { return window.I18N ? I18N.t(k, f) : (f || k); };
+      var esc = UI.esc;
+
+      var params = new URLSearchParams(location.search);
+      var gid = params.get('g') || 'shooter';
+      var meta = CATALOG.get(gid);
+      if (!meta) { location.replace('games.html'); return; }
+
+      var stageEl = document.getElementById('stage');
+      var hudEl = document.getElementById('hud');
+      var controller = null, startTime = 0, gameOverFired = false, best = 0;
+      var running = false, hasStarted = false;
+
+      /* ---------- 头部信息 ---------- */
+      document.title = I18N.pick(meta.name) + ' · 星潮互动';
+      document.getElementById('gname').textContent = I18N.pick(meta.name) + ' · ' + (I18N.isEn() ? meta.name.zh : meta.name.en);
+      document.getElementById('gdesc').textContent = I18N.pick(meta.desc);
+      document.getElementById('ggenre').textContent = I18N.pick(meta.genre);
+      document.getElementById('gtags').innerHTML = (meta.tags || []).map(function (t) {
+        return '<span class="tag">' + esc(I18N.pick(t)) + '</span>';
+      }).join('');
+      document.getElementById('fullRankLink').href = 'rank.html?g=' + meta.id;
+      document.getElementById('gameTip').textContent = T('game.startTip');
+
+      var authTip = document.getElementById('authTip');
+      function renderAuthTip() {
+        var u = Auth.current();
+        authTip.innerHTML = u
+          ? '<span class="badge badge--green">' + esc(u.avatar + ' ' + u.nickname) + '</span>'
+          : '<span class="badge badge--amber">' + esc(T('game.guestTip')) + '</span> <a href="login.html" style="color:var(--cyan)">' + esc(T('nav.login')) + '</a>';
+      }
+      renderAuthTip();
+
+      /* ---------- 相关推荐 ---------- */
+      document.getElementById('related').innerHTML = CATALOG.list.filter(function (g) { return g.id !== meta.id; }).slice(0, 3).map(function (g) {
+        return '<a href="play.html?g=' + g.id + '" class="between" style="padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.07);gap:10px">' +
+          '<span style="display:flex;align-items:center;gap:10px;min-width:0">' +
+          '<span style="font-size:20px">' + g.icon + '</span>' +
+          '<span style="min-width:0"><b style="font-size:13.5px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(I18N.pick(g.name)) + '</b>' +
+          '<span class="tiny muted">' + esc(I18N.pick(g.genre)) + '</span></span></span>' +
+          '<span class="tiny" style="color:var(--cyan)">▶</span></a>';
+      }).join('');
+
+      /* ---------- HUD ---------- */
+      function chip(label, val, cls) {
+        return '<span class="hudchip ' + (cls || '') + '">' + esc(label) + ' <b>' + esc(val) + '</b></span>';
+      }
+      function renderHud(s) {
+        s = s || {};
+        var html = chip(T('common.score'), UI.fmtNum(s.score || 0));
+        html += chip(T('common.best'), UI.fmtNum(Math.max(best, s.score || 0)), 'hudchip--best');
+        if (s.lives !== undefined && s.lives > 0) html += chip(T('common.lives'), '❤'.repeat(Math.min(5, s.lives)) + (s.lives > 5 ? '×' + s.lives : ''), 'hudchip--lives');
+        if (s.level) html += chip(T('common.level'), s.level);
+        if (s.extra) html += chip('', s.extra);
+        hudEl.innerHTML = html;
+      }
+
+      /* ---------- 排行榜 ---------- */
+      function renderRank() {
+        var rows = Auth.ranking(meta.id, 6);
+        var me = Auth.current();
+        document.getElementById('bestBadge').textContent = T('common.best') + ' ' + UI.fmtNum(best);
+        if (!rows.length) {
+          document.getElementById('minirank').innerHTML = '<li class="muted small" style="border:0">' + esc(T('common.empty')) + '</li>';
+          return;
+        }
+        document.getElementById('minirank').innerHTML = rows.map(function (r, i) {
+          return '<li><span class="n' + (i < 3 ? ' is-top' : '') + '">' + (i + 1) + '</span>' +
+            '<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(r.username) + '</span>' +
+            '<b class="mono" style="color:var(--cyan)">' + UI.fmtNum(r.score) + '</b></li>';
+        }).join('');
+      }
+
+      /* ---------- 启动游戏 ---------- */
+      function loadGame(cb) {
+        var s = document.createElement('script');
+        s.src = meta.script;
+        s.onload = cb;
+        s.onerror = function () {
+          stageEl.innerHTML = '<div class="empty-state"><div class="i">⚠️</div>游戏脚本加载失败，请刷新重试</div>';
+        };
+        document.body.appendChild(s);
+      }
+
+      function buildControls(def) {
+        var list = [];
+        if (def.controls && def.controls.keyboard) def.controls.keyboard.forEach(function (c) {
+          list.push('<li><kbd>' + esc(c.k) + '</kbd><span>' + esc(I18N.pick({ zh: c.zh, en: c.en })) + '</span></li>');
+        });
+        if (GameKit.isTouch() && def.controls && def.controls.touch) {
+          def.controls.touch.forEach(function (c) {
+            list.push('<li><kbd>' + esc(c.k) + '</kbd><span>' + esc(I18N.pick({ zh: c.zh, en: c.en })) + '</span></li>');
+          });
+        }
+        document.getElementById('ctrls').innerHTML = list.join('');
+      }
+
+      function updatePauseBtn() {
+        var btn = document.getElementById('btnPause');
+        if (!controller) return;
+        var p = controller.state.paused;
+        btn.textContent = p ? T('common.resume') : T('common.pause');
+      }
+
+      function startGame(restart) {
+        SFX.unlock();
+        if (!controller) return;
+        if (restart) { controller.restart(); gameOverFired = false; }
+        else controller.start();
+        running = true; hasStarted = true; startTime = Date.now();
+        document.getElementById('btnStart').textContent = T('common.playing');
+        document.getElementById('gameTip').textContent = '';
+        updatePauseBtn();
+      }
+
+      loadGame(function () {
+        var def = GameKit.get(meta.id);
+        if (!def) { stageEl.innerHTML = '<div class="empty-state"><div class="i">⚠️</div>未找到游戏定义</div>'; return; }
+
+        best = Auth.bestOf(meta.id) || Number(localStorage.getItem('gk_' + meta.id + '_best') || 0);
+        def.__best = best;
+        buildControls(def);
+
+        controller = GameKit.run(def, stageEl, {
+          onHud: function (s) { renderHud(s); },
+          onGameOver: function (res) {
+            if (gameOverFired) return;
+            gameOverFired = true; running = false;
+            var dur = Math.round((Date.now() - startTime) / 1000);
+            var isRecord = res.score > best;
+            if (isRecord) { best = res.score; try { localStorage.setItem('gk_' + meta.id + '_best', best); } catch (e) { } }
+            Auth.addRecord({ gameId: meta.id, gameName: I18N.pick(meta.name), score: res.score, duration: dur, detail: res.detail });
+            renderRank();
+            renderHud({ score: res.score, lives: 0, level: res.level });
+            document.getElementById('btnStart').textContent = T('common.replay');
+
+            var dlg = UI.modal({
+              title: res.win ? T('game.win') : T('game.over'),
+              html: '' +
+                '<div class="center mb16">' +
+                '<div style="font-size:52px;line-height:1">' + (res.win ? '🏆' : '💥') + '</div>' +
+                (isRecord && res.score > 0 ? '<div class="badge badge--amber mt8">' + esc(T('game.newRecord')) + '</div>' : '') +
+                '</div>' +
+                '<div class="statmini mb16">' +
+                '<div><span class="tiny muted">' + esc(T('common.score')) + '</span><b>' + UI.fmtNum(res.score) + '</b></div>' +
+                '<div><span class="tiny muted">' + esc(T('common.best')) + '</span><b>' + UI.fmtNum(best) + '</b></div>' +
+                '<div><span class="tiny muted">' + esc(T('common.time')) + '</span><b>' + dur + 's</b></div>' +
+                '</div>' +
+                (res.detail ? '<p class="muted small center mb8">' + esc(res.detail) + '</p>' : '') +
+                '<p class="muted tiny center mb0">' + esc(Auth.current() ? T('game.scoreSubmitted') : T('game.guestTip')) + '</p>',
+              okText: T('game.replay'),
+              cancelText: T('game.toHall'),
+              onOk: function () { gameOverFired = false; startGame(true); }
+            });
+            var backBtn = dlg.el.querySelector('.modal__foot [data-close]');
+            if (backBtn) backBtn.addEventListener('click', function () { location.href = 'games.html'; });
+          }
+        });
+
+        /* 触屏设备自动显示虚拟手柄 */
+        if (GameKit.isTouch() && def.touchControls) stageEl.querySelector('.gk-stage').classList.add('show-pad');
+
+        renderHud({ score: 0 });
+        renderRank();
+        startGame(false);
+
+        /* 按钮 */
+        document.getElementById('btnStart').addEventListener('click', function () {
+          if (!hasStarted) startGame(false);
+          else if (controller.state.paused) { controller.resume(); updatePauseBtn(); }
+        });
+        document.getElementById('btnPause').addEventListener('click', function () {
+          controller.togglePause(); updatePauseBtn();
+          document.getElementById('gameTip').textContent = controller.state.paused ? T('game.paused') : '';
+        });
+        document.getElementById('btnRestart').addEventListener('click', function () { gameOverFired = false; startGame(true); });
+        document.getElementById('btnPad').addEventListener('click', function () {
+          var st = stageEl.querySelector('.gk-stage'); if (st) st.classList.toggle('show-pad');
+        });
+        document.getElementById('btnSound').addEventListener('click', function () {
+          var m = SFX.toggleMute(); this.textContent = m ? '🔇' : '🔊';
+        });
+        document.getElementById('btnFull').addEventListener('click', function () {
+          var el = document.querySelector('.stage-wrap');
+          if (document.fullscreenElement) document.exitFullscreen();
+          else if (el.requestFullscreen) el.requestFullscreen();
+        });
+        document.getElementById('btnSound').textContent = SFX.isMuted() ? '🔇' : '🔊';
+
+        /* 切到后台自动暂停 */
+        document.addEventListener('visibilitychange', function () {
+          if (document.hidden && controller && controller.state.running) { controller.pause(); updatePauseBtn(); }
+        });
+        window.addEventListener('beforeunload', function () { if (controller) controller.destroy(); });
+
+        /* 首次交互解锁音频 */
+        var unlockOnce = function () { SFX.unlock(); document.removeEventListener('pointerdown', unlockOnce); };
+        document.addEventListener('pointerdown', unlockOnce);
+      });
+
+      /* 语言切换后刷新文案 */
+      window.addEventListener('i18n:change', function () {
+        document.getElementById('gname').textContent = I18N.pick(meta.name) + ' · ' + (I18N.isEn() ? meta.name.zh : meta.name.en);
+        document.getElementById('gdesc').textContent = I18N.pick(meta.desc);
+        document.getElementById('ggenre').textContent = I18N.pick(meta.genre);
+        document.getElementById('gtags').innerHTML = (meta.tags || []).map(function (t) { return '<span class="tag">' + esc(I18N.pick(t)) + '</span>'; }).join('');
+        renderAuthTip(); renderRank();
+      });
+    })();
+  </script>
+</body>
+
+</html>

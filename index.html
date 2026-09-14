@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>星潮互动 STARTIDE — 打开即玩的经典网页游戏</title>
+  <meta name="description" content="星潮互动小游戏平台：超级冒险（超级玛丽）、星际战机（打飞机）、打砖块、贪吃蛇、俄罗斯方块、2048，打开即玩、无需下载，全球同服，中英双语。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body data-page="index">
+  <div class="page">
+    <div data-nav></div>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div>
+          <span class="eyebrow">Startide Arcade · 打开即玩</span>
+          <h1 class="h1 hero__title">
+            经典小游戏，<br><span class="grad-text">点开就能玩</span>
+          </h1>
+          <p class="lead">
+            超级冒险、星际战机、打砖块、贪吃蛇、俄罗斯方块、2048 —— 六款经典玩法重制。
+            <b>无需下载、无需安装</b>，键盘与触屏都能玩，全球同服，中文 / English 随时切换。
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="games.html">▶ 进入游戏大厅</a>
+            <a class="btn" href="play.html?g=shooter">🛸 直接打飞机</a>
+          </div>
+          <div class="hero__note">
+            <span class="hero__note-item"><b id="heroOnline">—</b> 在线玩家</span>
+            <span class="hero__note-item"><b id="heroGames">6</b> 款经典游戏</span>
+            <span class="hero__note-item"><b id="heroPlays">—</b> 累计游玩</span>
+            <span class="hero__note-item"><b>0</b> 下载安装</span>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="screen">
+            <canvas id="heroCanvas" class="screen__canvas"></canvas>
+            <div class="screen__hud">
+              <div class="screen__hud-row">
+                <span class="hud-chip hud-chip--live"><i class="dot dot--pulse"></i>LIVE 实时渲染</span>
+                <span class="hud-chip">FPS <b>60</b> · <b>Canvas2D</b></span>
+              </div>
+              <div class="screen__hud-row">
+                <span class="hud-chip">音效 <b>Web Audio</b></span>
+                <span class="hud-chip">ENGINE <b>StarCore 3.0</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="float-card float-card--a">
+            <div class="float-card__k">今日在线峰值</div>
+            <div class="float-card__v up" id="floatNew">—</div>
+          </div>
+          <div class="float-card float-card--b">
+            <div class="float-card__k">平均单局时长</div>
+            <div class="float-card__v" id="floatD7">—</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 热门游戏 ============ -->
+    <section class="section section--tight" id="games">
+      <div class="wrap">
+        <div class="sect-head reveal">
+          <div>
+            <span class="eyebrow">Arcade</span>
+            <h2 class="h2 mb0">现在最受欢迎</h2>
+          </div>
+          <a class="btn btn--sm" href="games.html">全部游戏 →</a>
+        </div>
+        <div class="grid g3" id="featured"></div>
+      </div>
+    </section>
+
+    <!-- ============ 平台数据 ============ -->
+    <section class="section section--tight" style="padding-top:0">
+      <div class="wrap">
+        <div class="metrics reveal">
+          <div class="metrics__item">
+            <div class="stat__label">在线玩家</div>
+            <div class="stat__value"><span data-count="0" id="mOnline">0</span></div>
+            <div class="stat__delta up small">全球同服 · 实时更新</div>
+          </div>
+          <div class="metrics__item">
+            <div class="stat__label">在营游戏</div>
+            <div class="stat__value" id="mGames">—</div>
+            <div class="stat__delta muted small">全部打开即玩</div>
+          </div>
+          <div class="metrics__item">
+            <div class="stat__label">累计游玩次数</div>
+            <div class="stat__value" id="mPlays">—</div>
+            <div class="stat__delta up small">站内真实记录</div>
+          </div>
+          <div class="metrics__item">
+            <div class="stat__label">注册玩家</div>
+            <div class="stat__value" id="mUsers">—</div>
+            <div class="stat__delta muted small">登录即注册</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 榜单 + 特色 ============ -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="leader-hero">
+          <div class="panel reveal">
+            <div class="panel__head">
+              <h3>🏆 今日排行榜</h3>
+              <div class="pill-row" id="rankTabs"></div>
+            </div>
+            <div class="panel__body">
+              <div id="rankList"></div>
+              <a class="btn btn--sm btn--block mt16" href="rank.html">查看完整排行榜</a>
+            </div>
+          </div>
+
+          <div class="card card--solid reveal" style="display:flex;flex-direction:column;gap:18px;background:var(--panel);border-radius:var(--r-lg);padding:24px">
+            <div>
+              <div class="eyebrow mb8">为什么在这里玩</div>
+              <h3 class="h3 mb8">为「打开就玩」而设计</h3>
+            </div>
+            <div class="grid g2" style="gap:14px" id="featGrid"></div>
+            <div class="play-actions">
+              <a class="btn btn--primary btn--sm" href="login.html">登录 / 注册</a>
+              <a class="btn btn--sm" href="games.html">开始游玩</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 公告 ============ -->
+    <section class="section" style="background:rgba(9,14,26,.55);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+      <div class="wrap">
+        <div class="between mb32 reveal">
+          <div>
+            <span class="eyebrow">Newsroom</span>
+            <h2 class="h2 mb0">游戏更新与活动公告</h2>
+          </div>
+          <a class="btn btn--sm" href="games.html">全部公告 →</a>
+        </div>
+        <div class="grid g2" style="gap:0 44px" id="newsList"></div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="cta reveal">
+          <span class="eyebrow" style="justify-content:center">Play Now</span>
+          <h2 class="h2">不下载、不安装，打开就能玩</h2>
+          <p class="lead" style="margin:0 auto 28px">
+            一个账号畅玩全部游戏，成绩自动保存并同步到全球排行榜。
+            首次登录即自动注册，也可以用手机号一键注册。
+          </p>
+          <div class="wrapflex" style="justify-content:center">
+            <a class="btn btn--primary" href="games.html">▶ 立即开始游玩</a>
+            <a class="btn" href="rank.html">看看排行榜</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 关于（精简） ============ -->
+    <section class="section" id="about" style="padding-top:0">
+      <div class="wrap">
+        <div class="card card--solid reveal" style="padding:26px">
+          <div class="eyebrow mb8">About Startide</div>
+          <p class="mb0" style="max-width:90ch">
+            星潮互动（Startide Interactive）专注网页游戏研发与运营。我们自研
+            <b>StarCore 2D 引擎</b>，把经典玩法以更低成本送上 Web 与移动端浏览器。
+            想深入了解团队与公司，可查看 <a href="team.html" style="color:var(--cyan)">团队介绍</a> 与
+            <a href="dashboard.html" style="color:var(--cyan)">数据看板</a>。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div data-footer></div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sfx.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/games/catalog.js"></script>
+  <script src="assets/js/hero-fx.js"></script>
+  <script>
+    (function () {
+      var T = function (k, f) { return I18N.t(k, f); };
+      var esc = UI.esc;
+
+      function set(id, txt) { var el = document.getElementById(id); if (el) el.textContent = txt; }
+
+      var st = Auth.stats();
+      var totalPlays = CATALOG.list.reduce(function (s, g) { return s + g.plays; }, 0) + st.plays;
+      set('heroOnline', UI.fmtNum(st.online));
+      set('heroGames', CATALOG.list.length);
+      set('heroPlays', UI.fmtCompact(totalPlays));
+      set('floatNew', '+' + UI.fmtCompact(Math.round(st.online * 0.62)));
+      set('floatD7', '3.6 分钟');
+      set('mGames', CATALOG.list.length);
+      set('mPlays', UI.fmtCompact(totalPlays));
+      set('mUsers', UI.fmtCompact(st.users + 21400));
+      set('mDau', UI.fmtCompact(st.plays + 4210));
+      var el = document.getElementById('mOnline');
+      if (el) el.setAttribute('data-count', st.online);
+
+      function hexA(hex, a) {
+        var h = hex.replace('#', '');
+        return 'rgba(' + parseInt(h.substr(0, 2), 16) + ',' + parseInt(h.substr(2, 2), 16) + ',' + parseInt(h.substr(4, 2), 16) + ',' + a + ')';
+      }
+
+      /* 热门游戏卡片 */
+      function renderFeatured() {
+        document.getElementById('featured').innerHTML = CATALOG.sorted('hot').slice(0, 3).map(function (g) {
+          var badges = (g.tags || []).map(function (t) {
+            var cls = t.zh === '热门' ? 'badge--pink' : t.zh === '新品' ? 'badge--green' : 'badge--cyan';
+            return '<span class="badge ' + cls + '">' + esc(I18N.pick(t)) + '</span>';
+          }).join('');
+          return '<a class="acard reveal" href="play.html?g=' + g.id + '">' +
+            '<div class="acard__cover" style="background:radial-gradient(120% 120% at 50% 0%,' + hexA(g.hue, .3) + ',transparent 62%),linear-gradient(160deg,#0d1730,#0a1120)">' +
+            '<div class="acard__grid"></div><div class="acard__icon">' + g.icon + '</div>' +
+            '<div class="acard__badges">' + badges + '</div>' +
+            '<div class="acard__hover"><span class="btn btn--primary btn--sm">▶ ' + esc(T('common.play')) + '</span></div></div>' +
+            '<div class="acard__body"><div class="acard__name">' + esc(I18N.pick(g.name)) + '</div>' +
+            '<div class="acard__en">' + esc(I18N.isEn() ? g.name.zh : g.name.en) + '</div>' +
+            '<p class="acard__desc">' + esc(I18N.pick(g.desc)) + '</p>' +
+            '<div class="acard__foot"><span>' + esc(I18N.pick(g.genre)) + '</span><span>' + UI.fmtCompact(g.plays) + ' ' + esc(T('hall.plays')) + '</span></div>' +
+            '</div></a>';
+        }).join('');
+        UI.initReveal();
+      }
+
+      /* 特色 */
+      function renderFeat() {
+        var items = [
+          { i: '⚡', t: { zh: '秒开即玩', en: 'Instant' }, d: { zh: '无需下载安装，弱网也流畅', en: 'No download, smooth on slow nets' } },
+          { i: '🔊', t: { zh: '实时音效', en: 'Realtime SFX' }, d: { zh: 'Web Audio 合成音效与配乐', en: 'Synthesized SFX & music' } },
+          { i: '📱', t: { zh: '手机可玩', en: 'Mobile ready' }, d: { zh: '虚拟手柄 + 触屏滑动操控', en: 'Virtual pad & swipe control' } },
+          { i: '🏆', t: { zh: '成绩上榜', en: 'Leaderboards' }, d: { zh: '登录后成绩自动保存排名', en: 'Scores saved & ranked' } }
+        ];
+        document.getElementById('featGrid').innerHTML = items.map(function (x) {
+          return '<div><div style="font-size:20px;margin-bottom:6px">' + x.i + '</div>' +
+            '<b style="font-size:13.5px;display:block;margin-bottom:3px">' + esc(I18N.pick(x.t)) + '</b>' +
+            '<span class="tiny muted">' + esc(I18N.pick(x.d)) + '</span></div>';
+        }).join('');
+      }
+
+      /* 排行榜 */
+      var rankGame = 'shooter';
+      function renderRankTabs() {
+        document.getElementById('rankTabs').innerHTML = CATALOG.list.slice(0, 6).map(function (g) {
+          return '<button class="chip' + (rankGame === g.id ? ' is-on' : '') + '" data-g="' + g.id + '" title="' + esc(I18N.pick(g.name)) + '">' + g.icon + '</button>';
+        }).join('');
+        document.getElementById('rankTabs').querySelectorAll('[data-g]').forEach(function (b) {
+          b.addEventListener('click', function () { rankGame = b.getAttribute('data-g'); renderRankTabs(); renderRankList(); });
+        });
+      }
+      function renderRankList() {
+        var rows = Auth.ranking(rankGame, 5);
+        var me = Auth.current();
+        var host = document.getElementById('rankList');
+        if (!rows.length) { host.innerHTML = '<div class="empty-state" style="padding:26px"><div class="i">🏅</div>' + esc(T('common.empty')) + '</div>'; return; }
+        host.innerHTML = rows.map(function (r, i) {
+          return '<div class="rank-row' + (me && r.uid === me.id ? ' is-me' : '') + '" style="grid-template-columns:40px 40px minmax(0,1fr) 96px">' +
+            '<div class="rank-no">' + (['🥇', '🥈', '🥉'][i] || (i + 1)) + '</div>' +
+            '<div class="rank-ava">' + esc((r.username || '?').slice(0, 1)) + '</div>' +
+            '<div class="rank-name">' + esc(r.username) + '</div>' +
+            '<div class="rank-score">' + UI.fmtNum(r.score) + '</div></div>';
+        }).join('');
+      }
+
+      /* 公告 */
+      function renderNews() {
+        var anns = Store.get().announcements.filter(function (a) { return a.status === '已发布'; }).slice(0, 6);
+        document.getElementById('newsList').innerHTML = anns.map(function (a) {
+          var cls = a.type === '版本更新' ? 'badge--cyan' : a.type === '活动预告' ? 'badge--pink' : 'badge--violet';
+          return '<div class="news-item reveal">' +
+            '<div class="news-item__date">' + UI.fmtDate(a.publishAt) + '</div>' +
+            '<div style="flex:1"><a class="news-item__title" href="games.html">' + esc(a.title) + '</a>' +
+            '<div class="mb8"><span class="badge ' + cls + '">' + esc(a.type) + '</span></div>' +
+            '<p class="news-item__desc">' + esc(a.content) + '</p></div></div>';
+        }).join('');
+      }
+
+      function renderAll() { renderFeatured(); renderFeat(); renderRankTabs(); renderRankList(); renderNews(); }
+      renderAll();
+      UI.initCountUp();
+      window.addEventListener('i18n:change', renderAll);
+    })();
+  </script>
+</body>
+
+</html>

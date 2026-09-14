@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 / 注册 · 星潮互动</title>
+  <meta name="description" content="星潮互动账号：首次登录自动创建账号，支持手机号验证码快捷注册，登录后成绩自动上榜。">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body data-page="login">
+  <div class="page">
+    <div data-nav></div>
+
+    <main class="wrap">
+      <div class="authwrap">
+        <!-- 左侧品牌 -->
+        <div class="auth-art">
+          <div class="auth-art__eyebrow">STARTIDE · 全球同服</div>
+          <h1 class="mb16">打开即玩<br><span class="grad-text">登录即注册</span></h1>
+          <p class="lead">一个账号，畅玩全部经典小游戏。成绩自动保存、全球排行榜实时同步，无需下载安装。</p>
+          <div class="authtiles">
+            <div class="authtile"><span>🍄</span><small>超级冒险</small></div>
+            <div class="authtile"><span>🛸</span><small>星际战机</small></div>
+            <div class="authtile"><span>🧊</span><small>俄罗斯方块</small></div>
+          </div>
+          <div class="wrapflex mt24">
+            <span class="tag">中 / EN</span><span class="tag">手机号注册</span><span class="tag">成绩上榜</span><span class="tag">免费</span>
+          </div>
+        </div>
+
+        <!-- 右侧表单 / 个人中心 -->
+        <div id="authHost"></div>
+      </div>
+    </main>
+
+    <div data-footer></div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sfx.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/games/catalog.js"></script>
+  <script>
+    (function () {
+      var T = function (k, f) { return I18N.t(k, f); };
+      var esc = UI.esc;
+      var host = document.getElementById('authHost');
+      var params = new URLSearchParams(location.search);
+      var view = params.get('view');
+      var redirect = params.get('redirect');
+      var tab = 'pwd';
+
+      function done(msg) {
+        UI.toast(msg, 'ok');
+        setTimeout(function () {
+          location.href = redirect ? decodeURIComponent(redirect) : 'games.html';
+        }, 620);
+      }
+
+      /* ---------- 登录 / 注册 ---------- */
+      function renderAuth() {
+        host.innerHTML =
+          '<div class="authcard">' +
+          '  <div class="eyebrow mb8">' + esc(T('login.title')) + '</div>' +
+          '  <h2 class="h3 mb8">' + esc(T('nav.login')) + '</h2>' +
+          '  <p class="small muted mb24">' + esc(T('login.sub')) + '</p>' +
+          '  <div class="authtabs">' +
+          '    <button data-tab="pwd" class="' + (tab === 'pwd' ? 'is-on' : '') + '">' + esc(T('login.tabPwd')) + '</button>' +
+          '    <button data-tab="phone" class="' + (tab === 'phone' ? 'is-on' : '') + '">' + esc(T('login.tabPhone')) + '</button>' +
+          '  </div>' +
+          '  <div id="tabBody"></div>' +
+          '  <p class="tiny muted mt16 mb0">' + esc(T('login.agree')) + '</p>' +
+          '</div>';
+        host.querySelectorAll('[data-tab]').forEach(function (b) {
+          b.addEventListener('click', function () { tab = b.getAttribute('data-tab'); renderAuth(); });
+        });
+        tab === 'pwd' ? renderPwd() : renderPhone();
+      }
+
+      function renderPwd() {
+        document.getElementById('tabBody').innerHTML =
+          '<div class="field"><label>' + esc(T('login.account')) + '</label>' +
+          '  <input class="input" id="acc" autocomplete="username" placeholder="' + esc(T('login.account')) + '"></div>' +
+          '<div class="field"><label>' + esc(T('login.password')) + '</label>' +
+          '  <input class="input" id="pwd" type="password" autocomplete="current-password" placeholder="' + esc(T('login.password')) + '"></div>' +
+          '<div class="errline" id="err"></div>' +
+          '<button class="btn btn--primary btn--block" id="go">' + esc(T('login.submit')) + '</button>' +
+          '<p class="tiny muted mt16 mb0">💡 ' + esc(T('login.tipPwd')) + '</p>';
+
+        function submit() {
+          var acc = document.getElementById('acc').value.trim();
+          var pwd = document.getElementById('pwd').value;
+          var err = document.getElementById('err');
+          var r = Auth.loginWithPassword(acc, pwd);
+          if (!r.ok) { err.textContent = T(r.error, r.error); return; }
+          done(r.created ? T('login.created') : T('login.welcome') + '，' + r.user.nickname);
+        }
+        document.getElementById('go').addEventListener('click', submit);
+        document.getElementById('tabBody').addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+      }
+
+      function renderPhone() {
+        document.getElementById('tabBody').innerHTML =
+          '<div class="field"><label>' + esc(T('login.phone')) + '</label>' +
+          '  <input class="input" id="phone" type="tel" inputmode="numeric" maxlength="11" placeholder="13800138000"></div>' +
+          '<div class="field"><label>' + esc(T('login.code')) + '</label>' +
+          '  <div class="code-row"><input class="input" id="code" type="tel" inputmode="numeric" maxlength="6" placeholder="888888">' +
+          '  <button class="btn" id="send">' + esc(T('login.sendCode')) + '</button></div></div>' +
+          '<div class="errline" id="err"></div>' +
+          '<button class="btn btn--primary btn--block" id="go">' + esc(T('login.submit')) + '</button>' +
+          '<p class="tiny muted mt16 mb0">💡 ' + esc(T('login.tipPhone')) + '</p>';
+
+        var cd = 0, timer = null;
+        var sendBtn = document.getElementById('send');
+        sendBtn.addEventListener('click', function () {
+          var err = document.getElementById('err');
+          var r = Auth.sendCode(document.getElementById('phone').value);
+          if (!r.ok) { err.textContent = T(r.error, r.error); return; }
+          err.textContent = '';
+          UI.toast(T('login.codeSent'), 'ok');
+          cd = 60;
+          sendBtn.disabled = true;
+          sendBtn.textContent = cd + ' ' + T('login.resend');
+          timer = setInterval(function () {
+            cd--;
+            sendBtn.textContent = cd + ' ' + T('login.resend');
+            if (cd <= 0) { clearInterval(timer); sendBtn.disabled = false; sendBtn.textContent = T('login.sendCode'); }
+          }, 1000);
+        });
+
+        function submit() {
+          var err = document.getElementById('err');
+          var r = Auth.loginWithPhone(document.getElementById('phone').value, document.getElementById('code').value);
+          if (!r.ok) { err.textContent = T(r.error, r.error); return; }
+          if (timer) clearInterval(timer);
+          done(r.created ? T('login.created') : T('login.welcome') + '，' + r.user.nickname);
+        }
+        document.getElementById('go').addEventListener('click', submit);
+      }
+
+      /* ---------- 个人中心 ---------- */
+      var AVATARS = ['🎮', '🚀', '🐉', '👾', '🦊', '🐼', '🌟', '🎯', '🐧', '🦁', '🍄', '🧊'];
+
+      function renderProfile() {
+        var u = Auth.current();
+        if (!u) { renderAuth(); return; }
+        var recs = Auth.myRecords().slice(0, 12);
+        host.innerHTML =
+          '<div class="authcard">' +
+          '  <div class="between mb16"><div><div class="eyebrow mb8">' + esc(T('nav.profile')) + '</div>' +
+          '  <h2 class="h3 mb0">' + esc(u.nickname) + '</h2></div>' +
+          '  <span class="usermenu__ava usermenu__ava--lg">' + esc(u.avatar) + '</span></div>' +
+          '  <div class="statmini mb24">' +
+          '    <div><span class="tiny muted">' + esc(T('user.level')) + '</span><b>' + u.level + '</b></div>' +
+          '    <div><span class="tiny muted">' + esc(T('user.coins')) + '</span><b>' + UI.fmtNum(u.coins) + '</b></div>' +
+          '    <div><span class="tiny muted">' + esc(T('user.plays')) + '</span><b>' + u.plays + '</b></div>' +
+          '  </div>' +
+          '  <div class="field"><label>' + esc(T('user.nickname')) + '</label>' +
+          '    <input class="input" id="nick" maxlength="16" value="' + esc(u.nickname) + '"></div>' +
+          '  <div class="field"><label>头像</label><div class="pill-row" id="avas">' +
+              AVATARS.map(function (a) { return '<button class="chip' + (a === u.avatar ? ' is-on' : '') + '" data-a="' + a + '" style="font-size:18px;padding:6px 12px">' + a + '</button>'; }).join('') +
+          '  </div></div>' +
+          '  <div class="between mb24">' +
+          '    <span class="tiny muted">' + esc(T('user.joined')) + ' ' + esc(UI.fmtTime(u.createdAt)) + '</span>' +
+          (u.phone ? '<span class="badge badge--green">' + esc(T('user.boundPhone')) + ' ' + esc(u.phone.slice(0, 3) + '****' + u.phone.slice(-4)) + '</span>' : '') +
+          '  </div>' +
+          '  <div class="play-actions">' +
+          '    <button class="btn btn--primary" id="save">' + esc(T('user.save')) + '</button>' +
+          '    <a class="btn" href="games.html">' + esc(T('common.play')) + '</a>' +
+          '    <button class="btn btn--danger" id="out">' + esc(T('nav.logout')) + '</button>' +
+          '  </div>' +
+          '  <hr>' +
+          '  <div class="card__title">' + esc(T('user.records')) + '</div>' +
+          (recs.length
+            ? '<ul class="mini-rank">' + recs.map(function (r) {
+                var g = CATALOG.get(r.gameId);
+                return '<li><span class="n">' + (g ? g.icon : '🎮') + '</span>' +
+                  '<span style="flex:1;min-width:0"><b style="font-size:13px">' + esc(r.gameName) + '</b>' +
+                  '<span class="tiny muted" style="display:block">' + esc(UI.fmtTime(r.createdAt)) + '</span></span>' +
+                  '<b class="mono" style="color:var(--cyan)">' + UI.fmtNum(r.score) + '</b></li>';
+              }).join('') + '</ul>'
+            : '<p class="card__desc">' + esc(T('user.noRecords')) + '</p>') +
+          '</div>';
+
+        var picked = u.avatar;
+        host.querySelectorAll('[data-a]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            picked = b.getAttribute('data-a');
+            host.querySelectorAll('[data-a]').forEach(function (x) { x.classList.remove('is-on'); });
+            b.classList.add('is-on');
+          });
+        });
+        document.getElementById('save').addEventListener('click', function () {
+          var r = Auth.update({ nickname: document.getElementById('nick').value, avatar: picked });
+          if (r) { UI.toast(T('user.saved'), 'ok'); window.dispatchEvent(new Event('auth:change')); renderProfile(); }
+        });
+        document.getElementById('out').addEventListener('click', function () {
+          Auth.logout();
+          UI.toast(T('login.logoutDone'), 'ok');
+          window.dispatchEvent(new Event('auth:change'));
+          renderAuth();
+        });
+      }
+
+      function render() {
+        var u = Auth.current();
+        if (u && (view === 'profile')) renderProfile();
+        else if (u) renderLoggedIn(u);
+        else renderAuth();
+      }
+
+      function renderLoggedIn(u) {
+        if (redirect) { renderAuth(); return; }
+        host.innerHTML =
+          '<div class="authcard">' +
+          '  <div class="center mb16"><div class="usermenu__ava usermenu__ava--lg" style="margin:0 auto 12px">' + esc(u.avatar) + '</div>' +
+          '  <h2 class="h3 mb8">' + esc(T('login.welcome')) + '，' + esc(u.nickname) + '</h2>' +
+          '  <p class="small muted">' + esc(T('user.level')) + ' ' + u.level + ' · 🪙 ' + UI.fmtNum(u.coins) + ' · ' + esc(T('user.plays')) + ' ' + u.plays + '</p></div>' +
+          '  <a class="btn btn--primary btn--block mb8" href="games.html">▶ ' + esc(T('common.play')) + '</a>' +
+          '  <a class="btn btn--block mb8" href="login.html?view=profile">' + esc(T('nav.profile')) + '</a>' +
+          '  <button class="btn btn--danger btn--block" id="out">' + esc(T('nav.logout')) + '</button>' +
+          '</div>';
+        document.getElementById('out').addEventListener('click', function () {
+          Auth.logout(); window.dispatchEvent(new Event('auth:change')); UI.toast(T('login.logoutDone'), 'ok'); render();
+        });
+      }
+
+      render();
+    })();
+  </script>
+</body>
+
+</html>

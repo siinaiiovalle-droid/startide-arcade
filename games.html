@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>游戏大厅 · 星潮互动</title>
+  <meta name="description" content="星潮互动游戏大厅：超级冒险、星际战机、霓虹打砖块、霓虹贪吃蛇、俄罗斯方块、2048，打开即玩，无需下载，全球同服。">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body data-page="games">
+  <div class="page">
+    <div data-nav></div>
+
+    <main>
+      <!-- 大厅头部 -->
+      <section class="wrap" style="padding:52px 24px 8px">
+        <div class="between" style="align-items:flex-end;flex-wrap:wrap;gap:20px">
+          <div class="reveal">
+            <div class="eyebrow" data-i18n="nav.games">游戏大厅</div>
+            <h1 class="h1 mb16"><span class="grad-text" data-i18n="hall.title">游戏大厅</span></h1>
+            <p class="lead mb0" data-i18n="hall.sub">打开即玩，无需下载。支持键盘与触屏，全球同服。</p>
+          </div>
+          <div class="wrapflex reveal">
+            <div class="hudchip"><span data-i18n="common.online">在线</span> <b data-stat="online">—</b></div>
+            <div class="hudchip"><span data-i18n="hall.all">全部游戏</span> <b id="statGames">—</b></div>
+            <div class="hudchip hudchip--best"><span data-i18n="hall.plays">次游玩</span> <b data-stat="plays">—</b></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 筛选 / 搜索 -->
+      <section class="wrap" style="padding:26px 24px 0">
+        <div class="hallbar reveal">
+          <div class="pill-row" id="filters"></div>
+          <div style="flex:1"></div>
+          <div class="searchbox">
+            <span style="opacity:.6">🔍</span>
+            <input type="search" id="search" data-i18n-ph="common.search" placeholder="搜索游戏">
+          </div>
+        </div>
+      </section>
+
+      <!-- 游戏卡片 -->
+      <section class="wrap" style="padding:8px 24px 40px">
+        <div class="grid g4" id="hall"></div>
+      </section>
+
+      <!-- 榜单 + 公告 -->
+      <section class="wrap" style="padding:0 24px 60px">
+        <div class="leader-hero">
+          <div class="panel reveal">
+            <div class="panel__head">
+              <h3><span data-i18n="nav.rank">排行榜</span> · <span id="rankGameName">星际战机</span></h3>
+              <div class="pill-row" id="rankTabs"></div>
+            </div>
+            <div class="panel__body">
+              <div class="rank-row" style="grid-template-columns:46px 44px minmax(0,1fr) 110px 90px">
+                <div class="tiny muted" style="text-align:center">#</div>
+                <div></div>
+                <div class="tiny muted" data-i18n="nav.profile">玩家</div>
+                <div class="tiny muted tar" data-i18n="common.score">得分</div>
+                <div class="tiny muted tar" data-i18n="common.time">用时</div>
+              </div>
+              <div id="rankList"></div>
+              <a class="btn btn--sm btn--block mt16" href="rank.html" data-i18n="common.more">更多</a>
+            </div>
+          </div>
+
+          <div class="panel reveal">
+            <div class="panel__head"><h3 data-i18n="foot.products">游戏</h3><span class="badge badge--cyan" id="onlineBadge">—</span></div>
+            <div class="panel__body" id="annList"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 特色 -->
+      <section class="wrap" style="padding:0 24px 60px">
+        <div class="grid g3" id="features"></div>
+      </section>
+    </main>
+
+    <div data-footer></div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sfx.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/games/catalog.js"></script>
+  <script>
+    (function () {
+      var T = function (k, f) { return I18N.t(k, f); };
+      var esc = UI.esc;
+      var state = { genre: 'all', sort: 'all', q: '' };
+
+      /* ---------- 统计 ---------- */
+      var st = Auth.stats();
+      document.getElementById('statGames').textContent = CATALOG.list.length;
+      document.querySelectorAll('[data-stat="online"]').forEach(function (el) { el.textContent = UI.fmtNum(st.online); });
+      document.querySelectorAll('[data-stat="plays"]').forEach(function (el) { el.textContent = UI.fmtCompact(CATALOG.list.reduce(function (s, g) { return s + g.plays; }, 0) + st.plays); });
+      document.getElementById('onlineBadge').textContent = '🟢 ' + UI.fmtNum(st.online) + ' ' + T('common.online');
+
+      /* ---------- 筛选条 ---------- */
+      function renderFilters() {
+        var genres = [{ zh: '全部', en: 'All' }].concat(CATALOG.genres());
+        var chips = genres.map(function (g) {
+          var on = (g.zh === '全部' && state.genre === 'all') || g.zh === state.genre;
+          return '<button class="chip' + (on ? ' is-on' : '') + '" data-genre="' + esc(g.zh === '全部' ? 'all' : g.zh) + '">' + esc(I18N.pick(g)) + '</button>';
+        }).join('');
+        var sorts = [
+          { k: 'all', t: 'hall.all' },
+          { k: 'hot', t: 'hall.popular' },
+          { k: 'new', t: 'hall.new' }
+        ].map(function (s) {
+          return '<button class="chip' + (state.sort === s.k ? ' is-on' : '') + '" data-sort="' + s.k + '">' + esc(T(s.t)) + '</button>';
+        }).join('');
+        document.getElementById('filters').innerHTML = chips + '<span style="width:14px"></span>' + sorts;
+        document.getElementById('filters').querySelectorAll('[data-genre]').forEach(function (b) {
+          b.addEventListener('click', function () { state.genre = b.getAttribute('data-genre'); renderFilters(); renderHall(); });
+        });
+        document.getElementById('filters').querySelectorAll('[data-sort]').forEach(function (b) {
+          b.addEventListener('click', function () { state.sort = b.getAttribute('data-sort'); renderFilters(); renderHall(); });
+        });
+      }
+
+      /* ---------- 游戏卡片 ---------- */
+      function card(g) {
+        var name = I18N.pick(g.name), en = I18N.isEn() ? g.name.zh : g.name.en;
+        var badges = (g.tags || []).map(function (t, i) {
+          var cls = t.zh === '热门' ? 'badge--pink' : t.zh === '新品' ? 'badge--green' : 'badge--cyan';
+          return '<span class="badge ' + cls + '">' + esc(I18N.pick(t)) + '</span>';
+        }).join('');
+        return '' +
+          '<a class="acard reveal" href="play.html?g=' + g.id + '">' +
+          '  <div class="acard__cover" style="background:radial-gradient(120% 120% at 50% 0%,' + g.hue + '44,transparent 62%),linear-gradient(160deg,#0d1730,#0a1120)">' +
+          '    <div class="acard__grid"></div>' +
+          '    <div class="acard__icon">' + g.icon + '</div>' +
+          '    <div class="acard__badges">' + badges + '</div>' +
+          '    <div class="acard__hover"><span class="btn btn--primary btn--sm">▶ ' + esc(T('common.play')) + '</span></div>' +
+          '  </div>' +
+          '  <div class="acard__body">' +
+          '    <div class="acard__name">' + esc(name) + '</div>' +
+          '    <div class="acard__en">' + esc(en) + '</div>' +
+          '    <p class="acard__desc">' + esc(I18N.pick(g.desc)) + '</p>' +
+          '    <div class="acard__foot"><span>' + esc(I18N.pick(g.genre)) + ' · ' + esc(g.duration) + '</span>' +
+          '    <span>' + UI.fmtCompact(g.plays) + ' ' + esc(T('hall.plays')) + '</span></div>' +
+          '  </div>' +
+          '</a>';
+      }
+
+      function renderHall() {
+        var list = CATALOG.sorted(state.sort).filter(function (g) {
+          if (state.genre !== 'all' && g.genre.zh !== state.genre) return false;
+          if (state.q) {
+            var hay = (g.name.zh + g.name.en + g.desc.zh + g.desc.en + g.genre.zh + g.genre.en).toLowerCase();
+            if (hay.indexOf(state.q.toLowerCase()) < 0) return false;
+          }
+          return true;
+        });
+        var host = document.getElementById('hall');
+        if (!list.length) {
+          host.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="i">🔍</div>' + esc(T('common.empty')) + '</div>';
+          return;
+        }
+        host.innerHTML = list.map(card).join('');
+        UI.initReveal();
+      }
+
+      document.getElementById('search').addEventListener('input', function () {
+        state.q = this.value.trim();
+        renderHall();
+      });
+
+      /* ---------- 榜单 ---------- */
+      var rankGame = 'shooter';
+      function renderRankTabs() {
+        document.getElementById('rankTabs').innerHTML = CATALOG.list.map(function (g) {
+          return '<button class="chip' + (rankGame === g.id ? ' is-on' : '') + '" data-g="' + g.id + '" title="' + esc(I18N.pick(g.name)) + '">' + g.icon + '</button>';
+        }).join('');
+        document.getElementById('rankTabs').querySelectorAll('[data-g]').forEach(function (b) {
+          b.addEventListener('click', function () { rankGame = b.getAttribute('data-g'); renderRankTabs(); renderRankList(); });
+        });
+      }
+      function renderRankList() {
+        var meta = CATALOG.get(rankGame);
+        document.getElementById('rankGameName').textContent = I18N.pick(meta.name);
+        var rows = Auth.ranking(rankGame, 6);
+        var me = Auth.current();
+        var host = document.getElementById('rankList');
+        if (!rows.length) { host.innerHTML = '<div class="empty-state" style="padding:30px"><div class="i">🏅</div>' + esc(T('common.empty')) + '</div>'; return; }
+        host.innerHTML = rows.map(function (r, i) {
+          return '<div class="rank-row' + (me && r.uid === me.id ? ' is-me' : '') + '">' +
+            '<div class="rank-no">' + (i + 1) + '</div>' +
+            '<div class="rank-ava">' + (i === 0 ? '👑' : '🎮') + '</div>' +
+            '<div class="rank-name">' + esc(r.username) + '</div>' +
+            '<div class="rank-score">' + UI.fmtNum(r.score) + '</div>' +
+            '<div class="rank-meta">' + esc(r.duration ? r.duration + 's' : '—') + '</div>' +
+            '</div>';
+        }).join('');
+      }
+
+      /* ---------- 公告 ---------- */
+      function renderAnn() {
+        var anns = (Store.get().announcements || []).filter(function (a) { return a.status === '已发布'; }).slice(0, 5);
+        var host = document.getElementById('annList');
+        if (!anns.length) { host.innerHTML = '<div class="empty-state"><div class="i">📣</div>' + esc(T('common.empty')) + '</div>'; return; }
+        host.innerHTML = anns.map(function (a) {
+          return '<div style="padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.07)">' +
+            '<div class="between" style="gap:10px;align-items:flex-start">' +
+            '<b style="font-size:14px">' + esc(a.title) + '</b>' +
+            '<span class="badge badge--violet" style="flex:0 0 auto">' + esc(a.type) + '</span></div>' +
+            '<p class="tiny muted mb0" style="margin-top:6px">' + esc((a.content || '').slice(0, 68)) + '…</p>' +
+            '</div>';
+        }).join('');
+      }
+
+      /* ---------- 特色 ---------- */
+      function renderFeatures() {
+        var items = [
+          { i: '⚡', t: { zh: '打开即玩', en: 'Instant play' }, d: { zh: '无需下载安装，点开链接 1 秒进入游戏，弱网环境同样流畅。', en: 'No download. Play in one second, smooth even on slow networks.' } },
+          { i: '🎮', t: { zh: '键盘 / 触屏双支持', en: 'Keyboard & touch' }, d: { zh: '桌面键盘操作 + 手机虚拟手柄与滑动操控，两端体验一致。', en: 'Keyboard on desktop, virtual pad and swipe on mobile.' } },
+          { i: '🔊', t: { zh: '实时合成音效', en: 'Realtime SFX' }, d: { zh: 'Web Audio 实时合成音效与背景音乐，零音频资源加载。', en: 'Synthesized SFX and music via Web Audio — zero audio download.' } }
+        ];
+        document.getElementById('features').innerHTML = items.map(function (x) {
+          return '<div class="card reveal"><div style="font-size:26px;margin-bottom:10px">' + x.i + '</div>' +
+            '<div class="card__title">' + esc(I18N.pick(x.t)) + '</div>' +
+            '<p class="card__desc mb0">' + esc(I18N.pick(x.d)) + '</p></div>';
+        }).join('');
+      }
+
+      function renderAll() { renderFilters(); renderHall(); renderRankTabs(); renderRankList(); renderAnn(); renderFeatures(); }
+      renderAll();
+      UI.initCountUp();
+
+      window.addEventListener('i18n:change', renderAll);
+    })();
+  </script>
+</body>
+
+</html>

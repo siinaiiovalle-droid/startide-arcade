@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理后台 · 星潮互动</title>
+  <meta name="description" content="星潮互动游戏平台管理后台：用户管理、游戏上下架、公告发布、游玩记录与操作日志。">
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body data-page="admin">
+  <div class="page">
+    <div data-nav></div>
+    <div id="adminRoot"></div>
+    <div data-footer></div>
+  </div>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/sfx.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/games/catalog.js"></script>
+  <script>
+    (function () {
+      var T = function (k, f) { return I18N.t(k, f); };
+      var esc = UI.esc, num = UI.fmtNum;
+      var root = document.getElementById('adminRoot');
+      var tab = 'overview';
+
+      var TABS = [
+        { k: 'overview', t: 'admin.overview', i: '📊' },
+        { k: 'users', t: 'admin.users', i: '👥' },
+        { k: 'games', t: 'admin.gamesTab', i: '🎮' },
+        { k: 'news', t: 'admin.news', i: '📣' },
+        { k: 'records', t: 'admin.records', i: '🏆' },
+        { k: 'logs', t: 'admin.logs', i: '🧾' }
+      ];
+
+      /* ================= 登录 ================= */
+      function renderLogin() {
+        root.innerHTML =
+          '<div class="wrap admin-login">' +
+          '  <div class="card card--solid" style="padding:30px">' +
+          '    <div class="center mb16"><div style="font-size:40px">🛡️</div></div>' +
+          '    <h2 class="h3 center mb8">' + esc(T('admin.title')) + '</h2>' +
+          '    <p class="small muted center mb24">' + esc(T('admin.login')) + '</p>' +
+          '    <div class="field"><label>' + esc(T('admin.account')) + '</label>' +
+          '      <input class="input" id="aAcc" value="admin"></div>' +
+          '    <div class="field"><label>' + esc(T('admin.password')) + '</label>' +
+          '      <input class="input" id="aPwd" type="password" value="admin888"></div>' +
+          '    <div class="errline" id="aErr"></div>' +
+          '    <button class="btn btn--primary btn--block" id="aGo">' + esc(T('admin.enter')) + '</button>' +
+          '    <p class="tiny muted center mt16 mb0">' + esc(T('admin.hint')) + '</p>' +
+          '  </div>' +
+          '</div>';
+        function go() {
+          var r = Auth.adminLogin(document.getElementById('aAcc').value, document.getElementById('aPwd').value);
+          if (!r.ok) { document.getElementById('aErr').textContent = T('admin.err'); return; }
+          UI.toast(T('admin.welcome'), 'ok');
+          render();
+        }
+        document.getElementById('aGo').addEventListener('click', go);
+        root.addEventListener('keydown', function (e) { if (e.key === 'Enter') go(); });
+      }
+
+      /* ================= 壳层 ================= */
+      function renderShell() {
+        var sess = Auth.adminSession();
+        root.innerHTML =
+          '<div class="admin">' +
+          '  <aside class="admin__side">' +
+          '    <div class="admin__nav" id="adminNav">' +
+               TABS.map(function (t) {
+                 return '<button data-tab="' + t.k + '" class="' + (tab === t.k ? 'is-on' : '') + '"><i>' + t.i + '</i>' + esc(T(t.t)) + '</button>';
+               }).join('') +
+          '    </div>' +
+          '    <div class="mt24" style="padding:0 6px">' +
+          '      <div class="tiny muted mb8">' + esc(sess && sess.name ? sess.name : '') + '</div>' +
+          '      <button class="btn btn--sm btn--block" id="admOut">' + esc(T('admin.logout')) + '</button>' +
+          '    </div>' +
+          '  </aside>' +
+          '  <section class="admin__main" id="adminView"></section>' +
+          '</div>';
+
+        root.querySelectorAll('#adminNav [data-tab]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            tab = b.getAttribute('data-tab');
+            root.querySelectorAll('#adminNav [data-tab]').forEach(function (x) { x.classList.remove('is-on'); });
+            b.classList.add('is-on');
+            renderView();
+          });
+        });
+        document.getElementById('admOut').addEventListener('click', function () {
+          Auth.adminLogout(); UI.toast(T('login.logoutDone'), 'ok'); render();
+        });
+        renderView();
+      }
+
+      function titlebar(title, sub, actions) {
+        return '<div class="admin__titlebar"><div><h2 class="h3 mb4">' + esc(title) + '</h2>' +
+          '<p class="small muted mb0">' + esc(sub || '') + '</p></div>' +
+          '<div class="admin-actions">' + (actions || '') + '</div></div>';
+      }
+
+      function renderView() {
+        var host = document.getElementById('adminView');
+        if (!host) return;
+        if (tab === 'overview') host.innerHTML = viewOverview();
+        else if (tab === 'users') { host.innerHTML = viewUsers(); bindUsers(); }
+        else if (tab === 'games') { host.innerHTML = viewGames(); bindGames(); }
+        else if (tab === 'news') { host.innerHTML = viewNews(); bindNews(); }
+        else if (tab === 'records') { host.innerHTML = viewRecords(); bindRecords(); }
+        else if (tab === 'logs') host.innerHTML = viewLogs();
+        UI.initReveal();
+      }
+
+      /* ================= 总览 ================= */
+      var USER_FILTER = '', USER_PAGE = 1;
+      var REC_FILTER = 'all', REC_PAGE = 1;
+
+      function viewOverview() {
+        var st = Auth.stats();
+        var plays = Auth.allRecords();
+        var top = {};
+        plays.forEach(function (r) { top[r.gameId] = (top[r.gameId] || 0) + 1; });
+        var max = Math.max.apply(null, [1].concat(CATALOG.all.map(function (g) { return top[g.id] || 0; })));
+
+        var kpis = [
+          { k: T('admin.users'), v: num(st.users), s: '+' + st.todayNew + ' 今日', c: 'var(--cyan)' },
+          { k: '在线玩家', v: num(st.online), s: '全球同服', c: 'var(--green)' },
+          { k: '游玩次数', v: num(st.plays), s: '+' + st.todayPlays + ' 今日', c: 'var(--violet)' },
+          { k: '封禁账号', v: num(st.banned), s: '风控生效中', c: 'var(--red)' }
+        ];
+
+        return titlebar(T('admin.overview'), '平台运营数据总览') +
+          '<div class="kpi-grid mb24">' + kpis.map(function (x) {
+            return '<div class="kpi reveal"><div class="kpi__k">' + esc(x.k) + '</div>' +
+              '<div class="kpi__v" style="color:' + x.c + '">' + x.v + '</div>' +
+              '<div class="tiny muted mt4">' + esc(x.s) + '</div></div>';
+          }).join('') + '</div>' +
+
+          '<div class="grid g2 mb24" style="gap:20px">' +
+          '  <div class="card card--solid">' +
+          '    <div class="card__title">各游戏游玩分布</div>' +
+               CATALOG.all.map(function (g) {
+                 var v = top[g.id] || 0;
+                 return '<div class="mb16"><div class="between" style="font-size:13px">' +
+                   '<span>' + g.icon + ' ' + esc(I18N.pick(g.name)) + '</span>' +
+                   '<b class="mono" style="color:var(--cyan)">' + num(v) + '</b></div>' +
+                   '<div style="height:6px;border-radius:99px;background:rgba(255,255,255,.08);margin-top:6px;overflow:hidden">' +
+                   '<div style="height:100%;width:' + Math.round(v / max * 100) + '%;background:linear-gradient(90deg,#38e1ff,#7a5cff)"></div></div></div>';
+               }).join('') +
+          '  </div>' +
+          '  <div class="card card--solid">' +
+          '    <div class="card__title">最新游玩记录</div>' +
+               (plays.slice(0, 8).length
+                 ? '<ul class="mini-rank">' + plays.slice(0, 8).map(function (r) {
+                     return '<li><span class="n">' + (CATALOG.get(r.gameId) ? CATALOG.get(r.gameId).icon : '🎮') + '</span>' +
+                       '<span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(r.username) + '</span>' +
+                       '<span class="tiny muted">' + esc(r.gameName) + '</span>' +
+                       '<b class="mono" style="color:var(--cyan)">' + num(r.score) + '</b></li>';
+                   }).join('') + '</ul>'
+                 : '<div class="empty-state" style="padding:26px"><div class="i">🏆</div>' + esc(T('common.empty')) + '</div>') +
+          '  </div>' +
+          '</div>' +
+
+          '<div class="card card--solid">' +
+          '  <div class="card__title">系统信息</div>' +
+          '  <div class="grid g3" style="gap:14px">' +
+          '    <div><div class="tiny muted">数据存储</div><b class="mono">localStorage（演示）</b></div>' +
+          '    <div><div class="tiny muted">在营游戏</div><b class="mono">' + CATALOG.list.length + ' / ' + CATALOG.all.length + '</b></div>' +
+          '    <div><div class="tiny muted">累计得分</div><b class="mono">' + num(st.totalScore) + '</b></div>' +
+          '  </div>' +
+          '  <p class="tiny muted mt16 mb0">提示：本后台演示版直接读写浏览器本地数据；生产环境应由服务端接口 + 数据库 + 权限校验实现。</p>' +
+          '</div>';
+      }
+
+      /* ================= 用户管理 ================= */
+      function viewUsers() {
+        var list = Auth.listUsers();
+        if (USER_FILTER) {
+          var q = USER_FILTER.toLowerCase();
+          list = list.filter(function (u) {
+            return (u.nickname || '').toLowerCase().indexOf(q) >= 0 ||
+              (u.username || '').toLowerCase().indexOf(q) >= 0 ||
+              (u.phone || '').indexOf(q) >= 0;
+          });
+        }
+        var per = 12, pages = Math.max(1, Math.ceil(list.length / per));
+        if (USER_PAGE > pages) USER_PAGE = pages;
+        var slice = list.slice((USER_PAGE - 1) * per, USER_PAGE * per);
+
+        return titlebar(T('admin.users'), '共 ' + list.length + ' 个账号',
+          '<button class="btn btn--sm" id="uSeed">载入演示数据</button>' +
+          '<button class="btn btn--sm" id="uRefresh">刷新</button>') +
+          '<div class="hallbar">' +
+          '  <div class="searchbox"><span style="opacity:.6">🔍</span>' +
+          '    <input id="uSearch" placeholder="搜索昵称 / 账号 / 手机号" value="' + esc(USER_FILTER) + '"></div>' +
+          '</div>' +
+          '<div class="card card--solid" style="padding:0;overflow:auto">' +
+          '<table class="tbl"><thead><tr>' +
+          '<th>玩家</th><th>账号</th><th>手机号</th><th>等级</th><th>金币</th><th>局数</th><th>注册时间</th><th>状态</th><th>操作</th>' +
+          '</tr></thead><tbody>' +
+          (slice.length ? slice.map(function (u) {
+            return '<tr>' +
+              '<td><span style="display:inline-flex;align-items:center;gap:8px">' +
+              '<span class="rank-ava" style="width:28px;height:28px;border-radius:9px;font-size:14px">' + esc(u.avatar) + '</span>' +
+              '<b>' + esc(u.nickname) + '</b></span></td>' +
+              '<td class="mono tiny">' + esc(u.username) + '</td>' +
+              '<td class="tiny">' + esc(u.phone || '—') + '</td>' +
+              '<td class="mono">' + u.level + '</td>' +
+              '<td class="mono">' + num(u.coins) + '</td>' +
+              '<td class="mono">' + u.plays + '</td>' +
+              '<td class="tiny muted">' + esc(UI.fmtDate(u.createdAt)) + '</td>' +
+              '<td>' + (u.banned ? '<span class="badge badge--red">已封禁</span>' : '<span class="badge badge--green">正常</span>') + '</td>' +
+              '<td><div class="admin-actions">' +
+              '<button class="btn btn--sm" data-ban="' + u.id + '" data-v="' + (u.banned ? '0' : '1') + '">' + (u.banned ? '解封' : '封禁') + '</button>' +
+              '<button class="btn btn--sm" data-pwd="' + u.id + '">重置密码</button>' +
+              '<button class="btn btn--sm btn--danger" data-del="' + u.id + '">删除</button>' +
+              '</div></td></tr>';
+          }).join('') : '<tr><td colspan="9"><div class="empty-state"><div class="i">👥</div>' + esc(T('common.empty')) + '</div></td></tr>') +
+          '</tbody></table></div>' +
+          pager(USER_PAGE, pages, 'data-upage');
+      }
+
+      function bindUsers() {
+        var host = document.getElementById('adminView');
+        var s = document.getElementById('uSearch');
+        if (s) s.addEventListener('input', function () { USER_FILTER = this.value.trim(); USER_PAGE = 1; renderView(); });
+        var seed = document.getElementById('uSeed');
+        if (seed) seed.addEventListener('click', function () { UI.toast('演示数据已存在，可新增账号后查看', 'ok'); });
+        var rf = document.getElementById('uRefresh');
+        if (rf) rf.addEventListener('click', function () { renderView(); });
+        host.querySelectorAll('[data-ban]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            Auth.setBanned(b.getAttribute('data-ban'), b.getAttribute('data-v') === '1');
+            UI.toast('状态已更新', 'ok'); renderView();
+          });
+        });
+        host.querySelectorAll('[data-pwd]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            Auth.resetUserPassword(b.getAttribute('data-pwd'));
+            UI.toast('已重置密码（该用户可用新密码登录）', 'ok');
+          });
+        });
+        host.querySelectorAll('[data-del]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var id = b.getAttribute('data-del');
+            UI.modal({
+              title: '确认删除', text: '删除后该用户的账号与战绩将一并清除，且不可恢复。',
+              okText: '确认删除', danger: true, onOk: function () {
+                Auth.removeUser(id); UI.toast('用户已删除', 'ok'); renderView();
+              }
+            });
+          });
+        });
+        bindPager('data-upage', function (p) { USER_PAGE = p; renderView(); });
+      }
+
+      /* ================= 游戏管理 ================= */
+      function viewGames() {
+        return titlebar(T('admin.gamesTab'), '共 ' + CATALOG.all.length + ' 款游戏，可上下架与调整推荐',
+          '<button class="btn btn--sm" id="gReset">恢复默认</button>') +
+          '<div class="card card--solid" style="padding:0;overflow:auto">' +
+          '<table class="tbl"><thead><tr>' +
+          '<th>游戏</th><th>品类</th><th>游玩量</th><th>上架</th><th>热门推荐</th><th>新品标签</th><th>操作</th>' +
+          '</tr></thead><tbody>' +
+          CATALOG.all.map(function (g) {
+            return '<tr>' +
+              '<td><span style="display:inline-flex;align-items:center;gap:10px">' +
+              '<span style="font-size:20px">' + g.icon + '</span>' +
+              '<span><b>' + esc(g.name.zh) + '</b><span class="tiny muted" style="display:block">' + esc(g.name.en) + '</span></span></span></td>' +
+              '<td class="tiny">' + esc(g.genre.zh) + '</td>' +
+              '<td class="mono">' + num(g.plays) + '</td>' +
+              '<td>' + toggle(g.id, 'disabled', !g.disabled, '上架', '下架') + '</td>' +
+              '<td>' + toggle(g.id, 'hot', !!g.hot, '推荐', '取消') + '</td>' +
+              '<td>' + toggle(g.id, 'isNew', !!g.isNew, '新品', '取消') + '</td>' +
+              '<td><div class="admin-actions">' +
+              '<a class="btn btn--sm" href="play.html?g=' + g.id + '" target="_blank">试玩</a>' +
+              '</div></td></tr>';
+          }).join('') +
+          '</tbody></table></div>' +
+          '<p class="tiny muted mt16">说明：下架后该游戏不会再出现在大厅与首页；改动会立即写入本地配置并影响前台展示。</p>';
+      }
+
+      function toggle(id, key, on, onText, offText) {
+        return '<button class="btn btn--sm ' + (on ? 'btn--primary' : '') + '" data-tg="' + id + '" data-key="' + key + '" data-on="' + (on ? '1' : '0') + '">' +
+          (on ? '● ' + onText : '○ ' + offText) + '</button>';
+      }
+
+      function bindGames() {
+        var host = document.getElementById('adminView');
+        host.querySelectorAll('[data-tg]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var id = b.getAttribute('data-tg'), key = b.getAttribute('data-key');
+            var cur = b.getAttribute('data-on') === '1';
+            var patch = {};
+            if (key === 'disabled') patch.disabled = cur; // 当前上架 → 变为下架
+            else patch[key] = !cur;
+            CATALOG.setOverride(id, patch);
+            UI.toast('配置已更新', 'ok');
+            renderView();
+          });
+        });
+        var rs = document.getElementById('gReset');
+        if (rs) rs.addEventListener('click', function () {
+          CATALOG.resetOverrides();
+          UI.toast('已恢复默认配置（刷新页面后完全生效）', 'ok');
+          renderView();
+        });
+      }
+
+      /* ================= 公告管理 ================= */
+      function viewNews() {
+        var db = Store.get();
+        var list = db.announcements.slice();
+        return titlebar(T('admin.news'), '共 ' + list.length + ' 条公告',
+          '<button class="btn btn--primary btn--sm" id="nAdd">+ 新建公告</button>') +
+          '<div class="card card--solid" style="padding:0;overflow:auto">' +
+          '<table class="tbl"><thead><tr>' +
+          '<th>标题</th><th>类型</th><th>状态</th><th>发布时间</th><th>操作</th>' +
+          '</tr></thead><tbody>' +
+          (list.length ? list.map(function (a) {
+            var cls = a.status === '已发布' ? 'badge--green' : a.status === '待发布' ? 'badge--amber' : 'badge--violet';
+            return '<tr>' +
+              '<td><b style="font-size:13.5px">' + esc(a.title) + '</b>' +
+              '<div class="tiny muted" style="max-width:52ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(a.content) + '</div></td>' +
+              '<td><span class="badge badge--cyan">' + esc(a.type) + '</span></td>' +
+              '<td><span class="badge ' + cls + '">' + esc(a.status) + '</span></td>' +
+              '<td class="tiny muted">' + esc(a.publishAt || '—') + '</td>' +
+              '<td><div class="admin-actions">' +
+              '<button class="btn btn--sm" data-pub="' + a.id + '">' + (a.status === '已发布' ? '撤回' : '发布') + '</button>' +
+              '<button class="btn btn--sm" data-edit="' + a.id + '">编辑</button>' +
+              '<button class="btn btn--sm btn--danger" data-ndel="' + a.id + '">删除</button>' +
+              '</div></td></tr>';
+          }).join('') : '<tr><td colspan="5"><div class="empty-state"><div class="i">📣</div>' + esc(T('common.empty')) + '</div></td></tr>') +
+          '</tbody></table></div>';
+      }
+
+      function bindNews() {
+        var host = document.getElementById('adminView');
+        var db = function () { return Store.get(); };
+
+        host.querySelectorAll('[data-pub]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var id = b.getAttribute('data-pub');
+            var d = Store.get();
+            d.announcements.forEach(function (a) {
+              if (a.id === id) { a.status = a.status === '已发布' ? '草稿' : '已发布'; if (a.status === '已发布' && !a.publishAt) a.publishAt = new Date().toISOString().slice(0, 10); }
+            });
+            Store.save(); Auth.logAdmin('更新公告状态', id);
+            UI.toast('公告状态已更新', 'ok'); renderView();
+          });
+        });
+        host.querySelectorAll('[data-ndel]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var id = b.getAttribute('data-ndel');
+            UI.modal({
+              title: '确认删除', text: '删除后公告将不可恢复。', okText: '删除', danger: true, onOk: function () {
+                var d = Store.get(); d.announcements = d.announcements.filter(function (a) { return a.id !== id; });
+                Store.save(); Auth.logAdmin('删除公告', id); UI.toast('已删除', 'ok'); renderView();
+              }
+            });
+          });
+        });
+        host.querySelectorAll('[data-edit]').forEach(function (b) {
+          b.addEventListener('click', function () { newsForm(b.getAttribute('data-edit')); });
+        });
+        var add = document.getElementById('nAdd');
+        if (add) add.addEventListener('click', function () { newsForm(null); });
+      }
+
+      function newsForm(id) {
+        var d = Store.get();
+        var item = id ? d.announcements.filter(function (a) { return a.id === id; })[0] : null;
+        UI.modal({
+          title: item ? '编辑公告' : '新建公告',
+          html:
+            '<div class="field"><label>标题</label><input class="input" id="nTitle" value="' + esc(item ? item.title : '') + '"></div>' +
+            '<div class="field"><label>类型</label><select class="input" id="nType">' +
+            ['版本更新', '活动预告', '规则公告', '维护公告', '测试招募'].map(function (t) {
+              return '<option' + (item && item.type === t ? ' selected' : '') + '>' + t + '</option>';
+            }).join('') + '</select></div>' +
+            '<div class="field"><label>内容</label><textarea class="input" id="nContent" rows="4">' + esc(item ? item.content : '') + '</textarea></div>' +
+            '<div class="field"><label>状态</label><select class="input" id="nStatus">' +
+            ['已发布', '待发布', '草稿'].map(function (t) {
+              return '<option' + (item && item.status === t ? ' selected' : '') + '>' + t + '</option>';
+            }).join('') + '</select></div>',
+          okText: '保存',
+          onOk: function () {
+            var title = document.getElementById('nTitle').value.trim();
+            if (!title) { UI.toast('请填写标题', 'err'); return false; }
+            var payload = {
+              title: title,
+              type: document.getElementById('nType').value,
+              content: document.getElementById('nContent').value.trim(),
+              status: document.getElementById('nStatus').value,
+              publishAt: new Date().toISOString().slice(0, 10)
+            };
+            var db = Store.get();
+            if (item) {
+              db.announcements.forEach(function (a) { if (a.id === item.id) { Object.assign(a, payload); } });
+            } else {
+              payload.id = 'A-' + Date.now().toString(36);
+              payload.priority = '中'; payload.channel = '全渠道';
+              db.announcements.unshift(payload);
+            }
+            Store.save(); Auth.logAdmin(item ? '编辑公告' : '新建公告', title);
+            UI.toast('已保存', 'ok'); renderView();
+          }
+        });
+      }
+
+      /* ================= 游玩记录 ================= */
+      function viewRecords() {
+        var list = Auth.allRecords();
+        if (REC_FILTER !== 'all') list = list.filter(function (r) { return r.gameId === REC_FILTER; });
+        var per = 15, pages = Math.max(1, Math.ceil(list.length / per));
+        if (REC_PAGE > pages) REC_PAGE = pages;
+        var slice = list.slice((REC_PAGE - 1) * per, REC_PAGE * per);
+
+        return titlebar(T('admin.records'), '共 ' + list.length + ' 条记录',
+          '<button class="btn btn--sm btn--danger" id="rClear">清空全部记录</button>') +
+          '<div class="hallbar">' +
+          '  <div class="pill-row">' +
+          '    <button class="chip' + (REC_FILTER === 'all' ? ' is-on' : '') + '" data-rf="all">' + esc(T('common.all')) + '</button>' +
+               CATALOG.all.map(function (g) {
+                 return '<button class="chip' + (REC_FILTER === g.id ? ' is-on' : '') + '" data-rf="' + g.id + '">' + g.icon + ' ' + esc(I18N.pick(g.name)) + '</button>';
+               }).join('') +
+          '  </div>' +
+          '</div>' +
+          '<div class="card card--solid" style="padding:0;overflow:auto">' +
+          '<table class="tbl"><thead><tr>' +
+          '<th>时间</th><th>玩家</th><th>游戏</th><th>得分</th><th>用时</th><th>备注</th><th>操作</th>' +
+          '</tr></thead><tbody>' +
+          (slice.length ? slice.map(function (r) {
+            return '<tr>' +
+              '<td class="tiny muted">' + esc(UI.fmtTime(r.createdAt)) + '</td>' +
+              '<td><b>' + esc(r.username) + '</b></td>' +
+              '<td class="tiny">' + esc(r.gameName) + '</td>' +
+              '<td class="mono" style="color:var(--cyan);font-weight:800">' + num(r.score) + '</td>' +
+              '<td class="mono tiny">' + (r.duration || 0) + 's</td>' +
+              '<td class="tiny muted">' + esc(r.detail || '—') + '</td>' +
+              '<td><button class="btn btn--sm btn--danger" data-rdel="' + r.id + '">删除</button></td>' +
+              '</tr>';
+          }).join('') : '<tr><td colspan="7"><div class="empty-state"><div class="i">🏆</div>' + esc(T('common.empty')) + '</div></td></tr>') +
+          '</tbody></table></div>' +
+          pager(REC_PAGE, pages, 'data-rpage');
+      }
+
+      function bindRecords() {
+        var host = document.getElementById('adminView');
+        host.querySelectorAll('[data-rf]').forEach(function (b) {
+          b.addEventListener('click', function () { REC_FILTER = b.getAttribute('data-rf'); REC_PAGE = 1; renderView(); });
+        });
+        host.querySelectorAll('[data-rdel]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            Auth.removeRecord(b.getAttribute('data-rdel'));
+            UI.toast('记录已删除', 'ok'); renderView();
+          });
+        });
+        var cl = document.getElementById('rClear');
+        if (cl) cl.addEventListener('click', function () {
+          UI.modal({
+            title: '清空全部记录', text: '将删除所有玩家的游玩记录，排行榜也会被清空。', okText: '确认清空', danger: true,
+            onOk: function () { Auth.clearRecords(); UI.toast('已清空', 'ok'); renderView(); }
+          });
+        });
+        bindPager('data-rpage', function (p) { REC_PAGE = p; renderView(); });
+      }
+
+      /* ================= 操作日志 ================= */
+      function viewLogs() {
+        var logs = Auth.adminLogs();
+        return titlebar(T('admin.logs'), '最近 ' + logs.length + ' 条管理操作') +
+          '<div class="card card--solid" style="padding:0;overflow:auto">' +
+          '<table class="tbl"><thead><tr><th>时间</th><th>操作</th><th>对象</th></tr></thead><tbody>' +
+          (logs.length ? logs.map(function (l) {
+            return '<tr><td class="tiny muted">' + esc(UI.fmtTime(l.at)) + '</td>' +
+              '<td><b>' + esc(l.action) + '</b></td>' +
+              '<td class="tiny muted mono">' + esc(l.target || '—') + '</td></tr>';
+          }).join('') : '<tr><td colspan="3"><div class="empty-state"><div class="i">🧾</div>' + esc(T('common.empty')) + '</div></td></tr>') +
+          '</tbody></table></div>';
+      }
+
+      /* ================= 分页 ================= */
+      function pager(page, pages, attr) {
+        if (pages <= 1) return '';
+        var btns = '';
+        for (var i = 1; i <= pages; i++) {
+          btns += '<button class="chip' + (i === page ? ' is-on' : '') + '" ' + attr + '="' + i + '">' + i + '</button>';
+        }
+        return '<div class="pill-row mt16">' + btns + '</div>';
+      }
+      function bindPager(attr, cb) {
+        document.getElementById('adminView').querySelectorAll('[' + attr + ']').forEach(function (b) {
+          b.addEventListener('click', function () { cb(parseInt(b.getAttribute(attr), 10)); });
+        });
+      }
+
+      /* ================= 启动 ================= */
+      function render() {
+        if (Auth.adminSession()) renderShell();
+        else renderLogin();
+      }
+      render();
+      window.addEventListener('i18n:change', render);
+    })();
+  </script>
+</body>
+
+</html>

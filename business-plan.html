@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>公司与商业方案 — 星潮互动 STARTIDE</title>
+<meta name="description" content="星潮互动商业方案：市场机会、商业模式、收入结构、增长引擎、财务概览与融资计划。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+  .toc { position: sticky; top: calc(var(--nav-h) + 22px); display: flex; flex-direction: column; gap: 2px; }
+  .toc a { padding: 9px 14px; border-radius: 9px; font-size: 13.5px; color: var(--text-2); border-left: 2px solid transparent; transition: .18s; }
+  .toc a:hover { color: #fff; background: var(--panel-2); }
+  .toc a.is-on { color: #fff; border-left-color: var(--cyan); background: var(--panel-2); }
+  .step { display: flex; gap: 16px; }
+  .step__no { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-family: var(--mono); font-weight: 800; background: var(--grad-soft); border: 1px solid rgba(56,225,255,.24); color: var(--cyan); }
+  .step h4 { margin: 4px 0 6px; font-size: 15.5px; }
+  .step p { margin: 0; font-size: 13.5px; color: var(--muted); }
+  .fund-row { display: grid; grid-template-columns: 130px minmax(0,1fr) 90px; gap: 16px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); }
+  .fund-row:last-child { border-bottom: 0; }
+  .fund-row__n { font-family: var(--mono); font-weight: 800; text-align: right; }
+  .contact-card { display: flex; gap: 14px; align-items: flex-start; padding: 20px; border: 1px solid var(--line); border-radius: var(--r); background: var(--panel); }
+  .contact-card__icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-size: 18px; background: var(--grad-soft); border: 1px solid rgba(56,225,255,.2); flex: 0 0 auto; }
+  .kpi-strip { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+  .kpi-strip__item { background: rgba(9,14,26,.92); padding: 24px 22px; }
+  @media (max-width: 900px) { .toc { display: none; } }
+  @media (max-width: 1080px) { .kpi-strip { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  @media (max-width: 640px) { .kpi-strip { grid-template-columns: minmax(0,1fr); } .fund-row { grid-template-columns: minmax(0,1fr) 70px; } }
+</style>
+</head>
+<body data-page="plan">
+<div class="page">
+  <div data-nav></div>
+
+  <section class="section section--tight" style="padding-top:52px">
+    <div class="wrap">
+      <span class="eyebrow">Business Plan</span>
+      <h1 class="h1" style="font-size:clamp(30px,4.2vw,48px)">网页游戏研发 + 全域长线运营</h1>
+      <p class="lead">
+        星潮互动以自研引擎降低研发成本，以全域发行放大获客效率，以长线运营拉长产品生命周期。
+        我们用一条可复制的流水线，持续制造「中等规模、稳定现金流」的产品，而非依赖单一爆款。
+      </p>
+
+      <div class="kpi-strip mt32">
+        <div class="kpi-strip__item"><div class="stat__label">在营产品</div><div class="stat__value" id="p1">—</div></div>
+        <div class="kpi-strip__item"><div class="stat__label">近 30 日总流水</div><div class="stat__value" id="p2">—</div></div>
+        <div class="kpi-strip__item"><div class="stat__label">累计注册玩家</div><div class="stat__value">2,140<span style="font-size:15px;color:var(--muted)"> 万</span></div></div>
+        <div class="kpi-strip__item"><div class="stat__label">团队规模</div><div class="stat__value">153<span style="font-size:15px;color:var(--muted)"> 人</span></div></div>
+      </div>
+
+      <div class="wrapflex mt24">
+        <a class="btn btn--primary" href="#contact">获取完整商业方案 BP</a>
+        <a class="btn" href="dashboard.html">查看运营数据看板</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="wrap grid g-1-3" style="gap:40px;align-items:start">
+      <nav class="toc" id="toc">
+        <a href="#market" class="is-on">市场机会</a>
+        <a href="#model">商业模式</a>
+        <a href="#revenue">收入结构</a>
+        <a href="#growth">增长引擎</a>
+        <a href="#finance">财务概览</a>
+        <a href="#funding">融资计划</a>
+        <a href="#roadmap">发展路线</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+
+      <div>
+        <!-- 市场机会 -->
+        <div id="market" class="mb48">
+          <span class="eyebrow">Market Opportunity</span>
+          <h2 class="h2">被低估的网页游戏市场</h2>
+          <p class="lead">免安装、跨端、即点即玩。网页与小游戏的边界正在消失，而这一市场的获客成本远低于 App 赛道。</p>
+          <div class="grid g3 mt24">
+            <div class="card card--hover reveal">
+              <div class="fcard__icon">🌍</div>
+              <h3 class="card__title">TAM · 泛休闲游戏市场</h3>
+              <p class="card__desc">国内 H5 / 小游戏整体规模约 <b class="c-cyan">600 亿元</b>，年增速保持在两位数。</p>
+            </div>
+            <div class="card card--hover reveal" data-delay="80">
+              <div class="fcard__icon">🎯</div>
+              <h3 class="card__title">SAM · 我们的品类交集</h3>
+              <p class="card__desc">SLG、卡牌、休闲三消与 Roguelite，合计可服务市场约 <b class="c-cyan">120 亿元</b>。</p>
+            </div>
+            <div class="card card--hover reveal" data-delay="160">
+              <div class="fcard__icon">📦</div>
+              <h3 class="card__title">SOM · 三年可获取份额</h3>
+              <p class="card__desc">以现有产品矩阵与渠道能力，目标三年内获取约 <b class="c-cyan">1.5%</b> 的市场份额。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 商业模式 -->
+        <div id="model" class="mb48">
+          <span class="eyebrow">Business Model</span>
+          <h2 class="h2">研发 — 发行 — 运营 一体化闭环</h2>
+          <p class="lead">四个环节各自沉淀能力，又互相复用。每个新产品都能站在上一款产品的肩膀上出发。</p>
+          <div class="grid g2 mt24" style="gap:22px">
+            <div class="step reveal"><div class="step__no">01</div><div><h4>敏捷立项</h4><p>两天原型 + 两周可玩，用玩法数据快速淘汰跑不通的方向，把试错成本压到最低。</p></div></div>
+            <div class="step reveal" data-delay="60"><div class="step__no">02</div><div><h4>引擎化研发</h4><p>基于 StarCore 与五大技术中台开发，首发成本较行业平均降低约 40%，包体控制在 4MB 内。</p></div></div>
+            <div class="step reveal" data-delay="120"><div class="step__no">03</div><div><h4>全域发行</h4><p>微信小游戏中心、抖音、B 站、渠道联运与海外 Web SEO 五条链路并行投放，分散单一渠道风险。</p></div></div>
+            <div class="step reveal" data-delay="180"><div class="step__no">04</div><div><h4>长线运营</h4><p>赛季节奏 + 版本日历 + 活动排期，保障每月稳定产出新内容，头部产品连续运营 36 个月无断层。</p></div></div>
+          </div>
+        </div>
+
+        <!-- 收入结构 -->
+        <div id="revenue" class="mb48">
+          <span class="eyebrow">Revenue Structure</span>
+          <h2 class="h2">收入结构</h2>
+          <p class="lead">收入来自游戏内购与广告变现两部分，多产品矩阵分散了单品生命周期波动带来的风险。</p>
+          <div class="grid g2 mt24" style="gap:20px">
+            <div class="panel reveal">
+              <div class="panel__head"><h3>产品收入占比</h3><span class="muted small mono">近 30 日</span></div>
+              <div class="panel__body chart-box"><canvas id="revDonut" style="width:100%;height:290px"></canvas></div>
+            </div>
+            <div class="panel reveal" data-delay="100">
+              <div class="panel__head"><h3>收入构成</h3></div>
+              <div class="panel__body" id="revList" style="padding-top:6px;padding-bottom:6px"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 增长引擎 -->
+        <div id="growth" class="mb48">
+          <span class="eyebrow">Growth Engines</span>
+          <h2 class="h2">四条增长链路</h2>
+          <div class="grid g4 mt24">
+            <div class="card card--hover reveal"><h3 class="card__title">① 买量增长</h3><p class="card__desc">以短视频素材为核心，通过高频 AB 测试持续压低获客成本，ROI 稳定在 1.4 以上。</p></div>
+            <div class="card card--hover reveal" data-delay="60"><h3 class="card__title">② 私域复购</h3><p class="card__desc">官方社区与社群承接买量用户，通过活动与内容提升复购率，降低对持续投放的依赖。</p></div>
+            <div class="card card--hover reveal" data-delay="120"><h3 class="card__title">③ 渠道联运</h3><p class="card__desc">与 4399 / 7k7k 等平台联运，获取低成本存量用户，单产品可并行 6 条渠道。</p></div>
+            <div class="card card--hover reveal" data-delay="180"><h3 class="card__title">④ 海外 Web</h3><p class="card__desc">面向海外 Web 站点做 SEO 与轻投放，CAC 仅 1.8 元、ROI 2.94，是效率最高的增量来源。</p></div>
+          </div>
+        </div>
+
+        <!-- 财务概览 -->
+        <div id="finance" class="mb48">
+          <span class="eyebrow">Financials</span>
+          <h2 class="h2">财务概览</h2>
+          <p class="lead">连续 12 个月的整体流水呈稳定上行趋势，成本结构以研发与买量为主，毛利率保持在健康区间。</p>
+          <div class="panel mt24 reveal">
+            <div class="panel__head"><h3>近 12 个月流水趋势</h3><div class="legend"><span><i style="background:#38e1ff"></i>月度流水</span></div></div>
+            <div class="panel__body chart-box"><canvas id="finChart" style="width:100%;height:280px"></canvas></div>
+          </div>
+          <div class="grid g2 mt24" style="gap:20px">
+            <div class="panel reveal">
+              <div class="panel__head"><h3>成本结构</h3><span class="muted small mono">占比</span></div>
+              <div class="panel__body chart-box"><canvas id="costChart" style="width:100%;height:270px"></canvas></div>
+            </div>
+            <div class="card card--solid reveal" data-delay="100" style="padding:26px">
+              <h3 class="card__title">关键财务指标</h3>
+              <div class="tbl-wrap" style="margin-top:12px">
+                <table class="tbl" style="min-width:0" id="finTable"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 融资计划 -->
+        <div id="funding" class="mb48">
+          <span class="eyebrow">Funding</span>
+          <h2 class="h2">融资计划</h2>
+          <p class="lead">本轮计划融资 <b class="c-cyan">人民币 8,000 万元</b>，用于引擎升级、产品储备与发行规模化，对应估值可详谈。</p>
+          <div class="card card--solid mt24 reveal" style="padding:26px">
+            <div class="between mb16"><h3 class="mb0">资金用途</h3><span class="badge badge--cyan">合计 ¥8,000 万</span></div>
+            <div id="fundList"></div>
+          </div>
+          <div class="grid g2 mt24" style="gap:20px">
+            <div class="card reveal"><h3 class="card__title">本轮估值逻辑</h3><p class="card__desc mb0">按 2026 年预计营收的 3.5x PS 区间测算，对标同类网股研发 + 发行一体公司，估值具备安全边际。</p></div>
+            <div class="card reveal" data-delay="80"><h3 class="card__title">退出路径</h3><p class="card__desc mb0">三年内以稳健现金流实现 IPO 申报，或由产业链上下游战略方并购，两条路径并行准备。</p></div>
+          </div>
+        </div>
+
+        <!-- 发展路线 -->
+        <div id="roadmap" class="mb48">
+          <span class="eyebrow">Roadmap</span>
+          <h2 class="h2">未来三年关键里程碑</h2>
+          <div class="timeline mt32">
+            <div class="tl-item"><div class="tl-date">2026 Q4</div><h4>《深空指挥官》公测</h4><p>补齐高 ARPU 策略品类，目标首月 DAU 8 万、ARPU ¥8.5。</p></div>
+            <div class="tl-item"><div class="tl-date">2027</div><h4>产品矩阵扩充至 8 款 + 海外发行</h4><p>新增模拟经营与竞技品类，海外 Web 收入占比提升至 20%。</p></div>
+            <div class="tl-item"><div class="tl-date">2028</div><h4>StarCore 4.0 与平台化</h4><p>引擎对外开放授权，从单一产品公司升级为「引擎 + 平台」的复合体。</p></div>
+          </div>
+        </div>
+
+        <!-- 联系 -->
+        <div id="contact">
+          <span class="eyebrow">Contact</span>
+          <h2 class="h2">联系我们</h2>
+          <p class="lead">无论是商务合作、渠道联运还是投资洽谈，欢迎与我们取得联系。</p>
+          <div class="grid g3 mt24">
+            <div class="contact-card reveal"><div class="contact-card__icon">✉️</div><div><div class="card__title">商务合作</div><div class="muted small mono">bd@startide.example</div></div></div>
+            <div class="contact-card reveal" data-delay="60"><div class="contact-card__icon">📊</div><div><div class="card__title">投资与财务</div><div class="muted small mono">ir@startide.example</div></div></div>
+            <div class="contact-card reveal" data-delay="120"><div class="contact-card__icon">📍</div><div><div class="card__title">公司地址</div><div class="muted small" id="office">—</div></div></div>
+          </div>
+
+          <div class="panel mt24 reveal">
+            <div class="panel__head"><h3>留下联系方式，获取完整版 BP</h3></div>
+            <div class="panel__body">
+              <div class="grid g2" style="gap:0 20px">
+                <div class="field"><label>称呼 / 公司</label><input class="input" id="fName" placeholder="如：张先生 / 某投资机构"></div>
+                <div class="field"><label>联系方式（邮箱或电话）</label><input class="input" id="fContact" placeholder="name@example.com"></div>
+              </div>
+              <div class="field"><label>合作方向</label>
+                <select class="select" id="fType">
+                  <option>投资洽谈</option><option>渠道联运</option><option>IP / 内容合作</option><option>技术 / 引擎授权</option><option>其他</option>
+                </select>
+              </div>
+              <div class="field"><label>备注（选填）</label><textarea class="textarea" id="fMsg" placeholder="简单描述你的需求，我们会尽快回复"></textarea></div>
+              <button class="btn btn--primary" id="sendBtn">提交，获取商业方案</button>
+              <p class="hint mt16 mb0">本表单为演示用途，提交内容不会上传到任何服务器。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-footer></div>
+</div>
+
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/charts.js"></script>
+<script>
+(function () {
+  var db = Store.get(), m = db.metrics, s = Store.summary();
+  document.getElementById('p1').textContent = s.onlineGames + ' 款';
+  document.getElementById('p2').textContent = UI.fmtMoney(s.revenueMonth);
+  document.getElementById('office').textContent = db.company.office;
+
+  /* ---------- 收入结构 ---------- */
+  var CH = Charts.colors;
+  var online = db.games.filter(function (g) { return g.online; });
+  var revItems = online.map(function (g) { return { label: g.name, value: g.revenueMonth, color: g.hue }; });
+  var other = Math.round(s.revenueMonth * 0.12);
+  revItems.push({ label: '广告与其他', value: other, color: '#8da0c4' });
+
+  Charts.donut(document.getElementById('revDonut'), {
+    items: revItems,
+    centerText: UI.fmtCompact(Store.sum(revItems.map(function (r) { return r.value; }))),
+    centerSub: '近 30 日流水',
+    tipFmt: function (v) { return UI.fmtMoney(v); }
+  });
+  var revTotal = Store.sum(revItems.map(function (r) { return r.value; }));
+  document.getElementById('revList').innerHTML = revItems.map(function (r) {
+    return '<div class="fund-row">' +
+      '<div style="font-weight:700">' + UI.esc(r.label) + '</div>' +
+      '<div class="bar" data-fill="' + Math.round((r.value / revTotal) * 100) + '"><i style="width:0;background:' + r.color + '"></i></div>' +
+      '<div class="fund-row__n">' + ((r.value / revTotal) * 100).toFixed(1) + '%</div>' +
+      '</div>';
+  }).join('');
+
+  /* ---------- 财务趋势（12 个月，由种子随机生成，可复现） ---------- */
+  var rnd = Store.mulberry32(20260914);
+  var months = [], finData = [];
+  var now = new Date();
+  var base = s.revenueMonth;
+  for (var i = 11; i >= 0; i--) {
+    var d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    months.push((d.getMonth() + 1) + '月');
+    var growth = Math.pow(0.955, i);
+    finData.push(Math.round(base * growth * (0.94 + rnd() * 0.12)));
+  }
+  Charts.area(document.getElementById('finChart'), {
+    labels: months,
+    series: [{ name: '月度流水', color: CH.cyan, data: finData }],
+    fmtY: function (v) { return UI.fmtCompact(v); },
+    tipFmt: function (v) { return UI.fmtMoney(v); }
+  });
+
+  /* ---------- 成本结构 ---------- */
+  var costs = [
+    { label: '研发人力', value: 30, color: CH.cyan },
+    { label: '发行买量', value: 34, color: CH.violet },
+    { label: '美术外包', value: 12, color: CH.pink },
+    { label: '运营与客服', value: 9, color: CH.amber },
+    { label: '服务器带宽', value: 8, color: CH.green },
+    { label: '职能与合规', value: 7, color: '#8da0c4' }
+  ];
+  Charts.hbar(document.getElementById('costChart'), {
+    items: costs,
+    labelWidth: 92,
+    valueFmt: function (v) { return v + '%'; }
+  });
+
+  /* ---------- 关键财务指标 ---------- */
+  var grossMargin = 62;
+  var finRows = [
+    ['近 12 个月流水', UI.fmtMoney(Store.sum(finData))],
+    ['月度经常性收入 (MRR)', UI.fmtMoney(s.revenueMonth)],
+    ['毛利率', grossMargin + '%'],
+    ['研发费用率', '30%'],
+    ['发行费用率', '34%'],
+    ['净利润率（估算）', '−3%'],
+    ['现金消耗周期', '约 14 个月']
+  ];
+  document.getElementById('finTable').innerHTML =
+    '<tbody>' + finRows.map(function (r) {
+      return '<tr><td class="muted">' + r[0] + '</td><td class="num" style="text-align:right;font-weight:700">' + r[1] + '</td></tr>';
+    }).join('') + '</tbody>';
+
+  /* ---------- 资金用途 ---------- */
+  var funds = [
+    { label: '引擎与中台升级（StarCore 4.0）', pct: 30, amt: '¥2,400 万' },
+    { label: '新产品研发与储备（3 款）', pct: 28, amt: '¥2,240 万' },
+    { label: '发行与买量规模化', pct: 24, amt: '¥1,920 万' },
+    { label: '团队扩充与人才引进', pct: 12, amt: '¥960 万' },
+    { label: '合规与风险准备金', pct: 6, amt: '¥480 万' }
+  ];
+  document.getElementById('fundList').innerHTML = funds.map(function (f) {
+    return '<div class="fund-row">' +
+      '<div style="font-size:13.5px;color:var(--text-2)">' + UI.esc(f.label) + '</div>' +
+      '<div class="bar" data-fill="' + f.pct + '"><i style="width:0"></i></div>' +
+      '<div class="fund-row__n">' + f.amt + '</div>' +
+      '</div>';
+  }).join('');
+
+  /* ---------- 表单 ---------- */
+  document.getElementById('sendBtn').addEventListener('click', function () {
+    var name = document.getElementById('fName').value.trim();
+    var contact = document.getElementById('fContact').value.trim();
+    if (!name || !contact) { UI.toast('请先填写称呼与联系方式', 'warn'); return; }
+    UI.toast('提交成功，我们会在 1-2 个工作日内联系你', 'ok');
+    document.getElementById('fName').value = '';
+    document.getElementById('fContact').value = '';
+    document.getElementById('fMsg').value = '';
+  });
+
+  /* ---------- 目录高亮 ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#toc a'));
+  var sections = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function onScroll() {
+    var y = window.scrollY + 140, cur = 0;
+    sections.forEach(function (sec, i) { if (sec && sec.offsetTop <= y) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle('is-on', i === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  UI.initBars();
+})();
+</script>
+</body>
+</html>

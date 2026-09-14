@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开始游戏 · 星潮互动</title>
+  <meta name="description" content="星潮互动小游戏入口，自动跳转到对应游戏的游玩页；未指定游戏时进入游戏大厅。">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="play.html">
+  <script>
+    /* game.html 为兼容旧链接的入口页：
+       带 ?g=xxx 时跳转到对应游玩页，否则进入游戏大厅。 */
+    (function () {
+      var params = new URLSearchParams(location.search);
+      var gid = params.get('g');
+      location.replace(gid ? ('play.html?' + params.toString()) : 'games.html');
+    })();
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <p style="font:15px/1.7 system-ui,sans-serif;color:#333;padding:40px;text-align:center">
+      正在跳转… 如果没有自动跳转，请
+      <a href="play.html">开始游戏</a> 或返回 <a href="games.html">游戏大厅</a>。
+    </p>
+  </noscript>
+</body>
+
+</html>
