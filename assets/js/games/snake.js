@@ -29,7 +29,7 @@
       var COLS = 20, TILE = W / COLS;
       var MARGIN = 0;
 
-      var snake, prev, dir, queue, food, golden, interval, acc, score, alive, eatFx, tAcc, particles, lastDir, growPending;
+      var snake, prev, dir, queue, food, golden, interval, acc, score, alive, eatFx, tAcc, particles, lastDir, growPending, armed;
 
       function reset() {
         snake = [{ x: 9, y: 10 }, { x: 8, y: 10 }, { x: 7, y: 10 }];
@@ -37,8 +37,16 @@
         dir = { x: 1, y: 0 }; queue = []; lastDir = { x: 1, y: 0 };
         interval = 0.16; acc = 0; score = 0; alive = true; tAcc = 0;
         eatFx = []; particles = []; growPending = 0;
+        // 待机：等玩家给出第一个方向再开跑，避免开局直接撞墙
+        armed = false;
         food = randFood(); golden = null;
         env.hud({ score: 0, lives: 1, level: 1, extra: '长度 3' });
+      }
+
+      function steer(d) {
+        queue.push(d);
+        if (queue.length > 2) queue = queue.slice(-2);
+        armed = true;
       }
 
       function occupied(x, y) {
@@ -104,11 +112,13 @@
           return;
         }
         /* 输入 */
-        if (env.pad.left) queue.push({ x: -1, y: 0 });
-        else if (env.pad.right) queue.push({ x: 1, y: 0 });
-        else if (env.pad.up) queue.push({ x: 0, y: -1 });
-        else if (env.pad.down) queue.push({ x: 0, y: 1 });
-        if (queue.length > 2) queue = queue.slice(-2);
+        if (env.pad.left) steer({ x: -1, y: 0 });
+        else if (env.pad.right) steer({ x: 1, y: 0 });
+        else if (env.pad.up) steer({ x: 0, y: -1 });
+        else if (env.pad.down) steer({ x: 0, y: 1 });
+
+        // 待机时不推进，给玩家反应时间
+        if (!armed) { acc = 0; return; }
 
         acc += dt;
         while (acc >= interval && alive) { acc -= interval; step(); }
@@ -213,6 +223,17 @@
         // 边框
         ctx.strokeStyle = 'rgba(56,225,255,.35)'; ctx.lineWidth = 3;
         ctx.strokeRect(1.5, 1.5, W - 3, H - 3);
+
+        // 待机提示：等待玩家给出第一个方向
+        if (!armed && alive) {
+          ctx.fillStyle = 'rgba(4,10,20,.55)'; ctx.fillRect(0, 46, W, H - 46);
+          ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 26px system-ui';
+          ctx.fillText('准备出发', W / 2, H / 2 - 18);
+          ctx.fillStyle = 'rgba(191,233,255,.85)'; ctx.font = '16px system-ui';
+          ctx.fillText('按方向键 / WASD，或滑动屏幕开始', W / 2, H / 2 + 16);
+          ctx.globalAlpha = 1;
+        }
       }
 
       reset();
@@ -227,8 +248,8 @@
         if (!swiping) return;
         var dx = e.touches[0].clientX - sx, dy = e.touches[0].clientY - sy;
         if (Math.abs(dx) > 24 || Math.abs(dy) > 24) {
-          if (Math.abs(dx) > Math.abs(dy)) queue.push({ x: dx > 0 ? 1 : -1, y: 0 });
-          else queue.push({ x: 0, y: dy > 0 ? 1 : -1 });
+          if (Math.abs(dx) > Math.abs(dy)) steer({ x: dx > 0 ? 1 : -1, y: 0 });
+          else steer({ x: 0, y: dy > 0 ? 1 : -1 });
           swiping = false;
         }
       }, { passive: true });

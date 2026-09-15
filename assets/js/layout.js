@@ -155,7 +155,8 @@
       if (global.UI) global.UI.toast(T('login.logoutDone'), 'ok');
       refresh();
     });
-    if (global.UI) global.UI.initNav();
+    // 导航高亮由 renderNav 按 data-page 处理；UI 未导出 initNav 时忽略，避免报错
+    if (global.UI && global.UI.initNav) global.UI.initNav();
   }
 
   function refresh() {

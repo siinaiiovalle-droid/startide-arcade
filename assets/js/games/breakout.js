@@ -324,7 +324,7 @@
       function onUp() { pointerActive = false; }
       env.canvas.addEventListener('mousedown', onDown);
       env.canvas.addEventListener('mousemove', onMove);
-      global.addEventListener('mouseup', onUp);
+      window.addEventListener('mouseup', onUp);
       env.canvas.addEventListener('touchstart', function (e) { onDown(e); e.preventDefault(); }, { passive: false });
       env.canvas.addEventListener('touchmove', function (e) { onMove(e); e.preventDefault(); }, { passive: false });
       env.canvas.addEventListener('touchend', onUp);
@@ -333,7 +333,7 @@
         start: function () { sfx.play('start'); },
         restart: function () { reset(true); },
         destroy: function () {
-          global.removeEventListener('mouseup', onUp);
+          window.removeEventListener('mouseup', onUp);
         }
       };
     }

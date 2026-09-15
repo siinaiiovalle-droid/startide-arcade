@@ -71,6 +71,39 @@
       plays: 64200, hot: false, isNew: true,
       script: 'assets/js/games/g2048.js',
       ratio: 'portrait', duration: '3-10 分钟'
+    },
+    {
+      id: 'memory',
+      name: { zh: '记忆翻牌', en: 'Memory Match' },
+      desc: { zh: '经典记忆配对：翻开卡牌找出全部 8 对，越快越准、连击越多分越高。', en: 'Flip cards and match all 8 pairs. Faster flips and combos mean more points.' },
+      genre: { zh: '益智记忆', en: 'Memory' },
+      icon: '🃏', hue: '#ff4d9d',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '轻松', en: 'Relaxing' }],
+      plays: 5200, hot: false, isNew: true,
+      script: 'assets/js/games/memory.js',
+      ratio: 'portrait', duration: '2-4 分钟'
+    },
+    {
+      id: 'ttt',
+      name: { zh: '井字棋', en: 'Tic-Tac-Toe' },
+      desc: { zh: '人机对战井字棋：赢一场得基础分，连胜越多单场加分越高，输掉立即结算。', en: 'Tic-tac-toe vs AI. Win streaks boost each round\'s score.' },
+      genre: { zh: '棋类对战', en: 'Board' },
+      icon: '⭕', hue: '#2ee6a8',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '烧脑', en: 'Brainy' }],
+      plays: 4600, hot: false, isNew: true,
+      script: 'assets/js/games/ttt.js',
+      ratio: 'portrait', duration: '1-5 分钟'
+    },
+    {
+      id: 'whack',
+      name: { zh: '打地鼠', en: 'Whack-a-Mole' },
+      desc: { zh: '经典打地鼠：45 秒限时出手，金鼠高分、连击加成，挑战手速最高分。', en: 'Whack moles in 45 seconds. Golden moles and combos boost your score.' },
+      genre: { zh: '休闲反应', en: 'Reflex' },
+      icon: '🔨', hue: '#ffb020',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手速', en: 'Reflex' }],
+      plays: 4800, hot: false, isNew: true,
+      script: 'assets/js/games/whack.js',
+      ratio: 'portrait', duration: '1 分钟'
     }
   ];
 
