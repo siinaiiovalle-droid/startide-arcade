@@ -95,6 +95,39 @@
       ratio: 'portrait', duration: '1-5 分钟'
     },
     {
+      id: 'pinball',
+      name: { zh: '霓虹弹珠台', en: 'Neon Pinball' },
+      desc: { zh: '街机弹珠：挡板翻转弹射、Bumper 连击得分，3 球机会挑战最高分。', en: 'Arcade pinball. Flip, bounce and rack up bumper combos with 3 balls.' },
+      genre: { zh: '街机弹珠', en: 'Arcade' },
+      icon: '🎱', hue: '#ff4d9d',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手速', en: 'Reflex' }],
+      plays: 4200, hot: false, isNew: true,
+      script: 'assets/js/games/pinball.js',
+      ratio: 'portrait', duration: '2-5 分钟'
+    },
+    {
+      id: 'gomoku',
+      name: { zh: '五子棋', en: 'Gomoku' },
+      desc: { zh: '人机对战五子棋：先连成五子者胜，连胜越多单场加分越高，输掉立即结算。', en: 'Gomoku vs AI. Connect five in a row; streaks boost each round\'s score.' },
+      genre: { zh: '棋类对战', en: 'Board' },
+      icon: '⚫', hue: '#ffd166',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '烧脑', en: 'Brainy' }],
+      plays: 4400, hot: false, isNew: true,
+      script: 'assets/js/games/gomoku.js',
+      ratio: 'portrait', duration: '2-8 分钟'
+    },
+    {
+      id: 'flappy',
+      name: { zh: '飞鸟过管', en: 'Flappy Wings' },
+      desc: { zh: '一键飞行：轻点拍翅穿越管道阵，手一抖就坠机，看你能飞多远。', en: 'One-tap flying. Flap through the pipes — how far can you go?' },
+      genre: { zh: '休闲反应', en: 'Reflex' },
+      icon: '🐤', hue: '#38e1ff',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手速', en: 'Reflex' }],
+      plays: 5100, hot: false, isNew: true,
+      script: 'assets/js/games/flappy.js',
+      ratio: 'portrait', duration: '1-4 分钟'
+    },
+    {
       id: 'whack',
       name: { zh: '打地鼠', en: 'Whack-a-Mole' },
       desc: { zh: '经典打地鼠：45 秒限时出手，金鼠高分、连击加成，挑战手速最高分。', en: 'Whack moles in 45 seconds. Golden moles and combos boost your score.' },
