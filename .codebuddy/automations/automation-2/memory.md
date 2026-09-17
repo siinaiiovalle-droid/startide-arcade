@@ -14,7 +14,7 @@
 - **测试坑 5**：验证游戏真伪不要只看画面在动。判冻结用 `canvas.toDataURL()` 前后帧比对；判玩法闭环要真的操作到得分/结算弹窗出现。
 - **选择器口径**：大厅游戏卡片是 `.acard`；`.card` 是首页 `features` 区的介绍卡（只有 3 张）。统计游戏数量必须用 `.acard`，否则数字虚大（今日 15 款）。
 - **线上冒烟**：本机 `curl` / `Invoke-WebRequest` 出不去（代理 `127.0.0.1:7897` 命令行侧 TLS 握手 EOF，返回 000）。命令行不通时改用 `playwright-cli` 直接 `goto` 线上地址做冒烟，浏览器走系统代理可正常访问。
-- **新游戏规范补充**：除 `Store` 结算外，应读 `Store.get().gameConfig.difficulty`（easy/normal/hard）并在 HUD 明示难度；每个对用户可见的 HTML 页面都要有 `<link rel="icon">`（缺了每次加载刷一条 favicon 404），纯 `location.replace` 跳转页如 `game.html` 例外。
+- **新游戏必须追加到 `catalog.js` 的 `LIST` 末尾**：`seq`（声明序号）即上架先后，大厅默认排序为「新品置顶（组内最新优先）+ 其余按 `plays` 降序」；插到中间会让 seq 失真。`CATALOG.sorted` 三口径：`all` 默认、`new` 最新优先、`hot` 纯游玩量（首页「现在最受欢迎」走 hot）。应读 `Store.get().gameConfig.difficulty`（easy/normal/hard）并在 HUD 明示难度；每个对用户可见的 HTML 页面都要有 `<link rel="icon">`（缺了每次加载刷一条 favicon 404），纯 `location.replace` 跳转页如 `game.html` 例外。
 - 提交用 node 写 UTF-8 提交信息文件再 `git commit -F`（PowerShell 直接 -m 中文会乱码）；`git push origin main` 当前账号可直连（未再出现 403）。
 - GitHub Pages：`https://siinaiiovalle-droid.github.io/startide-arcade/`，推送后约 1 分钟生效。
 

@@ -174,7 +174,9 @@
   ];
 
   var byId = {};
-  LIST.forEach(function (g) { byId[g.id] = g; });
+  /* seq = 在 LIST 中的声明序号：越靠后越是近期上架的新游戏。
+     新游戏一律追加到 LIST 末尾，所以序号天然等价于上架时间。 */
+  LIST.forEach(function (g, i) { g.seq = i; byId[g.id] = g; });
 
   /* 后台配置覆盖（上架 / 推荐 / 新品 / 游玩量） */
   var OV_KEY = 'startide_gamecfg_v1';
@@ -196,15 +198,23 @@
 
   function enabled() { return LIST.filter(function (g) { return !g.disabled; }); }
 
+  /* 最新上架优先（seq 大在前），同批次按游玩量降序 */
+  function newestFirst(a, b) { return b.seq - a.seq || b.plays - a.plays; }
+  /* 默认排序：新品整体置顶（内部最新优先），其余按玩得多优先 */
+  function defaultOrder(a, b) {
+    return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0) || (a.isNew ? newestFirst(a, b) : b.plays - a.plays);
+  }
+
   global.CATALOG = {
     all: LIST,
     get: function (id) { return byId[id]; },
     script: function (id) { var g = byId[id]; return g ? g.script : null; },
-    get list() { return enabled(); },
+    get list() { return enabled().sort(defaultOrder); },
     sorted: function (by) {
       var arr = enabled();
       if (by === 'hot') arr.sort(function (a, b) { return b.plays - a.plays; });
-      else if (by === 'new') arr.sort(function (a, b) { return (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0) || b.plays - a.plays; });
+      else if (by === 'new') arr.sort(newestFirst);
+      else arr.sort(defaultOrder);
       return arr;
     },
     genres: function () {
