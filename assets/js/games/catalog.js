@@ -137,6 +137,39 @@
       plays: 4800, hot: false, isNew: true,
       script: 'assets/js/games/whack.js',
       ratio: 'portrait', duration: '1 分钟'
+    },
+    {
+      id: 'bubble',
+      name: { zh: '泡泡龙', en: 'Bubble Pop' },
+      desc: { zh: '经典泡泡龙：旋转炮台发射泡泡，三只同色即爆裂，悬挂泡泡一并坠落，别让泡泡压过死线。', en: 'Aim the cannon and shoot. Pop 3+ same-color bubbles and drop the loose ones before they crush you.' },
+      genre: { zh: '益智射击', en: 'Puzzle Shooter' },
+      icon: '🫧', hue: '#3ec6ff',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '休闲', en: 'Casual' }],
+      plays: 3900, hot: false, isNew: true,
+      script: 'assets/js/games/bubble.js',
+      ratio: 'portrait', duration: '2-6 分钟'
+    },
+    {
+      id: 'gem',
+      name: { zh: '宝石消除', en: 'Gem Crush' },
+      desc: { zh: '三消经典：交换相邻宝石凑成三连，连锁爆发倍率飙升，30 步内冲击最高分。', en: 'Swap adjacent gems to match 3+. Chain cascades for huge multipliers in 30 moves.' },
+      genre: { zh: '益智消除', en: 'Match-3' },
+      icon: '💎', hue: '#c084fc',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '烧脑', en: 'Brainy' }],
+      plays: 4100, hot: false, isNew: true,
+      script: 'assets/js/games/gem.js',
+      ratio: 'portrait', duration: '3-8 分钟'
+    },
+    {
+      id: 'jump',
+      name: { zh: '跳一跳', en: 'Jump Master' },
+      desc: { zh: '按住蓄力、松手起跳：踩中平台中心有连击加分，力道差一点就踏空出局。', en: 'Hold to charge, release to leap. Nail the center for combo bonuses — miss and you fall.' },
+      genre: { zh: '休闲反应', en: 'Reflex' },
+      icon: '🐸', hue: '#7bffa8',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手速', en: 'Reflex' }],
+      plays: 4300, hot: false, isNew: true,
+      script: 'assets/js/games/jump.js',
+      ratio: 'portrait', duration: '1-5 分钟'
     }
   ];
 
