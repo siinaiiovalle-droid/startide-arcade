@@ -170,6 +170,39 @@
       plays: 4300, hot: false, isNew: true,
       script: 'assets/js/games/jump.js',
       ratio: 'portrait', duration: '1-5 分钟'
+    },
+    {
+      id: 'tank',
+      name: { zh: '坦克大战', en: 'Tank Battle' },
+      desc: { zh: '经典坦克大战：砖墙可被打碎、钢墙挡子弹，逐波消灭敌军，波次越深火力越猛。', en: 'Classic tank battle. Blast brick walls, dodge steel, and wipe out enemy waves.' },
+      genre: { zh: '射击对战', en: 'Shooter' },
+      icon: '🪖', hue: '#ff5d73',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手速', en: 'Reflex' }],
+      plays: 4400, hot: false, isNew: true,
+      script: 'assets/js/games/tank.js',
+      ratio: 'portrait', duration: '3-8 分钟'
+    },
+    {
+      id: 'dino',
+      name: { zh: '恐龙跑酷', en: 'Dino Run' },
+      desc: { zh: '无限奔跑：小恐龙跳过仙人掌、下蹲躲过低飞的翼龙，速度越快分涨得越猛。', en: 'Endless runner. Leap over cacti, duck under pterodactyls, and outpace the speed-up.' },
+      genre: { zh: '休闲跑酷', en: 'Runner' },
+      icon: '🦖', hue: '#ffb020',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '耐玩', en: 'Endless' }],
+      plays: 4200, hot: false, isNew: true,
+      script: 'assets/js/games/dino.js',
+      ratio: 'landscape', duration: '2-6 分钟'
+    },
+    {
+      id: 'fruit',
+      name: { zh: '切水果', en: 'Fruit Slice' },
+      desc: { zh: '一刀切起满屏水果：连切多个有 combo 加分，小心别碰炸弹，漏三个直接出局。', en: 'Slice flying fruit for combo bonuses — avoid bombs, drop three and it is over.' },
+      genre: { zh: '休闲反应', en: 'Reflex' },
+      icon: '🍉', hue: '#ff4d9d',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手速', en: 'Reflex' }],
+      plays: 3900, hot: false, isNew: true,
+      script: 'assets/js/games/fruit.js',
+      ratio: 'portrait', duration: '1-5 分钟'
     }
   ];
 
