@@ -203,6 +203,39 @@
       plays: 3900, hot: false, isNew: true,
       script: 'assets/js/games/fruit.js',
       ratio: 'portrait', duration: '1-5 分钟'
+    },
+    {
+      id: 'link',
+      name: { zh: '连连看', en: 'Link Link' },
+      desc: { zh: '经典连连看：点选两张相同图案，两折以内连线消除，连击加分，限时清盘进入下一关。', en: 'Link matching tiles with up to two turns. Combo for bonus and clear levels.' },
+      genre: { zh: '益智消除', en: 'Puzzle' },
+      icon: '🔗', hue: '#38e1ff',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '轻松', en: 'Relaxing' }],
+      plays: 4000, hot: false, isNew: true,
+      script: 'assets/js/games/link.js',
+      ratio: 'portrait', duration: '2-6 分钟'
+    },
+    {
+      id: 'sudoku',
+      name: { zh: '数独', en: 'Sudoku' },
+      desc: { zh: '经典数独：行、列、宫内 1-9 不重复，唯一解谜题，错填即时标红，通关越快分越高。', en: 'Classic Sudoku with unique solutions. Solve fast for bonus points.' },
+      genre: { zh: '益智解谜', en: 'Puzzle' },
+      icon: '🔣', hue: '#c084fc',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '烧脑', en: 'Brainy' }],
+      plays: 4000, hot: false, isNew: true,
+      script: 'assets/js/games/sudoku.js',
+      ratio: 'portrait', duration: '3-15 分钟'
+    },
+    {
+      id: 'klotski',
+      name: { zh: '华容道', en: 'Klotski' },
+      desc: { zh: '经典华容道：拖动武将与士兵腾出通路，护送曹操抵达下方出口，三关递进，步数越少分越高。', en: 'Slide blocks to escort Cao Cao to the exit. Three levels, fewer moves = more points.' },
+      genre: { zh: '益智解谜', en: 'Puzzle' },
+      icon: '🀄', hue: '#ff5d73',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '烧脑', en: 'Brainy' }],
+      plays: 4000, hot: false, isNew: true,
+      script: 'assets/js/games/klotski.js',
+      ratio: 'portrait', duration: '2-10 分钟'
     }
   ];
 
