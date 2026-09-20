@@ -236,6 +236,39 @@
       plays: 4000, hot: false, isNew: true,
       script: 'assets/js/games/klotski.js',
       ratio: 'portrait', duration: '2-10 分钟'
+    },
+    {
+      id: 'pool',
+      name: { zh: '台球', en: 'Pool' },
+      desc: { zh: '拖拽瞄准、松手击球：把彩球撞入袋中得分，白球落袋要罚分，清空球台进入下一阵，限时冲击高分。', en: 'Aim by dragging and release to shoot. Pocket balls, clear racks, chase the high score.' },
+      genre: { zh: '休闲体育', en: 'Sports' },
+      icon: '🎱', hue: '#2ee6a8',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '手感', en: 'Skill' }],
+      plays: 4000, hot: false, isNew: true,
+      script: 'assets/js/games/pool.js',
+      ratio: 'portrait', duration: '2-4 分钟'
+    },
+    {
+      id: 'fishing',
+      name: { zh: '钓鱼', en: 'Fishing' },
+      desc: { zh: '钩子左右摆动，看准时机下钩：鱼越大分越高，金鱼 300 分，河豚扣分扣时，60 秒钓王挑战。', en: 'Time your cast as the hook swings. Big fish big points; dodge puffers. 60s challenge.' },
+      genre: { zh: '休闲街机', en: 'Arcade' },
+      icon: '🎣', hue: '#5ab7ff',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '轻松', en: 'Relaxing' }],
+      plays: 4000, hot: false, isNew: true,
+      script: 'assets/js/games/fishing.js',
+      ratio: 'portrait', duration: '1-2 分钟'
+    },
+    {
+      id: 'suika',
+      name: { zh: '合成大西瓜', en: 'Suika' },
+      desc: { zh: '投放水果，两个相同水果相碰即合成更大的水果，一路合成大西瓜！堆过警戒线就结束。', en: 'Drop and merge identical fruits into a watermelon. Don\'t stack past the line!' },
+      genre: { zh: '物理合成', en: 'Merge' },
+      icon: '🍉', hue: '#ff9d5c',
+      tags: [{ zh: '新品', en: 'New' }, { zh: '上头', en: 'Addictive' }],
+      plays: 4000, hot: false, isNew: true,
+      script: 'assets/js/games/suika.js',
+      ratio: 'portrait', duration: '3-10 分钟'
     }
   ];
 
