@@ -190,7 +190,7 @@
           score += gain;
           sfx.play(combo > 1 ? 'coin' : 'clear');
           var m = center(r, c);
-          floats.push({ x: m.x, y: m.y - 14, txt: combo > 1 ? ('+' + gain + ' ×' + combo) : ('+' + gain), color: '#2ee6a8', t: 1 });
+          floats.push({ x: m.x, y: m.y - 14, txt: combo > 1 ? ('+' + gain + ' ×' + combo) : ('+' + gain), color: '#0d8f63', t: 1 });
           sel = null;
           env.hud({ score: score, extra: '剩余 ' + remain() + ' 对' + (combo > 1 ? ' · 连击 ×' + combo : '') });
           if (remain() === 0) { levelClear(); return; }
@@ -215,7 +215,14 @@
         }, 1200);
       }
 
-      function flashMsg(t, color) { msg = t; msgColor = color; msgT = 1.6; }
+      /* 浅色底上的墨色映射：亮霓虹色在白底上对比不足，转成深色同系 */
+      function ink(c) {
+        if (c === '#2ee6a8') return '#0d8f63';
+        if (c === '#ffd166') return '#b45309';
+        return c;
+      }
+
+      function flashMsg(t, color) { msg = t; msgColor = ink(color); msgT = 1.6; }
 
       function edge() {
         var hit = null;
@@ -265,15 +272,17 @@
       function render() {
         var i, f;
         var bg = ctx.createLinearGradient(0, 0, W, H);
-        bg.addColorStop(0, '#0a1626'); bg.addColorStop(1, '#101d36');
+        bg.addColorStop(0, '#f4fbff'); bg.addColorStop(0.55, '#e8f4ff'); bg.addColorStop(1, '#dcecff');
         ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
 
         ctx.save();
         if (shake > 0) ctx.translate(Math.sin(shake * 40) * 4 * shake, 0);
 
         /* 棋盘底板 */
-        ctx.fillStyle = 'rgba(56,225,255,.05)';
+        ctx.fillStyle = 'rgba(255,255,255,.9)';
         tile(X0 - 10, Y0 - 10, TILE * COLS + 20, TILE * ROWS + 20, 14); ctx.fill();
+        ctx.strokeStyle = 'rgba(23,90,150,.14)'; ctx.lineWidth = 1;
+        tile(X0 - 10, Y0 - 10, TILE * COLS + 20, TILE * ROWS + 20, 14); ctx.stroke();
 
         for (var r = 0; r < ROWS; r++) {
           for (var c = 0; c < COLS; c++) {
@@ -282,13 +291,13 @@
             var x = X0 + c * TILE, y = Y0 + r * TILE;
             var isSel = sel && sel.r === r && sel.c === c;
             var isCur = cursor.r === r && cursor.c === c;
-            ctx.fillStyle = isSel ? 'rgba(255,209,102,.28)' : 'rgba(255,255,255,.07)';
+            ctx.fillStyle = isSel ? '#ffe6b8' : '#ffffff';
             tile(x + 2, y + 2, TILE - 4, TILE - 4, 8); ctx.fill();
-            ctx.strokeStyle = isSel ? 'rgba(255,209,102,.95)' : (isCur ? 'rgba(56,225,255,.55)' : 'rgba(255,255,255,.12)');
-            ctx.lineWidth = isSel ? 2 : 1;
+            ctx.strokeStyle = isSel ? '#f59e0b' : (isCur ? 'rgba(14,165,233,.75)' : 'rgba(23,90,150,.16)');
+            ctx.lineWidth = isSel ? 2.5 : (isCur ? 2 : 1);
             tile(x + 2, y + 2, TILE - 4, TILE - 4, 8); ctx.stroke();
             ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-            ctx.font = '22px system-ui';
+            ctx.font = '24px system-ui';
             ctx.fillText(ICONS[v], x + TILE / 2, y + TILE / 2 + 1);
           }
         }
@@ -297,8 +306,8 @@
         if (conn) {
           ctx.save();
           ctx.globalAlpha = Math.min(1, conn.t * 1.6);
-          ctx.strokeStyle = '#38e1ff'; ctx.lineWidth = 3;
-          ctx.shadowColor = 'rgba(56,225,255,.8)'; ctx.shadowBlur = 10;
+          ctx.strokeStyle = '#0ea5e9'; ctx.lineWidth = 3.5;
+          ctx.shadowColor = 'rgba(14,165,233,.55)'; ctx.shadowBlur = 8;
           ctx.beginPath();
           for (var p = 0; p < conn.pts.length; p++) {
             var pt = center(conn.pts[p].r, conn.pts[p].c);
@@ -311,8 +320,8 @@
         /* 键盘光标 */
         if (!sel) {
           var cp = center(cursor.r, cursor.c);
-          ctx.strokeStyle = 'rgba(56,225,255,' + (0.5 + Math.sin(performance.now() / 260) * 0.3) + ')';
-          ctx.lineWidth = 2;
+          ctx.strokeStyle = 'rgba(14,165,233,' + (0.5 + Math.sin(performance.now() / 260) * 0.3) + ')';
+          ctx.lineWidth = 2.5;
           tile(X0 + cursor.c * TILE + 2, Y0 + cursor.r * TILE + 2, TILE - 4, TILE - 4, 8); ctx.stroke();
         }
 
@@ -327,12 +336,12 @@
 
         /* 计时条 */
         var bw = TILE * COLS, ratio = Math.max(0, timeLeft / levelTime);
-        ctx.fillStyle = 'rgba(255,255,255,.1)';
+        ctx.fillStyle = 'rgba(23,90,150,.12)';
         env.roundRect(X0, 528, bw, 12, 6); ctx.fill();
-        ctx.fillStyle = ratio > 0.3 ? '#2ee6a8' : '#ff5d6c';
+        ctx.fillStyle = ratio > 0.3 ? '#12a150' : '#e23c4c';
         env.roundRect(X0, 528, Math.max(4, bw * ratio), 12, 6); ctx.fill();
         ctx.textAlign = 'center'; ctx.font = '13px system-ui';
-        ctx.fillStyle = 'rgba(249,246,242,.7)';
+        ctx.fillStyle = 'rgba(20,60,100,.7)';
         ctx.fillText('剩余时间 ' + Math.ceil(timeLeft) + 's', W / 2, 560);
 
         if (msgT > 0) {
@@ -343,20 +352,20 @@
           ctx.globalAlpha = 1;
         }
         if (!sel && !over && msgT <= 0) {
-          ctx.fillStyle = 'rgba(249,246,242,.5)'; ctx.font = '13px system-ui';
+          ctx.fillStyle = 'rgba(20,60,100,.55)'; ctx.font = '13px system-ui';
           ctx.fillText('点击两张相同图案 · 两折以内可连', W / 2, 606);
         }
 
         /* 顶部信息 */
         ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
-        ctx.fillStyle = 'rgba(249,246,242,.7)'; ctx.font = '13px system-ui';
+        ctx.fillStyle = 'rgba(20,60,100,.65)'; ctx.font = '13px system-ui';
         ctx.fillText('得分', 24, 30);
-        ctx.fillStyle = '#fff'; ctx.font = 'bold 30px Consolas, monospace';
+        ctx.fillStyle = '#0f2a44'; ctx.font = 'bold 30px Consolas, monospace';
         ctx.fillText(String(score), 24, 62);
         ctx.textAlign = 'right';
-        ctx.fillStyle = 'rgba(249,246,242,.7)'; ctx.font = '13px system-ui';
+        ctx.fillStyle = 'rgba(20,60,100,.65)'; ctx.font = '13px system-ui';
         ctx.fillText('关卡 · ' + (diff === 'easy' ? '轻松' : diff === 'hard' ? '困难' : '普通'), W - 24, 30);
-        ctx.fillStyle = '#ffd166'; ctx.font = 'bold 30px Consolas, monospace';
+        ctx.fillStyle = '#c2410c'; ctx.font = 'bold 30px Consolas, monospace';
         ctx.fillText(String(level), W - 24, 62);
       }
 
