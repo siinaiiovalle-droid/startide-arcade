@@ -269,6 +269,39 @@
       plays: 4000, hot: false, isNew: true,
       script: 'assets/js/games/suika.js',
       ratio: 'portrait', duration: '3-10 分钟'
+    },
+    {
+      id: 'minesweeper',
+      name: { zh: '扫雷', en: 'Minesweeper' },
+      desc: { zh: '经典扫雷：点击翻开格子，数字提示周围雷数，右键/长按插旗。全部安全格翻开即胜利，越快分越高！首次点击必有安全区。', en: 'Classic Minesweeper: reveal cells, flag mines with right click / long press. Clear all safe cells fast!' },
+      genre: { zh: '益智经典', en: 'Puzzle' },
+      icon: '💣', hue: '#64748b',
+      tags: [{ zh: '经典', en: 'Classic' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/minesweeper.js',
+      ratio: 'portrait', duration: '2-8 分钟'
+    },
+    {
+      id: 'sokoban',
+      name: { zh: '推箱子', en: 'Sokoban' },
+      desc: { zh: '经典推箱子 5 关：把所有箱子推到目标点。箱子只能推不能拉，卡死角可按 Z 撤销。步数越少分越高，通关全部 5 关！', en: 'Classic Sokoban, 5 levels: push all crates onto goals. Z to undo. Fewer moves, higher score!' },
+      genre: { zh: '益智经典', en: 'Puzzle' },
+      icon: '📦', hue: '#b45309',
+      tags: [{ zh: '经典', en: 'Classic' }, { zh: '动脑', en: 'Brain' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/sokoban.js',
+      ratio: 'portrait', duration: '3-10 分钟'
+    },
+    {
+      id: 'freecell',
+      name: { zh: '空当接龙', en: 'FreeCell' },
+      desc: { zh: '经典空当接龙：把 52 张牌全部按花色 A→K 收进回收堆。点击牌自动找最佳去处，也可点选后手动放置，Z 撤销。', en: 'Classic FreeCell: move all 52 cards to the foundations. Tap for a smart move, Z to undo.' },
+      genre: { zh: '牌桌经典', en: 'Card' },
+      icon: '🃏', hue: '#166534',
+      tags: [{ zh: '经典', en: 'Classic' }, { zh: '动脑', en: 'Brain' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/freecell.js',
+      ratio: 'portrait', duration: '5-20 分钟'
     }
   ];
 
