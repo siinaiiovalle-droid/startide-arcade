@@ -302,6 +302,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/freecell.js',
       ratio: 'portrait', duration: '5-20 分钟'
+    },
+    {
+      id: 'balloon',
+      name: { zh: '气球射击', en: 'Balloon Shoot' },
+      desc: { zh: '五彩气球不断升空，移动准星点击射击！连击提升倍率，金色气球 5 倍分，限时内尽可能多击破。', en: 'Balloons keep rising — aim and shoot! Combo for multipliers, golden balloons worth 5x.' },
+      genre: { zh: '休闲射击', en: 'Shooting' },
+      icon: '🎈', hue: '#e11d48',
+      tags: [{ zh: '射击', en: 'Shooting' }, { zh: '手速', en: 'Speed' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/balloon.js',
+      ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'bowling',
+      name: { zh: '保龄球', en: 'Bowling' },
+      desc: { zh: '经典十格保龄球：左右移动选位，蓄力决定球速，链式撞倒全部 10 瓶就是全中！标准计分，挑战 300 分满分！', en: 'Classic 10-frame bowling: pick your spot, charge power, strike all 10 pins! Standard scoring — chase the perfect 300!' },
+      genre: { zh: '体育竞技', en: 'Sports' },
+      icon: '🎳', hue: '#7c3aed',
+      tags: [{ zh: '体育', en: 'Sports' }, { zh: '物理', en: 'Physics' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/bowling.js',
+      ratio: 'portrait', duration: '3-8 分钟'
+    },
+    {
+      id: 'duck',
+      name: { zh: '打鸭子', en: 'Duck Hunt' },
+      desc: { zh: '经典打鸭子：野鸭成群掠过天空，移动准星射击！鸭子飞走扣命，三条命用完结束。金色鸭子双倍分，连击提升倍率！', en: 'Classic Duck Hunt: shoot flying ducks with your crosshair! Missed ducks cost a life — 3 lives total. Golden ducks worth double!' },
+      genre: { zh: '休闲射击', en: 'Shooting' },
+      icon: '🦆', hue: '#0284c7',
+      tags: [{ zh: '射击', en: 'Shooting' }, { zh: '经典', en: 'Classic' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/duck.js',
+      ratio: 'portrait', duration: '2-6 分钟'
     }
   ];
 
