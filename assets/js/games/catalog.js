@@ -335,6 +335,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/duck.js',
       ratio: 'portrait', duration: '2-6 分钟'
+    },
+    {
+      id: 'racer',
+      name: { zh: '赛车躲避', en: 'Racer' },
+      desc: { zh: '三车道公路狂飙：左右切换车道躲避车流，车速越来越快！与邻车擦肩而过有「惊险超车」加分，看看你能跑多远！', en: 'Dodge traffic on a 3-lane highway! Speed keeps rising. Near-miss overtakes give bonus points.' },
+      genre: { zh: '竞速躲避', en: 'Racing' },
+      icon: '🏎️', hue: '#dc2626',
+      tags: [{ zh: '竞速', en: 'Racing' }, { zh: '手速', en: 'Speed' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/racer.js',
+      ratio: 'portrait', duration: '1-4 分钟'
+    },
+    {
+      id: 'helicopter',
+      name: { zh: '直升机', en: 'Helicopter' },
+      desc: { zh: '经典直升机穿峡谷：按住上升，松开下降，穿过一道道岩柱缝隙！隧道会越来越窄，坚持得越远分越高！', en: 'Classic helicopter cave flyer: hold to rise, release to fall, thread the rock gaps! The tunnel narrows as you go.' },
+      genre: { zh: '竞速躲避', en: 'Racing' },
+      icon: '🚁', hue: '#0d9488',
+      tags: [{ zh: '飞行', en: 'Flying' }, { zh: '操控', en: 'Skill' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/helicopter.js',
+      ratio: 'portrait', duration: '1-4 分钟'
+    },
+    {
+      id: 'stack',
+      name: { zh: '平衡栈塔', en: 'Stack' },
+      desc: { zh: '摆动的积木在塔顶来回移动，点击让它们精准落下！对不齐的部分会被切掉；连续完美对齐有奖励还会加宽，看看你能堆多高！', en: 'Tap to drop swinging blocks precisely! Overhangs get sliced off. Chain perfect drops for bonus and width regen.' },
+      genre: { zh: '休闲益智', en: 'Casual' },
+      icon: '🏗️', hue: '#b45309',
+      tags: [{ zh: '堆叠', en: 'Stacking' }, { zh: '反应', en: 'Reflex' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/stack.js',
+      ratio: 'portrait', duration: '1-4 分钟'
     }
   ];
 
