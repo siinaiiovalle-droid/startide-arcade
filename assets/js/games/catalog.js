@@ -368,6 +368,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/stack.js',
       ratio: 'portrait', duration: '1-4 分钟'
+    },
+    {
+      id: 'archery',
+      name: { zh: '射箭', en: 'Archery' },
+      desc: { zh: '观风辨位，拉弓放箭！注意风向对箭的影响，靶子越远越偏分越高，正中十环有大奖。十支箭，看看你能拿多少环！', en: 'Watch the wind, draw and release! Farther targets score more — nail the bullseye for big points.' },
+      genre: { zh: '体育竞技', en: 'Sports' },
+      icon: '🏹', hue: '#65a30d',
+      tags: [{ zh: '体育', en: 'Sports' }, { zh: '精准', en: 'Precision' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/archery.js',
+      ratio: 'portrait', duration: '2-5 分钟'
+    },
+    {
+      id: 'towerdef',
+      name: { zh: '守塔', en: 'Tower Defense' },
+      desc: { zh: '简版塔防：敌人沿蛇形小路进攻，点击空地建箭塔、点击箭塔升级！守住全部波次进攻。金币靠击杀赚，漏怪扣命！', en: 'Mini tower defense: enemies march along a snake path. Tap tiles to build, tap towers to upgrade! Survive all waves.' },
+      genre: { zh: '策略塔防', en: 'Strategy' },
+      icon: '🗼', hue: '#7c2d12',
+      tags: [{ zh: '策略', en: 'Strategy' }, { zh: '塔防', en: 'TD' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/towerdef.js',
+      ratio: 'portrait', duration: '4-10 分钟'
+    },
+    {
+      id: 'flappy2',
+      name: { zh: '像素鸟进阶版', en: 'Flappy Plus' },
+      desc: { zh: '进阶版像素鸟：管道缺口会慢慢移动！穿越管道 +1，顺手吃金币 +5，夜幕会随分数降临。看你能飞多远！', en: 'Flappy Plus: pipe gaps slowly drift! +1 per pipe, +5 per coin, and night falls as you score.' },
+      genre: { zh: '休闲益智', en: 'Casual' },
+      icon: '🐤', hue: '#ca8a04',
+      tags: [{ zh: '飞行', en: 'Flying' }, { zh: '经典', en: 'Classic' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/flappy2.js',
+      ratio: 'portrait', duration: '1-3 分钟'
     }
   ];
 
