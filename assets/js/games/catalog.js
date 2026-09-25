@@ -401,6 +401,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/flappy2.js',
       ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'puzzle',
+      name: { zh: '拼图', en: 'Picture Puzzle' },
+      desc: { zh: '风景画被打散成方块！点击或用方向键+空格选中两块交换位置，把图画复原。步数越少、用时越短，分数越高！', en: 'The painting is scrambled into tiles! Select two tiles to swap and restore the picture. Fewer moves and less time mean higher scores!' },
+      genre: { zh: '益智休闲', en: 'Puzzle' },
+      icon: '🧩', hue: '#0d9488',
+      tags: [{ zh: '益智', en: 'Puzzle' }, { zh: '拼图', en: 'Tiles' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/puzzle.js',
+      ratio: 'portrait', duration: '2-5 分钟'
+    },
+    {
+      id: 'spotdiff',
+      name: { zh: '找不同', en: 'Spot the Difference' },
+      desc: { zh: '上下两幅画有几处不一样！眼疾手快点出所有不同之处，点错会扣时间。限时找到全部不同才能拿高分！', en: 'The two pictures differ in several spots! Tap all differences before time runs out — wrong taps cost time.' },
+      genre: { zh: '益智休闲', en: 'Puzzle' },
+      icon: '🔍', hue: '#be185d',
+      tags: [{ zh: '益智', en: 'Puzzle' }, { zh: '观察', en: 'Observe' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/spotdiff.js',
+      ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'reflex',
+      name: { zh: '反应力测试', en: 'Reflex Test' },
+      desc: { zh: '红灯转绿的瞬间，用最快的速度点击或按空格！5 轮测试取平均，抢跑会被罚 0.3 秒。看看你的反应是猎豹级还是树懒级！', en: 'Tap or press Space the instant red turns green! 5 rounds, false starts cost 0.3s. Are you cheetah-fast or sloth-slow?' },
+      genre: { zh: '休闲益智', en: 'Casual' },
+      icon: '⚡', hue: '#16a34a',
+      tags: [{ zh: '反应', en: 'Reflex' }, { zh: '竞速', en: 'Speed' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/reflex.js',
+      ratio: 'portrait', duration: '1 分钟'
     }
   ];
 
