@@ -434,6 +434,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/reflex.js',
       ratio: 'portrait', duration: '1 分钟'
+    },
+    {
+      id: 'rich',
+      name: { zh: '掷骰大富翁', en: 'Dice Rich' },
+      desc: { zh: '掷骰环游棋盘！买地、收租、升级地产，小心税务和随机机会事件，双数还能再掷一次。回合结束时资产更高的一方获胜！', en: 'Roll dice and travel the board! Buy properties, collect rent, upgrade estates, dodge taxes — higher assets when rounds end wins!' },
+      genre: { zh: '棋类桌游', en: 'Board' },
+      icon: '🎲', hue: '#b45309',
+      tags: [{ zh: '桌游', en: 'Board' }, { zh: '策略', en: 'Strategy' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/rich.js',
+      ratio: 'portrait', duration: '2-5 分钟'
+    },
+    {
+      id: 'slot',
+      name: { zh: '幸运老虎机', en: 'Lucky Slots' },
+      desc: { zh: '三轴卷轴转出好运！三个 7️⃣ 独得 80 倍大奖，两同也有安慰奖。筹码达标见好就收，破产血本无归——最难的永远是收手！', en: 'Spin the reels for fortune! Triple 7s pay 80x, pairs pay small. Cash out while ahead — knowing when to stop is the real game!' },
+      genre: { zh: '休闲博弈', en: 'Casino' },
+      icon: '🎰', hue: '#a21caf',
+      tags: [{ zh: '运气', en: 'Luck' }, { zh: '休闲', en: 'Casual' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/slot.js',
+      ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'guessnum',
+      name: { zh: '猜数字', en: 'Guess Number' },
+      desc: { zh: '经典推理游戏 Mastermind！破解一串不重复的神秘数字：● 表示数字位置全对，○ 表示数字对但位置错。次数越少分越高！', en: 'Classic Mastermind! Crack the secret code of unique digits: ● = right spot, ○ = wrong spot. Fewer guesses, higher score!' },
+      genre: { zh: '益智解谜', en: 'Brain' },
+      icon: '🔢', hue: '#0369a1',
+      tags: [{ zh: '推理', en: 'Logic' }, { zh: '益智', en: 'Puzzle' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/guessnum.js',
+      ratio: 'portrait', duration: '1-4 分钟'
     }
   ];
 
