@@ -467,6 +467,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/guessnum.js',
       ratio: 'portrait', duration: '1-4 分钟'
+    },
+    {
+      id: 'pong',
+      name: { zh: '乒乓对决', en: 'Pong' },
+      desc: { zh: '最古老的电子游戏对决！控制底部球拍，用击球点控制回球角度，球速会越来越快。先得 7 分者获胜——AI 可不会手下留情！', en: 'The classic duel! Control the bottom paddle, use the hit point to angle your returns as the ball speeds up. First to 7 points wins!' },
+      genre: { zh: '街机竞技', en: 'Arcade' },
+      icon: '🏓', hue: '#0f766e',
+      tags: [{ zh: '对战', en: 'Versus' }, { zh: '街机', en: 'Arcade' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/pong.js',
+      ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'sumo',
+      name: { zh: '相扑推挤', en: 'Sumo Push' },
+      desc: { zh: '土俵对决！用身体和冲刺把对手推出圆环。注意体力条——冲刺能爆发推力但会耗尽。每推倒一位对手，下一场对手更快更重，连赢 8 场称霸！', en: 'Dohyo duel! Shove your rival out of the ring with body and dash. Watch your stamina bar — dash gives burst power. Beat 8 ever-stronger rivals to rule!' },
+      genre: { zh: '街机竞技', en: 'Arcade' },
+      icon: '🤼', hue: '#b91c1c',
+      tags: [{ zh: '对战', en: 'Versus' }, { zh: '物理', en: 'Physics' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/sumo.js',
+      ratio: 'portrait', duration: '2-4 分钟'
+    },
+    {
+      id: 'fifteen',
+      name: { zh: '滑块拼图', en: '15-Puzzle' },
+      desc: { zh: '百年经典数字华容道！滑动方块把数字排回 1→n 的顺序，空格是唯一的帮手。步数越少、用时越短，分数越高！', en: 'The century-old classic! Slide tiles to restore 1→n order using the single empty slot. Fewer moves and less time mean higher scores!' },
+      genre: { zh: '益智解谜', en: 'Brain' },
+      icon: '🧩', hue: '#7c3aed',
+      tags: [{ zh: '益智', en: 'Puzzle' }, { zh: '经典', en: 'Classic' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/fifteen.js',
+      ratio: 'portrait', duration: '1-5 分钟'
     }
   ];
 
