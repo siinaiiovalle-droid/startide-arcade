@@ -1,0 +1,632 @@
+- generic [ref=f100e2]:
+  - generic [ref=f100e3]:
+    - generic [ref=f100e5]:
+      - link "星潮互动 STARTIDE" [ref=f100e6] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=f100e11]:
+          - generic [ref=f100e12]: 星潮互动
+          - generic [ref=f100e13]: STARTIDE
+      - navigation [ref=f100e14]:
+        - link "首页" [ref=f100e15] [cursor=pointer]:
+          - /url: index.html
+        - link "游戏大厅" [ref=f100e16] [cursor=pointer]:
+          - /url: games.html
+        - link "排行榜" [ref=f100e17] [cursor=pointer]:
+          - /url: rank.html
+        - link "数据看板" [ref=f100e18] [cursor=pointer]:
+          - /url: dashboard.html
+        - link "管理后台" [ref=f100e19] [cursor=pointer]:
+          - /url: admin.html
+      - generic [ref=f100e20]:
+        - button "中" [ref=f100e21] [cursor=pointer]
+        - button "🔊" [ref=f100e23] [cursor=pointer]
+        - link "登录 / 注册" [ref=f100e26] [cursor=pointer]:
+          - /url: login.html
+    - generic [ref=f100e28]:
+      - generic [ref=f100e29]: 在线
+      - generic [ref=f100e31]: 中秋限定「月宴」活动进行中 — 登录即领限定皮肤「广寒」
+      - link "开始游戏 →" [ref=f100e32] [cursor=pointer]:
+        - /url: games.html
+  - main [ref=f100e33]:
+    - generic [ref=f100e35]:
+      - generic [ref=f100e36]:
+        - generic [ref=f100e37]: 游戏大厅
+        - heading "游戏大厅" [level=1] [ref=f100e38]
+        - paragraph [ref=f100e39]: 打开即玩，无需下载。支持键盘与触屏，全球同服。
+      - generic [ref=f100e40]:
+        - generic [ref=f100e41]: 在线 264
+        - generic [ref=f100e42]: 全部游戏 27
+        - generic [ref=f100e43]: 次游玩 69.8 万
+    - generic [ref=f100e45]:
+      - generic [ref=f100e46]:
+        - button "全部" [ref=f100e47] [cursor=pointer]
+        - button "弹幕射击" [ref=f100e48] [cursor=pointer]
+        - button "横版闯关" [ref=f100e49] [cursor=pointer]
+        - button "休闲益智" [ref=f100e50] [cursor=pointer]
+        - button "休闲街机" [ref=f100e51] [cursor=pointer]
+        - button "益智消除" [ref=f100e52] [cursor=pointer]
+        - button "益智休闲" [ref=f100e53] [cursor=pointer]
+        - button "益智记忆" [ref=f100e54] [cursor=pointer]
+        - button "棋类对战" [ref=f100e55] [cursor=pointer]
+        - button "街机弹珠" [ref=f100e56] [cursor=pointer]
+        - button "休闲反应" [ref=f100e57] [cursor=pointer]
+        - button "益智射击" [ref=f100e58] [cursor=pointer]
+        - button "射击对战" [ref=f100e59] [cursor=pointer]
+        - button "休闲跑酷" [ref=f100e60] [cursor=pointer]
+        - button "益智解谜" [ref=f100e61] [cursor=pointer]
+        - button "休闲体育" [ref=f100e62] [cursor=pointer]
+        - button "物理合成" [ref=f100e63] [cursor=pointer]
+        - button "益智经典" [ref=f100e64] [cursor=pointer]
+        - button "牌桌经典" [ref=f100e65] [cursor=pointer]
+        - button "全部游戏" [ref=f100e67] [cursor=pointer]
+        - button "最受欢迎" [ref=f100e68] [cursor=pointer]
+        - button "最新上架" [ref=f100e69] [cursor=pointer]
+      - generic [ref=f100e70]:
+        - generic [ref=f100e71]: 🔍
+        - searchbox "搜索" [ref=f100e72]
+    - generic [ref=f100e74]:
+      - link "🃏 经典 动脑 ▶ 开始游戏 空当接龙 FreeCell 经典空当接龙：把 52 张牌全部按花色 A→K 收进回收堆。点击牌自动找最佳去处，也可点选后手动放置，Z 撤销。 牌桌经典 · 5-20 分钟 5,000 次游玩" [ref=f100e75] [cursor=pointer]:
+        - /url: play.html?g=freecell
+        - generic [ref=f100e76]:
+          - generic [ref=f100e78]: 🃏
+          - generic [ref=f100e79]:
+            - generic [ref=f100e80]: 经典
+            - generic [ref=f100e81]: 动脑
+          - generic [ref=f100e82]: ▶ 开始游戏
+        - generic [ref=f100e84]:
+          - generic [ref=f100e85]: 空当接龙
+          - generic [ref=f100e86]: FreeCell
+          - paragraph [ref=f100e87]: 经典空当接龙：把 52 张牌全部按花色 A→K 收进回收堆。点击牌自动找最佳去处，也可点选后手动放置，Z 撤销。
+          - generic [ref=f100e88]:
+            - generic [ref=f100e89]: 牌桌经典 · 5-20 分钟
+            - generic [ref=f100e90]: 5,000 次游玩
+      - link "📦 经典 动脑 ▶ 开始游戏 推箱子 Sokoban 经典推箱子 5 关：把所有箱子推到目标点。箱子只能推不能拉，卡死角可按 Z 撤销。步数越少分越高，通关全部 5 关！ 益智经典 · 3-10 分钟 5,000 次游玩" [ref=f100e91] [cursor=pointer]:
+        - /url: play.html?g=sokoban
+        - generic [ref=f100e92]:
+          - generic [ref=f100e94]: 📦
+          - generic [ref=f100e95]:
+            - generic [ref=f100e96]: 经典
+            - generic [ref=f100e97]: 动脑
+          - generic [ref=f100e98]: ▶ 开始游戏
+        - generic [ref=f100e100]:
+          - generic [ref=f100e101]: 推箱子
+          - generic [ref=f100e102]: Sokoban
+          - paragraph [ref=f100e103]: 经典推箱子 5 关：把所有箱子推到目标点。箱子只能推不能拉，卡死角可按 Z 撤销。步数越少分越高，通关全部 5 关！
+          - generic [ref=f100e104]:
+            - generic [ref=f100e105]: 益智经典 · 3-10 分钟
+            - generic [ref=f100e106]: 5,000 次游玩
+      - link "💣 经典 ▶ 开始游戏 扫雷 Minesweeper 经典扫雷：点击翻开格子，数字提示周围雷数，右键/长按插旗。全部安全格翻开即胜利，越快分越高！首次点击必有安全区。 益智经典 · 2-8 分钟 5,000 次游玩" [ref=f100e107] [cursor=pointer]:
+        - /url: play.html?g=minesweeper
+        - generic [ref=f100e108]:
+          - generic [ref=f100e110]: 💣
+          - generic [ref=f100e111]: 经典
+          - generic [ref=f100e113]: ▶ 开始游戏
+        - generic [ref=f100e115]:
+          - generic [ref=f100e116]: 扫雷
+          - generic [ref=f100e117]: Minesweeper
+          - paragraph [ref=f100e118]: 经典扫雷：点击翻开格子，数字提示周围雷数，右键/长按插旗。全部安全格翻开即胜利，越快分越高！首次点击必有安全区。
+          - generic [ref=f100e119]:
+            - generic [ref=f100e120]: 益智经典 · 2-8 分钟
+            - generic [ref=f100e121]: 5,000 次游玩
+      - link "🍉 新品 上头 ▶ 开始游戏 合成大西瓜 Suika 投放水果，两个相同水果相碰即合成更大的水果，一路合成大西瓜！堆过警戒线就结束。 物理合成 · 3-10 分钟 4,000 次游玩" [ref=f100e122] [cursor=pointer]:
+        - /url: play.html?g=suika
+        - generic [ref=f100e123]:
+          - generic [ref=f100e125]: 🍉
+          - generic [ref=f100e126]:
+            - generic [ref=f100e127]: 新品
+            - generic [ref=f100e128]: 上头
+          - generic [ref=f100e129]: ▶ 开始游戏
+        - generic [ref=f100e131]:
+          - generic [ref=f100e132]: 合成大西瓜
+          - generic [ref=f100e133]: Suika
+          - paragraph [ref=f100e134]: 投放水果，两个相同水果相碰即合成更大的水果，一路合成大西瓜！堆过警戒线就结束。
+          - generic [ref=f100e135]:
+            - generic [ref=f100e136]: 物理合成 · 3-10 分钟
+            - generic [ref=f100e137]: 4,000 次游玩
+      - link "🎣 新品 轻松 ▶ 开始游戏 钓鱼 Fishing 钩子左右摆动，看准时机下钩：鱼越大分越高，金鱼 300 分，河豚扣分扣时，60 秒钓王挑战。 休闲街机 · 1-2 分钟 4,000 次游玩" [ref=f100e138] [cursor=pointer]:
+        - /url: play.html?g=fishing
+        - generic [ref=f100e139]:
+          - generic [ref=f100e141]: 🎣
+          - generic [ref=f100e142]:
+            - generic [ref=f100e143]: 新品
+            - generic [ref=f100e144]: 轻松
+          - generic [ref=f100e145]: ▶ 开始游戏
+        - generic [ref=f100e147]:
+          - generic [ref=f100e148]: 钓鱼
+          - generic [ref=f100e149]: Fishing
+          - paragraph [ref=f100e150]: 钩子左右摆动，看准时机下钩：鱼越大分越高，金鱼 300 分，河豚扣分扣时，60 秒钓王挑战。
+          - generic [ref=f100e151]:
+            - generic [ref=f100e152]: 休闲街机 · 1-2 分钟
+            - generic [ref=f100e153]: 4,000 次游玩
+      - link "🎱 新品 手感 ▶ 开始游戏 台球 Pool 拖拽瞄准、松手击球：把彩球撞入袋中得分，白球落袋要罚分，清空球台进入下一阵，限时冲击高分。 休闲体育 · 2-4 分钟 4,000 次游玩" [ref=f100e154] [cursor=pointer]:
+        - /url: play.html?g=pool
+        - generic [ref=f100e155]:
+          - generic [ref=f100e157]: 🎱
+          - generic [ref=f100e158]:
+            - generic [ref=f100e159]: 新品
+            - generic [ref=f100e160]: 手感
+          - generic [ref=f100e161]: ▶ 开始游戏
+        - generic [ref=f100e163]:
+          - generic [ref=f100e164]: 台球
+          - generic [ref=f100e165]: Pool
+          - paragraph [ref=f100e166]: 拖拽瞄准、松手击球：把彩球撞入袋中得分，白球落袋要罚分，清空球台进入下一阵，限时冲击高分。
+          - generic [ref=f100e167]:
+            - generic [ref=f100e168]: 休闲体育 · 2-4 分钟
+            - generic [ref=f100e169]: 4,000 次游玩
+      - link "🀄 新品 烧脑 ▶ 开始游戏 华容道 Klotski 经典华容道：拖动武将与士兵腾出通路，护送曹操抵达下方出口，三关递进，步数越少分越高。 益智解谜 · 2-10 分钟 4,000 次游玩" [ref=f100e170] [cursor=pointer]:
+        - /url: play.html?g=klotski
+        - generic [ref=f100e171]:
+          - generic [ref=f100e173]: 🀄
+          - generic [ref=f100e174]:
+            - generic [ref=f100e175]: 新品
+            - generic [ref=f100e176]: 烧脑
+          - generic [ref=f100e177]: ▶ 开始游戏
+        - generic [ref=f100e179]:
+          - generic [ref=f100e180]: 华容道
+          - generic [ref=f100e181]: Klotski
+          - paragraph [ref=f100e182]: 经典华容道：拖动武将与士兵腾出通路，护送曹操抵达下方出口，三关递进，步数越少分越高。
+          - generic [ref=f100e183]:
+            - generic [ref=f100e184]: 益智解谜 · 2-10 分钟
+            - generic [ref=f100e185]: 4,000 次游玩
+      - link "🔣 新品 烧脑 ▶ 开始游戏 数独 Sudoku 经典数独：行、列、宫内 1-9 不重复，唯一解谜题，错填即时标红，通关越快分越高。 益智解谜 · 3-15 分钟 4,000 次游玩" [ref=f100e186] [cursor=pointer]:
+        - /url: play.html?g=sudoku
+        - generic [ref=f100e187]:
+          - generic [ref=f100e189]: 🔣
+          - generic [ref=f100e190]:
+            - generic [ref=f100e191]: 新品
+            - generic [ref=f100e192]: 烧脑
+          - generic [ref=f100e193]: ▶ 开始游戏
+        - generic [ref=f100e195]:
+          - generic [ref=f100e196]: 数独
+          - generic [ref=f100e197]: Sudoku
+          - paragraph [ref=f100e198]: 经典数独：行、列、宫内 1-9 不重复，唯一解谜题，错填即时标红，通关越快分越高。
+          - generic [ref=f100e199]:
+            - generic [ref=f100e200]: 益智解谜 · 3-15 分钟
+            - generic [ref=f100e201]: 4,000 次游玩
+      - link "🔗 新品 轻松 ▶ 开始游戏 连连看 Link Link 经典连连看：点选两张相同图案，两折以内连线消除，连击加分，限时清盘进入下一关。 益智消除 · 2-6 分钟 4,000 次游玩" [ref=f100e202] [cursor=pointer]:
+        - /url: play.html?g=link
+        - generic [ref=f100e203]:
+          - generic [ref=f100e205]: 🔗
+          - generic [ref=f100e206]:
+            - generic [ref=f100e207]: 新品
+            - generic [ref=f100e208]: 轻松
+          - generic [ref=f100e209]: ▶ 开始游戏
+        - generic [ref=f100e211]:
+          - generic [ref=f100e212]: 连连看
+          - generic [ref=f100e213]: Link Link
+          - paragraph [ref=f100e214]: 经典连连看：点选两张相同图案，两折以内连线消除，连击加分，限时清盘进入下一关。
+          - generic [ref=f100e215]:
+            - generic [ref=f100e216]: 益智消除 · 2-6 分钟
+            - generic [ref=f100e217]: 4,000 次游玩
+      - link "🍉 新品 手速 ▶ 开始游戏 切水果 Fruit Slice 一刀切起满屏水果：连切多个有 combo 加分，小心别碰炸弹，漏三个直接出局。 休闲反应 · 1-5 分钟 3,900 次游玩" [ref=f100e218] [cursor=pointer]:
+        - /url: play.html?g=fruit
+        - generic [ref=f100e219]:
+          - generic [ref=f100e221]: 🍉
+          - generic [ref=f100e222]:
+            - generic [ref=f100e223]: 新品
+            - generic [ref=f100e224]: 手速
+          - generic [ref=f100e225]: ▶ 开始游戏
+        - generic [ref=f100e227]:
+          - generic [ref=f100e228]: 切水果
+          - generic [ref=f100e229]: Fruit Slice
+          - paragraph [ref=f100e230]: 一刀切起满屏水果：连切多个有 combo 加分，小心别碰炸弹，漏三个直接出局。
+          - generic [ref=f100e231]:
+            - generic [ref=f100e232]: 休闲反应 · 1-5 分钟
+            - generic [ref=f100e233]: 3,900 次游玩
+      - link "🦖 新品 耐玩 ▶ 开始游戏 恐龙跑酷 Dino Run 无限奔跑：小恐龙跳过仙人掌、下蹲躲过低飞的翼龙，速度越快分涨得越猛。 休闲跑酷 · 2-6 分钟 4,200 次游玩" [ref=f100e234] [cursor=pointer]:
+        - /url: play.html?g=dino
+        - generic [ref=f100e235]:
+          - generic [ref=f100e237]: 🦖
+          - generic [ref=f100e238]:
+            - generic [ref=f100e239]: 新品
+            - generic [ref=f100e240]: 耐玩
+          - generic [ref=f100e241]: ▶ 开始游戏
+        - generic [ref=f100e243]:
+          - generic [ref=f100e244]: 恐龙跑酷
+          - generic [ref=f100e245]: Dino Run
+          - paragraph [ref=f100e246]: 无限奔跑：小恐龙跳过仙人掌、下蹲躲过低飞的翼龙，速度越快分涨得越猛。
+          - generic [ref=f100e247]:
+            - generic [ref=f100e248]: 休闲跑酷 · 2-6 分钟
+            - generic [ref=f100e249]: 4,200 次游玩
+      - link "🪖 新品 手速 ▶ 开始游戏 坦克大战 Tank Battle 经典坦克大战：砖墙可被打碎、钢墙挡子弹，逐波消灭敌军，波次越深火力越猛。 射击对战 · 3-8 分钟 4,400 次游玩" [ref=f100e250] [cursor=pointer]:
+        - /url: play.html?g=tank
+        - generic [ref=f100e251]:
+          - generic [ref=f100e253]: 🪖
+          - generic [ref=f100e254]:
+            - generic [ref=f100e255]: 新品
+            - generic [ref=f100e256]: 手速
+          - generic [ref=f100e257]: ▶ 开始游戏
+        - generic [ref=f100e259]:
+          - generic [ref=f100e260]: 坦克大战
+          - generic [ref=f100e261]: Tank Battle
+          - paragraph [ref=f100e262]: 经典坦克大战：砖墙可被打碎、钢墙挡子弹，逐波消灭敌军，波次越深火力越猛。
+          - generic [ref=f100e263]:
+            - generic [ref=f100e264]: 射击对战 · 3-8 分钟
+            - generic [ref=f100e265]: 4,400 次游玩
+      - link "🐸 新品 手速 ▶ 开始游戏 跳一跳 Jump Master 按住蓄力、松手起跳：踩中平台中心有连击加分，力道差一点就踏空出局。 休闲反应 · 1-5 分钟 4,300 次游玩" [ref=f100e266] [cursor=pointer]:
+        - /url: play.html?g=jump
+        - generic [ref=f100e267]:
+          - generic [ref=f100e269]: 🐸
+          - generic [ref=f100e270]:
+            - generic [ref=f100e271]: 新品
+            - generic [ref=f100e272]: 手速
+          - generic [ref=f100e273]: ▶ 开始游戏
+        - generic [ref=f100e275]:
+          - generic [ref=f100e276]: 跳一跳
+          - generic [ref=f100e277]: Jump Master
+          - paragraph [ref=f100e278]: 按住蓄力、松手起跳：踩中平台中心有连击加分，力道差一点就踏空出局。
+          - generic [ref=f100e279]:
+            - generic [ref=f100e280]: 休闲反应 · 1-5 分钟
+            - generic [ref=f100e281]: 4,300 次游玩
+      - link "💎 新品 烧脑 ▶ 开始游戏 宝石消除 Gem Crush 三消经典：交换相邻宝石凑成三连，连锁爆发倍率飙升，30 步内冲击最高分。 益智消除 · 3-8 分钟 4,100 次游玩" [ref=f100e282] [cursor=pointer]:
+        - /url: play.html?g=gem
+        - generic [ref=f100e283]:
+          - generic [ref=f100e285]: 💎
+          - generic [ref=f100e286]:
+            - generic [ref=f100e287]: 新品
+            - generic [ref=f100e288]: 烧脑
+          - generic [ref=f100e289]: ▶ 开始游戏
+        - generic [ref=f100e291]:
+          - generic [ref=f100e292]: 宝石消除
+          - generic [ref=f100e293]: Gem Crush
+          - paragraph [ref=f100e294]: 三消经典：交换相邻宝石凑成三连，连锁爆发倍率飙升，30 步内冲击最高分。
+          - generic [ref=f100e295]:
+            - generic [ref=f100e296]: 益智消除 · 3-8 分钟
+            - generic [ref=f100e297]: 4,100 次游玩
+      - link "🫧 新品 休闲 ▶ 开始游戏 泡泡龙 Bubble Pop 经典泡泡龙：旋转炮台发射泡泡，三只同色即爆裂，悬挂泡泡一并坠落，别让泡泡压过死线。 益智射击 · 2-6 分钟 3,900 次游玩" [ref=f100e298] [cursor=pointer]:
+        - /url: play.html?g=bubble
+        - generic [ref=f100e299]:
+          - generic [ref=f100e301]: 🫧
+          - generic [ref=f100e302]:
+            - generic [ref=f100e303]: 新品
+            - generic [ref=f100e304]: 休闲
+          - generic [ref=f100e305]: ▶ 开始游戏
+        - generic [ref=f100e307]:
+          - generic [ref=f100e308]: 泡泡龙
+          - generic [ref=f100e309]: Bubble Pop
+          - paragraph [ref=f100e310]: 经典泡泡龙：旋转炮台发射泡泡，三只同色即爆裂，悬挂泡泡一并坠落，别让泡泡压过死线。
+          - generic [ref=f100e311]:
+            - generic [ref=f100e312]: 益智射击 · 2-6 分钟
+            - generic [ref=f100e313]: 3,900 次游玩
+      - link "🔨 新品 手速 ▶ 开始游戏 打地鼠 Whack-a-Mole 经典打地鼠：45 秒限时出手，金鼠高分、连击加成，挑战手速最高分。 休闲反应 · 1 分钟 4,800 次游玩" [ref=f100e314] [cursor=pointer]:
+        - /url: play.html?g=whack
+        - generic [ref=f100e315]:
+          - generic [ref=f100e317]: 🔨
+          - generic [ref=f100e318]:
+            - generic [ref=f100e319]: 新品
+            - generic [ref=f100e320]: 手速
+          - generic [ref=f100e321]: ▶ 开始游戏
+        - generic [ref=f100e323]:
+          - generic [ref=f100e324]: 打地鼠
+          - generic [ref=f100e325]: Whack-a-Mole
+          - paragraph [ref=f100e326]: 经典打地鼠：45 秒限时出手，金鼠高分、连击加成，挑战手速最高分。
+          - generic [ref=f100e327]:
+            - generic [ref=f100e328]: 休闲反应 · 1 分钟
+            - generic [ref=f100e329]: 4,800 次游玩
+      - link "🐤 新品 手速 ▶ 开始游戏 飞鸟过管 Flappy Wings 一键飞行：轻点拍翅穿越管道阵，手一抖就坠机，看你能飞多远。 休闲反应 · 1-4 分钟 5,100 次游玩" [ref=f100e330] [cursor=pointer]:
+        - /url: play.html?g=flappy
+        - generic [ref=f100e331]:
+          - generic [ref=f100e333]: 🐤
+          - generic [ref=f100e334]:
+            - generic [ref=f100e335]: 新品
+            - generic [ref=f100e336]: 手速
+          - generic [ref=f100e337]: ▶ 开始游戏
+        - generic [ref=f100e339]:
+          - generic [ref=f100e340]: 飞鸟过管
+          - generic [ref=f100e341]: Flappy Wings
+          - paragraph [ref=f100e342]: 一键飞行：轻点拍翅穿越管道阵，手一抖就坠机，看你能飞多远。
+          - generic [ref=f100e343]:
+            - generic [ref=f100e344]: 休闲反应 · 1-4 分钟
+            - generic [ref=f100e345]: 5,100 次游玩
+      - link "⚫ 新品 烧脑 ▶ 开始游戏 五子棋 Gomoku 人机对战五子棋：先连成五子者胜，连胜越多单场加分越高，输掉立即结算。 棋类对战 · 2-8 分钟 4,400 次游玩" [ref=f100e346] [cursor=pointer]:
+        - /url: play.html?g=gomoku
+        - generic [ref=f100e347]:
+          - generic [ref=f100e349]: ⚫
+          - generic [ref=f100e350]:
+            - generic [ref=f100e351]: 新品
+            - generic [ref=f100e352]: 烧脑
+          - generic [ref=f100e353]: ▶ 开始游戏
+        - generic [ref=f100e355]:
+          - generic [ref=f100e356]: 五子棋
+          - generic [ref=f100e357]: Gomoku
+          - paragraph [ref=f100e358]: 人机对战五子棋：先连成五子者胜，连胜越多单场加分越高，输掉立即结算。
+          - generic [ref=f100e359]:
+            - generic [ref=f100e360]: 棋类对战 · 2-8 分钟
+            - generic [ref=f100e361]: 4,400 次游玩
+      - link "🎱 新品 手速 ▶ 开始游戏 霓虹弹珠台 Neon Pinball 街机弹珠：挡板翻转弹射、Bumper 连击得分，3 球机会挑战最高分。 街机弹珠 · 2-5 分钟 4,200 次游玩" [ref=f100e362] [cursor=pointer]:
+        - /url: play.html?g=pinball
+        - generic [ref=f100e363]:
+          - generic [ref=f100e365]: 🎱
+          - generic [ref=f100e366]:
+            - generic [ref=f100e367]: 新品
+            - generic [ref=f100e368]: 手速
+          - generic [ref=f100e369]: ▶ 开始游戏
+        - generic [ref=f100e371]:
+          - generic [ref=f100e372]: 霓虹弹珠台
+          - generic [ref=f100e373]: Neon Pinball
+          - paragraph [ref=f100e374]: 街机弹珠：挡板翻转弹射、Bumper 连击得分，3 球机会挑战最高分。
+          - generic [ref=f100e375]:
+            - generic [ref=f100e376]: 街机弹珠 · 2-5 分钟
+            - generic [ref=f100e377]: 4,200 次游玩
+      - link "⭕ 新品 烧脑 ▶ 开始游戏 井字棋 Tic-Tac-Toe 人机对战井字棋：赢一场得基础分，连胜越多单场加分越高，输掉立即结算。 棋类对战 · 1-5 分钟 4,600 次游玩" [ref=f100e378] [cursor=pointer]:
+        - /url: play.html?g=ttt
+        - generic [ref=f100e379]:
+          - generic [ref=f100e381]: ⭕
+          - generic [ref=f100e382]:
+            - generic [ref=f100e383]: 新品
+            - generic [ref=f100e384]: 烧脑
+          - generic [ref=f100e385]: ▶ 开始游戏
+        - generic [ref=f100e387]:
+          - generic [ref=f100e388]: 井字棋
+          - generic [ref=f100e389]: Tic-Tac-Toe
+          - paragraph [ref=f100e390]: 人机对战井字棋：赢一场得基础分，连胜越多单场加分越高，输掉立即结算。
+          - generic [ref=f100e391]:
+            - generic [ref=f100e392]: 棋类对战 · 1-5 分钟
+            - generic [ref=f100e393]: 4,600 次游玩
+      - link "🃏 新品 轻松 ▶ 开始游戏 记忆翻牌 Memory Match 经典记忆配对：翻开卡牌找出全部 8 对，越快越准、连击越多分越高。 益智记忆 · 2-4 分钟 5,200 次游玩" [ref=f100e394] [cursor=pointer]:
+        - /url: play.html?g=memory
+        - generic [ref=f100e395]:
+          - generic [ref=f100e397]: 🃏
+          - generic [ref=f100e398]:
+            - generic [ref=f100e399]: 新品
+            - generic [ref=f100e400]: 轻松
+          - generic [ref=f100e401]: ▶ 开始游戏
+        - generic [ref=f100e403]:
+          - generic [ref=f100e404]: 记忆翻牌
+          - generic [ref=f100e405]: Memory Match
+          - paragraph [ref=f100e406]: 经典记忆配对：翻开卡牌找出全部 8 对，越快越准、连击越多分越高。
+          - generic [ref=f100e407]:
+            - generic [ref=f100e408]: 益智记忆 · 2-4 分钟
+            - generic [ref=f100e409]: 5,200 次游玩
+      - link "🔢 新品 轻松 ▶ 开始游戏 2048 数字合并 2048 Merge 经典 2048：滑动合并相同数字，挑战 2048 方块。 益智休闲 · 3-10 分钟 6.4 万 次游玩" [ref=f100e410] [cursor=pointer]:
+        - /url: play.html?g=g2048
+        - generic [ref=f100e411]:
+          - generic [ref=f100e413]: 🔢
+          - generic [ref=f100e414]:
+            - generic [ref=f100e415]: 新品
+            - generic [ref=f100e416]: 轻松
+          - generic [ref=f100e417]: ▶ 开始游戏
+        - generic [ref=f100e419]:
+          - generic [ref=f100e420]: 2048 数字合并
+          - generic [ref=f100e421]: 2048 Merge
+          - paragraph [ref=f100e422]: 经典 2048：滑动合并相同数字，挑战 2048 方块。
+          - generic [ref=f100e423]:
+            - generic [ref=f100e424]: 益智休闲 · 3-10 分钟
+            - generic [ref=f100e425]: 6.4 万 次游玩
+      - link "🧊 新品 烧脑 ▶ 开始游戏 霓虹俄罗斯方块 Neon Tetris 经典俄罗斯方块：幽灵落点、下一块预览、消行升级。 益智消除 · 5-15 分钟 7.6 万 次游玩" [ref=f100e426] [cursor=pointer]:
+        - /url: play.html?g=tetris
+        - generic [ref=f100e427]:
+          - generic [ref=f100e429]: 🧊
+          - generic [ref=f100e430]:
+            - generic [ref=f100e431]: 新品
+            - generic [ref=f100e432]: 烧脑
+          - generic [ref=f100e433]: ▶ 开始游戏
+        - generic [ref=f100e435]:
+          - generic [ref=f100e436]: 霓虹俄罗斯方块
+          - generic [ref=f100e437]: Neon Tetris
+          - paragraph [ref=f100e438]: 经典俄罗斯方块：幽灵落点、下一块预览、消行升级。
+          - generic [ref=f100e439]:
+            - generic [ref=f100e440]: 益智消除 · 5-15 分钟
+            - generic [ref=f100e441]: 7.6 万 次游玩
+      - link "🛸 热门 单人 ▶ 开始游戏 星际战机 Star Raider 经典打飞机：无尽波次、武器强化、每 5 波迎战 BOSS。 弹幕射击 · 3-8 分钟 15.6 万 次游玩" [ref=f100e442] [cursor=pointer]:
+        - /url: play.html?g=shooter
+        - generic [ref=f100e443]:
+          - generic [ref=f100e445]: 🛸
+          - generic [ref=f100e446]:
+            - generic [ref=f100e447]: 热门
+            - generic [ref=f100e448]: 单人
+          - generic [ref=f100e449]: ▶ 开始游戏
+        - generic [ref=f100e451]:
+          - generic [ref=f100e452]: 星际战机
+          - generic [ref=f100e453]: Star Raider
+          - paragraph [ref=f100e454]: 经典打飞机：无尽波次、武器强化、每 5 波迎战 BOSS。
+          - generic [ref=f100e455]:
+            - generic [ref=f100e456]: 弹幕射击 · 3-8 分钟
+            - generic [ref=f100e457]: 15.6 万 次游玩
+      - link "🍄 热门 经典 ▶ 开始游戏 超级冒险 Super Adventure 经典横版闯关：顶砖块、吃蘑菇变大、踩敌人、冲向旗杆。 横版闯关 · 5-12 分钟 12.8 万 次游玩" [ref=f100e458] [cursor=pointer]:
+        - /url: play.html?g=mario
+        - generic [ref=f100e459]:
+          - generic [ref=f100e461]: 🍄
+          - generic [ref=f100e462]:
+            - generic [ref=f100e463]: 热门
+            - generic [ref=f100e464]: 经典
+          - generic [ref=f100e465]: ▶ 开始游戏
+        - generic [ref=f100e467]:
+          - generic [ref=f100e468]: 超级冒险
+          - generic [ref=f100e469]: Super Adventure
+          - paragraph [ref=f100e470]: 经典横版闯关：顶砖块、吃蘑菇变大、踩敌人、冲向旗杆。
+          - generic [ref=f100e471]:
+            - generic [ref=f100e472]: 横版闯关 · 5-12 分钟
+            - generic [ref=f100e473]: 12.8 万 次游玩
+      - link "🧱 经典 休闲 ▶ 开始游戏 霓虹打砖块 Neon Breaker 经典打砖块：多关卡、随机道具、支持鼠标与触屏拖动。 休闲益智 · 3-6 分钟 9.2 万 次游玩" [ref=f100e474] [cursor=pointer]:
+        - /url: play.html?g=breakout
+        - generic [ref=f100e475]:
+          - generic [ref=f100e477]: 🧱
+          - generic [ref=f100e478]:
+            - generic [ref=f100e479]: 经典
+            - generic [ref=f100e480]: 休闲
+          - generic [ref=f100e481]: ▶ 开始游戏
+        - generic [ref=f100e483]:
+          - generic [ref=f100e484]: 霓虹打砖块
+          - generic [ref=f100e485]: Neon Breaker
+          - paragraph [ref=f100e486]: 经典打砖块：多关卡、随机道具、支持鼠标与触屏拖动。
+          - generic [ref=f100e487]:
+            - generic [ref=f100e488]: 休闲益智 · 3-6 分钟
+            - generic [ref=f100e489]: 9.2 万 次游玩
+      - link "🐍 经典 耐玩 ▶ 开始游戏 霓虹贪吃蛇 Neon Snake 经典贪吃蛇：平滑移动、越吃越快，挑战最长身躯。 休闲街机 · 2-5 分钟 8.8 万 次游玩" [ref=f100e490] [cursor=pointer]:
+        - /url: play.html?g=snake
+        - generic [ref=f100e491]:
+          - generic [ref=f100e493]: 🐍
+          - generic [ref=f100e494]:
+            - generic [ref=f100e495]: 经典
+            - generic [ref=f100e496]: 耐玩
+          - generic [ref=f100e497]: ▶ 开始游戏
+        - generic [ref=f100e499]:
+          - generic [ref=f100e500]: 霓虹贪吃蛇
+          - generic [ref=f100e501]: Neon Snake
+          - paragraph [ref=f100e502]: 经典贪吃蛇：平滑移动、越吃越快，挑战最长身躯。
+          - generic [ref=f100e503]:
+            - generic [ref=f100e504]: 休闲街机 · 2-5 分钟
+            - generic [ref=f100e505]: 8.8 万 次游玩
+    - generic [ref=f100e507]:
+      - generic [ref=f100e508]:
+        - generic [ref=f100e509]:
+          - heading "排行榜 · 星际战机" [level=3] [ref=f100e510]
+          - generic [ref=f100e511]:
+            - button "🃏" [ref=f100e512] [cursor=pointer]
+            - button "📦" [ref=f100e513] [cursor=pointer]
+            - button "💣" [ref=f100e514] [cursor=pointer]
+            - button "🍉" [ref=f100e515] [cursor=pointer]
+            - button "🎣" [ref=f100e516] [cursor=pointer]
+            - button "🎱" [ref=f100e517] [cursor=pointer]
+            - button "🀄" [ref=f100e518] [cursor=pointer]
+            - button "🔣" [ref=f100e519] [cursor=pointer]
+            - button "🔗" [ref=f100e520] [cursor=pointer]
+            - button "🍉" [ref=f100e521] [cursor=pointer]
+            - button "🦖" [ref=f100e522] [cursor=pointer]
+            - button "🪖" [ref=f100e523] [cursor=pointer]
+            - button "🐸" [ref=f100e524] [cursor=pointer]
+            - button "💎" [ref=f100e525] [cursor=pointer]
+            - button "🫧" [ref=f100e526] [cursor=pointer]
+            - button "🔨" [ref=f100e527] [cursor=pointer]
+            - button "🐤" [ref=f100e528] [cursor=pointer]
+            - button "⚫" [ref=f100e529] [cursor=pointer]
+            - button "🎱" [ref=f100e530] [cursor=pointer]
+            - button "⭕" [ref=f100e531] [cursor=pointer]
+            - button "🃏" [ref=f100e532] [cursor=pointer]
+            - button "🔢" [ref=f100e533] [cursor=pointer]
+            - button "🧊" [ref=f100e534] [cursor=pointer]
+            - button "🛸" [ref=f100e535] [cursor=pointer]
+            - button "🍄" [ref=f100e536] [cursor=pointer]
+            - button "🧱" [ref=f100e537] [cursor=pointer]
+            - button "🐍" [ref=f100e538] [cursor=pointer]
+        - generic [ref=f100e539]:
+          - generic [ref=f100e540]:
+            - generic [ref=f100e541]: "#"
+            - generic [ref=f100e542]: 个人中心
+            - generic [ref=f100e543]: 得分
+            - generic [ref=f100e544]: 用时
+          - generic [ref=f100e545]:
+            - generic [ref=f100e546]:
+              - generic [ref=f100e547]: "1"
+              - generic [ref=f100e548]: 👑
+              - generic [ref=f100e549]: 老玩家阿凯
+              - generic [ref=f100e550]: 9,909
+              - generic [ref=f100e551]: 430s
+            - generic [ref=f100e552]:
+              - generic [ref=f100e553]: "2"
+              - generic [ref=f100e554]: 🎮
+              - generic [ref=f100e555]: PixelKing
+              - generic [ref=f100e556]: 9,821
+              - generic [ref=f100e557]: 123s
+            - generic [ref=f100e558]:
+              - generic [ref=f100e559]: "3"
+              - generic [ref=f100e560]: 🎮
+              - generic [ref=f100e561]: 夜雨微凉
+              - generic [ref=f100e562]: 9,800
+              - generic [ref=f100e563]: 86s
+            - generic [ref=f100e564]:
+              - generic [ref=f100e565]: "4"
+              - generic [ref=f100e566]: 🎮
+              - generic [ref=f100e567]: ArcadeFox
+              - generic [ref=f100e568]: 9,166
+              - generic [ref=f100e569]: 169s
+            - generic [ref=f100e570]:
+              - generic [ref=f100e571]: "5"
+              - generic [ref=f100e572]: 🎮
+              - generic [ref=f100e573]: CloudRunner
+              - generic [ref=f100e574]: 9,127
+              - generic [ref=f100e575]: 188s
+            - generic [ref=f100e576]:
+              - generic [ref=f100e577]: "6"
+              - generic [ref=f100e578]: 🎮
+              - generic [ref=f100e579]: 星橙
+              - generic [ref=f100e580]: 8,622
+              - generic [ref=f100e581]: 190s
+          - link "更多" [ref=f100e582] [cursor=pointer]:
+            - /url: rank.html
+      - generic [ref=f100e583]:
+        - generic [ref=f100e584]:
+          - heading "游戏" [level=3] [ref=f100e585]
+          - generic [ref=f100e586]: 🟢 264 在线
+        - generic [ref=f100e587]:
+          - generic [ref=f100e588]:
+            - generic [ref=f100e589]:
+              - generic [ref=f100e590]: 《星域突围》V2.4「深空回响」版本更新公告
+              - generic [ref=f100e591]: 版本更新
+            - paragraph [ref=f100e592]: 新增第 5 章「深空回响」共 12 个关卡、新增 3 把武器与 8 种局内强化；平衡性调整：敌方弹速下调 6%，护盾拾取权重提升。维护时…
+          - generic [ref=f100e593]:
+            - generic [ref=f100e594]:
+              - generic [ref=f100e595]: 中秋限定活动「月宴」9 月 20 日开启
+              - generic [ref=f100e596]: 活动预告
+            - paragraph [ref=f100e597]: 累计登录领限定皮肤「广寒」；活动期间通关任意章节可获月饼道具，用于兑换限定称号与头像框。…
+          - generic [ref=f100e598]:
+            - generic [ref=f100e599]:
+              - generic [ref=f100e600]: 关于打击第三方代充与账号买卖的说明
+              - generic [ref=f100e601]: 规则公告
+            - paragraph [ref=f100e602]: 平台已上线风控模型 3.0，近 30 天封禁异常账号 1,284 个。请通过官方渠道充值，因第三方代充造成的损失不予补偿。…
+    - generic [ref=f100e604]:
+      - generic [ref=f100e605]:
+        - generic [ref=f100e606]: ⚡
+        - generic [ref=f100e607]: 打开即玩
+        - paragraph [ref=f100e608]: 无需下载安装，点开链接 1 秒进入游戏，弱网环境同样流畅。
+      - generic [ref=f100e609]:
+        - generic [ref=f100e610]: 🎮
+        - generic [ref=f100e611]: 键盘 / 触屏双支持
+        - paragraph [ref=f100e612]: 桌面键盘操作 + 手机虚拟手柄与滑动操控，两端体验一致。
+      - generic [ref=f100e613]:
+        - generic [ref=f100e614]: 🔊
+        - generic [ref=f100e615]: 实时合成音效
+        - paragraph [ref=f100e616]: Web Audio 实时合成音效与背景音乐，零音频资源加载。
+  - contentinfo [ref=f100e618]:
+    - generic [ref=f100e619]:
+      - generic [ref=f100e620]:
+        - generic [ref=f100e621]:
+          - generic [ref=f100e627]:
+            - generic [ref=f100e628]: 星潮互动
+            - generic [ref=f100e629]: STARTIDE INTERACTIVE
+          - paragraph [ref=f100e630]: 打开即玩 · 无需下载 · 全球同服
+          - generic [ref=f100e631]:
+            - generic [ref=f100e632]: 在线
+            - generic [ref=f100e633]: Web / H5
+            - generic [ref=f100e634]: 中 / EN
+        - generic [ref=f100e635]:
+          - heading "游戏" [level=4] [ref=f100e636]
+          - list [ref=f100e637]:
+            - listitem [ref=f100e638]:
+              - link "游戏大厅" [ref=f100e639] [cursor=pointer]:
+                - /url: games.html
+            - listitem [ref=f100e640]:
+              - link "排行榜" [ref=f100e641] [cursor=pointer]:
+                - /url: rank.html
+            - listitem [ref=f100e642]:
+              - link "登录 / 注册" [ref=f100e643] [cursor=pointer]:
+                - /url: login.html
+            - listitem [ref=f100e644]:
+              - link "开始游戏 · 星际战机" [ref=f100e645] [cursor=pointer]:
+                - /url: play.html?g=shooter
+        - generic [ref=f100e646]:
+          - heading "关于" [level=4] [ref=f100e647]
+          - list [ref=f100e648]:
+            - listitem [ref=f100e649]:
+              - link "公司简介" [ref=f100e650] [cursor=pointer]:
+                - /url: team.html
+            - listitem [ref=f100e651]:
+              - link "商业计划" [ref=f100e652] [cursor=pointer]:
+                - /url: business-plan.html
+            - listitem [ref=f100e653]:
+              - link "数据看板" [ref=f100e654] [cursor=pointer]:
+                - /url: dashboard.html
+            - listitem [ref=f100e655]:
+              - link "管理后台" [ref=f100e656] [cursor=pointer]:
+                - /url: admin.html
+        - generic [ref=f100e657]:
+          - heading "联系" [level=4] [ref=f100e658]
+          - list [ref=f100e659]:
+            - listitem [ref=f100e660]: 商务合作bd@startide.example
+            - listitem [ref=f100e661]: 玩家支持support@startide.example
+            - listitem [ref=f100e662]: 深圳市南山区科技园 · 星潮大厦 18F
+      - generic [ref=f100e663]:
+        - generic [ref=f100e664]: © 2021-2026 星潮互动网络科技（深圳）有限公司 · 保留所有权利
+        - generic [ref=f100e665]: 粤 ICP 备 2021XXXXXX 号 · 增值电信业务经营许可证 · 网络文化经营许可证
+      - paragraph [ref=f100e666]: 本站为演示项目，全部数据由本地生成，不涉及真实业务与个人信息。

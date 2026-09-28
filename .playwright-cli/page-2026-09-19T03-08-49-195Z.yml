@@ -1,0 +1,303 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - link "星潮互动 STARTIDE" [ref=e6] [cursor=pointer]:
+        - /url: index.html
+        - generic [ref=e11]:
+          - generic [ref=e12]: 星潮互动
+          - generic [ref=e13]: STARTIDE
+      - navigation [ref=e14]:
+        - link "首页" [ref=e15] [cursor=pointer]:
+          - /url: index.html
+        - link "游戏大厅" [ref=e16] [cursor=pointer]:
+          - /url: games.html
+        - link "排行榜" [ref=e17] [cursor=pointer]:
+          - /url: rank.html
+        - link "数据看板" [ref=e18] [cursor=pointer]:
+          - /url: dashboard.html
+        - link "管理后台" [ref=e19] [cursor=pointer]:
+          - /url: admin.html
+      - generic [ref=e20]:
+        - button "中" [ref=e21] [cursor=pointer]
+        - button "🔊" [ref=e23] [cursor=pointer]
+        - link "登录 / 注册" [ref=e26] [cursor=pointer]:
+          - /url: login.html
+    - generic [ref=e28]:
+      - generic [ref=e29]: 在线
+      - generic [ref=e31]: 中秋限定「月宴」活动进行中 — 登录即领限定皮肤「广寒」
+      - link "开始游戏 →" [ref=e32] [cursor=pointer]:
+        - /url: games.html
+  - generic [ref=e34]:
+    - generic [ref=e35]:
+      - generic [ref=e36]: Startide Arcade · 打开即玩
+      - heading "经典小游戏， 点开就能玩" [level=1] [ref=e37]: 经典小游戏，点开就能玩
+      - paragraph [ref=e38]: 超级冒险、星际战机、打砖块、贪吃蛇、俄罗斯方块、2048 —— 六款经典玩法重制。 无需下载、无需安装，键盘与触屏都能玩，全球同服，中文 / English 随时切换。
+      - generic [ref=e39]:
+        - link "▶ 进入游戏大厅" [ref=e40] [cursor=pointer]:
+          - /url: games.html
+        - link "🛸 直接打飞机" [ref=e41] [cursor=pointer]:
+          - /url: play.html?g=shooter
+      - generic [ref=e42]:
+        - generic [ref=e43]:
+          - generic [ref=e44]: "230"
+          - text: 在线玩家
+        - generic [ref=e45]:
+          - generic [ref=e46]: "21"
+          - text: 款经典游戏
+        - generic [ref=e47]:
+          - generic [ref=e48]: 67.1 万
+          - text: 累计游玩
+        - generic [ref=e49]:
+          - generic [ref=e50]: "0"
+          - text: 下载安装
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - generic:
+          - generic:
+            - generic: LIVE 实时渲染
+            - generic: FPS 60 · Canvas2D
+          - generic:
+            - generic: 音效 Web Audio
+            - generic: ENGINE StarCore 3.0
+      - generic [ref=e54]:
+        - generic [ref=e55]: 今日在线峰值
+        - generic [ref=e56]: "+143"
+      - generic [ref=e57]:
+        - generic [ref=e58]: 平均单局时长
+        - generic [ref=e59]: 3.6 分钟
+  - generic [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e64]: Arcade
+        - heading "现在最受欢迎" [level=2] [ref=e65]
+      - link "全部游戏 →" [ref=e66] [cursor=pointer]:
+        - /url: games.html
+    - generic [ref=e67]:
+      - link "🛸 热门 单人 ▶ 开始游戏 星际战机 Star Raider 经典打飞机：无尽波次、武器强化、每 5 波迎战 BOSS。 弹幕射击 15.6 万 次游玩" [ref=e68] [cursor=pointer]:
+        - /url: play.html?g=shooter
+        - generic [ref=e69]:
+          - generic [ref=e71]: 🛸
+          - generic [ref=e72]:
+            - generic [ref=e73]: 热门
+            - generic [ref=e74]: 单人
+          - generic [ref=e75]: ▶ 开始游戏
+        - generic [ref=e77]:
+          - generic [ref=e78]: 星际战机
+          - generic [ref=e79]: Star Raider
+          - paragraph [ref=e80]: 经典打飞机：无尽波次、武器强化、每 5 波迎战 BOSS。
+          - generic [ref=e81]:
+            - generic [ref=e82]: 弹幕射击
+            - generic [ref=e83]: 15.6 万 次游玩
+      - link "🍄 热门 经典 ▶ 开始游戏 超级冒险 Super Adventure 经典横版闯关：顶砖块、吃蘑菇变大、踩敌人、冲向旗杆。 横版闯关 12.8 万 次游玩" [ref=e84] [cursor=pointer]:
+        - /url: play.html?g=mario
+        - generic [ref=e85]:
+          - generic [ref=e87]: 🍄
+          - generic [ref=e88]:
+            - generic [ref=e89]: 热门
+            - generic [ref=e90]: 经典
+          - generic [ref=e91]: ▶ 开始游戏
+        - generic [ref=e93]:
+          - generic [ref=e94]: 超级冒险
+          - generic [ref=e95]: Super Adventure
+          - paragraph [ref=e96]: 经典横版闯关：顶砖块、吃蘑菇变大、踩敌人、冲向旗杆。
+          - generic [ref=e97]:
+            - generic [ref=e98]: 横版闯关
+            - generic [ref=e99]: 12.8 万 次游玩
+      - link "🧱 经典 休闲 ▶ 开始游戏 霓虹打砖块 Neon Breaker 经典打砖块：多关卡、随机道具、支持鼠标与触屏拖动。 休闲益智 9.2 万 次游玩" [ref=e100] [cursor=pointer]:
+        - /url: play.html?g=breakout
+        - generic [ref=e101]:
+          - generic [ref=e103]: 🧱
+          - generic [ref=e104]:
+            - generic [ref=e105]: 经典
+            - generic [ref=e106]: 休闲
+          - generic [ref=e107]: ▶ 开始游戏
+        - generic [ref=e109]:
+          - generic [ref=e110]: 霓虹打砖块
+          - generic [ref=e111]: Neon Breaker
+          - paragraph [ref=e112]: 经典打砖块：多关卡、随机道具、支持鼠标与触屏拖动。
+          - generic [ref=e113]:
+            - generic [ref=e114]: 休闲益智
+            - generic [ref=e115]: 9.2 万 次游玩
+  - generic [ref=e118]:
+    - generic [ref=e119]:
+      - generic [ref=e120]: 在线玩家
+      - generic [ref=e121]: "0"
+      - generic [ref=e122]: 全球同服 · 实时更新
+    - generic [ref=e123]:
+      - generic [ref=e124]: 在营游戏
+      - generic [ref=e125]: "21"
+      - generic [ref=e126]: 全部打开即玩
+    - generic [ref=e127]:
+      - generic [ref=e128]: 累计游玩次数
+      - generic [ref=e129]: 67.1 万
+      - generic [ref=e130]: 站内真实记录
+    - generic [ref=e131]:
+      - generic [ref=e132]: 注册玩家
+      - generic [ref=e133]: 2.1 万
+      - generic [ref=e134]: 登录即注册
+  - generic [ref=e137]:
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - heading "🏆 今日排行榜" [level=3] [ref=e140]
+        - generic [ref=e141]:
+          - button "🀄" [ref=e142] [cursor=pointer]
+          - button "🔣" [ref=e143] [cursor=pointer]
+          - button "🔗" [ref=e144] [cursor=pointer]
+          - button "🍉" [ref=e145] [cursor=pointer]
+          - button "🦖" [ref=e146] [cursor=pointer]
+          - button "🪖" [ref=e147] [cursor=pointer]
+      - generic [ref=e148]:
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e151]: 🥇
+            - generic [ref=e152]: A
+            - generic [ref=e153]: ArcadeFox
+            - generic [ref=e154]: 9,411
+          - generic [ref=e155]:
+            - generic [ref=e156]: 🥈
+            - generic [ref=e157]: "N"
+            - generic [ref=e158]: NeoStar
+            - generic [ref=e159]: 9,289
+          - generic [ref=e160]:
+            - generic [ref=e161]: 🥉
+            - generic [ref=e162]: 星
+            - generic [ref=e163]: 星橙
+            - generic [ref=e164]: 9,180
+          - generic [ref=e165]:
+            - generic [ref=e166]: "4"
+            - generic [ref=e167]: C
+            - generic [ref=e168]: CloudRunner
+            - generic [ref=e169]: 8,066
+          - generic [ref=e170]:
+            - generic [ref=e171]: "5"
+            - generic [ref=e172]: 老
+            - generic [ref=e173]: 老玩家阿凯
+            - generic [ref=e174]: 7,771
+        - link "查看完整排行榜" [ref=e175] [cursor=pointer]:
+          - /url: rank.html
+    - generic [ref=e176]:
+      - generic [ref=e177]:
+        - generic [ref=e178]: 为什么在这里玩
+        - heading "为「打开就玩」而设计" [level=3] [ref=e179]
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - generic [ref=e182]: ⚡
+          - generic [ref=e183]: 秒开即玩
+          - text: 无需下载安装，弱网也流畅
+        - generic [ref=e184]:
+          - generic [ref=e185]: 🔊
+          - generic [ref=e186]: 实时音效
+          - text: Web Audio 合成音效与配乐
+        - generic [ref=e187]:
+          - generic [ref=e188]: 📱
+          - generic [ref=e189]: 手机可玩
+          - text: 虚拟手柄 + 触屏滑动操控
+        - generic [ref=e190]:
+          - generic [ref=e191]: 🏆
+          - generic [ref=e192]: 成绩上榜
+          - text: 登录后成绩自动保存排名
+      - generic [ref=e193]:
+        - link "登录 / 注册" [ref=e194] [cursor=pointer]:
+          - /url: login.html
+        - link "开始游玩" [ref=e195] [cursor=pointer]:
+          - /url: games.html
+  - generic [ref=e197]:
+    - generic [ref=e198]:
+      - generic [ref=e199]:
+        - generic [ref=e200]: Newsroom
+        - heading "游戏更新与活动公告" [level=2] [ref=e201]
+      - link "全部公告 →" [ref=e202] [cursor=pointer]:
+        - /url: games.html
+    - generic [ref=e203]:
+      - generic [ref=e204]:
+        - generic [ref=e205]: 2026/09/17
+        - generic [ref=e206]:
+          - link "《星域突围》V2.4「深空回响」版本更新公告" [ref=e207] [cursor=pointer]:
+            - /url: games.html
+          - generic [ref=e208]: 版本更新
+          - paragraph [ref=e210]: 新增第 5 章「深空回响」共 12 个关卡、新增 3 把武器与 8 种局内强化；平衡性调整：敌方弹速下调 6%，护盾拾取权重提升。维护时间 09-12 04:00-06:00。
+      - generic [ref=e211]:
+        - generic [ref=e212]: 2026/09/14
+        - generic [ref=e213]:
+          - link "中秋限定活动「月宴」9 月 20 日开启" [ref=e214] [cursor=pointer]:
+            - /url: games.html
+          - generic [ref=e215]: 活动预告
+          - paragraph [ref=e217]: 累计登录领限定皮肤「广寒」；活动期间通关任意章节可获月饼道具，用于兑换限定称号与头像框。
+      - generic [ref=e218]:
+        - generic [ref=e219]: 2026/09/07
+        - generic [ref=e220]:
+          - link "关于打击第三方代充与账号买卖的说明" [ref=e221] [cursor=pointer]:
+            - /url: games.html
+          - generic [ref=e222]: 规则公告
+          - paragraph [ref=e224]: 平台已上线风控模型 3.0，近 30 天封禁异常账号 1,284 个。请通过官方渠道充值，因第三方代充造成的损失不予补偿。
+  - generic [ref=e227]:
+    - generic [ref=e228]: Play Now
+    - heading "不下载、不安装，打开就能玩" [level=2] [ref=e229]
+    - paragraph [ref=e230]: 一个账号畅玩全部游戏，成绩自动保存并同步到全球排行榜。 首次登录即自动注册，也可以用手机号一键注册。
+    - generic [ref=e231]:
+      - link "▶ 立即开始游玩" [ref=e232] [cursor=pointer]:
+        - /url: games.html
+      - link "看看排行榜" [ref=e233] [cursor=pointer]:
+        - /url: rank.html
+  - generic [ref=e236]:
+    - generic [ref=e237]: About Startide
+    - paragraph [ref=e238]:
+      - text: 星潮互动（Startide Interactive）专注网页游戏研发与运营。我们自研 StarCore 2D 引擎，把经典玩法以更低成本送上 Web 与移动端浏览器。 想深入了解团队与公司，可查看
+      - link "团队介绍" [ref=e239] [cursor=pointer]:
+        - /url: team.html
+      - text: 与
+      - link "数据看板" [ref=e240] [cursor=pointer]:
+        - /url: dashboard.html
+      - text: 。
+  - contentinfo [ref=e242]:
+    - generic [ref=e243]:
+      - generic [ref=e244]:
+        - generic [ref=e245]:
+          - generic [ref=e251]:
+            - generic [ref=e252]: 星潮互动
+            - generic [ref=e253]: STARTIDE INTERACTIVE
+          - paragraph [ref=e254]: 打开即玩 · 无需下载 · 全球同服
+          - generic [ref=e255]:
+            - generic [ref=e256]: 在线
+            - generic [ref=e257]: Web / H5
+            - generic [ref=e258]: 中 / EN
+        - generic [ref=e259]:
+          - heading "游戏" [level=4] [ref=e260]
+          - list [ref=e261]:
+            - listitem [ref=e262]:
+              - link "游戏大厅" [ref=e263] [cursor=pointer]:
+                - /url: games.html
+            - listitem [ref=e264]:
+              - link "排行榜" [ref=e265] [cursor=pointer]:
+                - /url: rank.html
+            - listitem [ref=e266]:
+              - link "登录 / 注册" [ref=e267] [cursor=pointer]:
+                - /url: login.html
+            - listitem [ref=e268]:
+              - link "开始游戏 · 星际战机" [ref=e269] [cursor=pointer]:
+                - /url: play.html?g=shooter
+        - generic [ref=e270]:
+          - heading "关于" [level=4] [ref=e271]
+          - list [ref=e272]:
+            - listitem [ref=e273]:
+              - link "公司简介" [ref=e274] [cursor=pointer]:
+                - /url: team.html
+            - listitem [ref=e275]:
+              - link "商业计划" [ref=e276] [cursor=pointer]:
+                - /url: business-plan.html
+            - listitem [ref=e277]:
+              - link "数据看板" [ref=e278] [cursor=pointer]:
+                - /url: dashboard.html
+            - listitem [ref=e279]:
+              - link "管理后台" [ref=e280] [cursor=pointer]:
+                - /url: admin.html
+        - generic [ref=e281]:
+          - heading "联系" [level=4] [ref=e282]
+          - list [ref=e283]:
+            - listitem [ref=e284]: 商务合作bd@startide.example
+            - listitem [ref=e285]: 玩家支持support@startide.example
+            - listitem [ref=e286]: 深圳市南山区科技园 · 星潮大厦 18F
+      - generic [ref=e287]:
+        - generic [ref=e288]: © 2021-2026 星潮互动网络科技（深圳）有限公司 · 保留所有权利
+        - generic [ref=e289]: 粤 ICP 备 2021XXXXXX 号 · 增值电信业务经营许可证 · 网络文化经营许可证
+      - paragraph [ref=e290]: 本站为演示项目，全部数据由本地生成，不涉及真实业务与个人信息。

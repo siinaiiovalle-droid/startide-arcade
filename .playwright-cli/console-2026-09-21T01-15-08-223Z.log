@@ -1,0 +1,6 @@
+[    1260ms] TypeError: Cannot read properties of undefined (reading 'w')
+    at Object.run (http://localhost:8820/assets/js/games/engine.js:58:25)
+    at HTMLScriptElement.<anonymous> (http://localhost:8820/play.html?g=minesweeper&cb=1789953309400:208:30)
+[   17508ms] TypeError: Cannot read properties of undefined (reading 'w')
+    at Object.run (http://localhost:8820/assets/js/games/engine.js:58:25)
+    at HTMLScriptElement.<anonymous> (http://localhost:8820/play.html?g=minesweeper&cb=1789953325670:208:30)

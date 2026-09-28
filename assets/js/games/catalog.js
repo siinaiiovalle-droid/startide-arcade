@@ -500,6 +500,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/fifteen.js',
       ratio: 'portrait', duration: '1-5 分钟'
+    },
+    {
+      id: 'breakout2',
+      name: { zh: '霓虹打砖块 2', en: 'Neon Breaker 2' },
+      desc: { zh: '打砖块完全体：3 关通关制、爆炸砖链式爆破、激光炮与磁力底座两大新道具！', en: 'Ultimate brick breaker: 3-level campaign, chain-explosion bricks, plus new Laser and Magnet power-ups!' },
+      genre: { zh: '休闲益智', en: 'Casual' },
+      icon: '🧨', hue: '#ff5c6c',
+      tags: [{ zh: '街机', en: 'Arcade' }, { zh: '续作', en: 'Sequel' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/breakout2.js',
+      ratio: 'landscape', duration: '2-4 分钟'
+    },
+    {
+      id: 'mario2',
+      name: { zh: '超级冒险 2', en: 'Super Adventure 2' },
+      desc: { zh: '三主题新关卡：黄昏草原、地下洞窟、天空之城！新增弹簧砖高弹起与不可踩的刺球——跳跃躲避才是正解！', en: 'Three new themed levels: dusk prairie, underground cave and sky kingdom! New spring tiles and untouchable spiky foes!' },
+      genre: { zh: '横版闯关', en: 'Platformer' },
+      icon: '🌆', hue: '#f0a52a',
+      tags: [{ zh: '闯关', en: 'Platformer' }, { zh: '续作', en: 'Sequel' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/mario2.js',
+      ratio: 'landscape', duration: '2-5 分钟'
+    },
+    {
+      id: 'shooter2',
+      name: { zh: '星际战机 2', en: 'Star Raider 2' },
+      desc: { zh: 'BOSS 决战版：弹幕风暴、瞄准激光、召唤机群三种 BOSS 轮番上阵，半血狂暴！集齐僚机击败终极 BOSS！', en: 'Boss showdown: bullet storm, aimed beam and summoner bosses raging at half health! Collect wingman drones and beat the final boss!' },
+      genre: { zh: '弹幕射击', en: 'Shoot \'em up' },
+      icon: '👾', hue: '#ff5c6c',
+      tags: [{ zh: '射击', en: 'Shooter' }, { zh: '续作', en: 'Sequel' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/shooter2.js',
+      ratio: 'portrait', duration: '2-4 分钟'
     }
   ];
 

@@ -1,0 +1,998 @@
+[     790ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:253
+[     790ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     791ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     792ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[     792ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     792ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[     792ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     792ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[     793ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[     810ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     847ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     856ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     874ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     889ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     905ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     922ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     939ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     956ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     972ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[     989ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1006ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1028ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1039ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1056ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1072ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1089ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1106ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1123ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1139ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1140ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    1141ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    1155ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1172ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1189ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1206ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1222ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1239ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1255ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1272ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1289ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1306ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1322ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1339ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1355ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1372ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1389ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1405ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1422ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1438ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1456ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1472ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1474ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    1474ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    1474ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    1474ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    1489ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1506ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1522ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1539ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1556ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1572ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1589ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1606ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1622ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1639ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1655ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1672ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1688ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1705ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1722ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1739ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1756ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1772ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1788ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1806ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1815ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    1816ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    1822ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1839ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1855ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1872ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1889ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1905ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1922ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1938ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1955ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1972ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    1989ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2005ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2022ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2039ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2055ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2072ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2089ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2106ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2122ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2139ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2155ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2157ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    2157ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    2157ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    2157ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    2172ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2188ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2205ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2222ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2239ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2255ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2272ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2288ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2305ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2322ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2339ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2355ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2372ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2389ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2406ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2422ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2439ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2456ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2472ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2489ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2505ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2523ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2539ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2556ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2572ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2596ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2605ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2622ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2639ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2655ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2672ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2689ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2705ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2722ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2739ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2756ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2772ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2789ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2806ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2822ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2839ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2856ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2872ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2889ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2906ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2922ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2939ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2956ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2973ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    2989ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3006ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3022ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3039ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3055ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3072ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3089ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3105ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3123ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    3139ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4555ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4572ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4589ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4606ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4622ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4639ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4655ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4672ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4690ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4705ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4722ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4738ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4755ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4772ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4788ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4806ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4823ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4838ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4856ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4873ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4888ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4906ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4922ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4939ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4956ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4972ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    4989ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5006ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5022ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5038ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5056ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5072ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5089ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5106ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5122ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5139ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5156ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5172ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5189ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5206ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5222ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5238ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5256ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5272ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5289ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5305ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5322ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5339ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    5361ms] [ERROR] [GameKit] link ReferenceError: i is not defined
+    at render (http://localhost:8820/assets/js/games/link.js:318:16)
+    at http://localhost:8820/assets/js/games/link.js:376:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    6962ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:253
+[    6962ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6962ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6963ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    6963ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6963ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    6963ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6963ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    6964ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    7306ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    7306ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    7653ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    7653ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    7653ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    7653ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    7989ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    7989ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    8324ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    8325ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    8325ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:29
+[    8325ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ http://localhost:8820/assets/js/sfx.js:88
+[    8522ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8538ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8555ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8571ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8588ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8605ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8621ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8639ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8655ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8672ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8688ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8705ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8722ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8738ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8755ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8771ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8788ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8805ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8822ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8838ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8855ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8872ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8888ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8905ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8921ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8939ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8955ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8971ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    8988ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9005ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9022ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9039ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9055ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9072ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9088ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9105ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9122ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9139ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9155ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9172ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9189ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9205ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9222ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9238ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9255ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9272ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
+[    9288ms] [ERROR] [GameKit] sudoku ReferenceError: f is not defined
+    at render (http://localhost:8820/assets/js/games/sudoku.js:324:13)
+    at http://localhost:8820/assets/js/games/sudoku.js:382:44
+    at frame (http://localhost:8820/assets/js/games/engine.js:217:29) @ http://localhost:8820/assets/js/games/engine.js:216
