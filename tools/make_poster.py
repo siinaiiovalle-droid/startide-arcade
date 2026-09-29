@@ -5,9 +5,13 @@ Output: assets/img/poster.png   (1500 x 2121, A4 ratio @ ~180dpi)
 Run:    python tools/make_poster.py
 """
 import os
+import sys
 import random
 from PIL import Image, ImageDraw, ImageFont
 import qrcode
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from poster_art import sprite
 
 W, H = 1500, 2121
 M = 90
@@ -243,12 +247,12 @@ def main():
 
     # ---------- game cards ----------
     games = [
-        ("超级玛丽", "Platformer", "mario", RED),
-        ("打飞机", "Shoot 'em up", "shooter", CYAN),
-        ("打砖块", "Breakout", "breakout", AMBER),
-        ("贪吃蛇", "Snake", "snake", GREEN),
-        ("俄罗斯方块", "Tetris", "tetris", VIOLET),
-        ("2048", "Puzzle", "2048", PINK),
+        ("超级玛丽", "Platformer", "mushroom", RED),
+        ("打飞机", "Shoot 'em up", "ship", CYAN),
+        ("打砖块", "Breakout", "brickbot", AMBER),
+        ("贪吃蛇", "Snake", "worm", GREEN),
+        ("俄罗斯方块", "Tetris", "block", VIOLET),
+        ("2048", "Puzzle", "number", PINK),
     ]
     cw = (W - 2 * M - 2 * 30) // 3
     ch = 216
@@ -261,8 +265,8 @@ def main():
         d.rounded_rectangle([x, y, x + cw, y + ch], radius=24, outline=(255, 255, 255, 26), width=2)
         # accent bar
         d.rounded_rectangle([x + 26, y + 26, x + 34, y + ch - 26], radius=4, fill=color + (220,))
-        icon = draw_icon(kind, 124)
-        img.paste(icon, (x + 52, y + (ch - 124) // 2), icon)
+        icon = sprite(kind, 132, color)
+        img.paste(icon, (x + 54, y + (ch - 132) // 2), icon)
         d.text((x + 196, y + 76), name, font=f(F_BOLD, 36), fill=TEXT)
         d.text((x + 198, y + 130), en, font=f(F_REG, 22), fill=MUTED)
         d.text((x + cw - 26, y + 24), "NO." + str(i + 1).zfill(2), font=f(F_MONO, 20), fill=(112, 132, 168), anchor="ra")

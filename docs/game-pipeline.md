@@ -33,6 +33,7 @@
 - [ ] 后台「游戏管理」中可见并可上下架
 - [ ] 生成专属海报与二维码：`python tools/make_game_poster.py <id>`，产出 `assets/img/posters/<id>.png` 与 `assets/img/qr/<id>.png`
 - [ ] 二维码实测可扫，且解开后指向该游戏页 `play.html?g=<id>`
+- [ ] 海报主视觉是卡通角色（`tools/poster_art.py`）；新品类请在 `KIND_HINTS` 中把游戏 id 关键词映射到合适的角色，必要时新增一个 sprite 分支
 - [ ] 提交信息格式：`game: 新增 XX 游戏`
 - [ ] 推送后线上实测通过
 

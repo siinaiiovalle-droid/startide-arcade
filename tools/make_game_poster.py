@@ -16,6 +16,9 @@ import random
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import qrcode
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from poster_art import sprite as _sprite, kind_of as _kind
+
 try:
     import numpy as np
     import cv2
@@ -300,14 +303,17 @@ def poster(game):
     # diagonal highlight
     d.polygon([(cx0 + cs, cy0), (cx0 + cs, cy0 + 190), (cx0 + 40, cy0 + cs), (cx0 + cs, cy0 + cs)],
               fill=(255, 255, 255, 12))
-    icon = draw_icon(kind_of(game["id"]), 250, color)
-    icon_x, icon_y = cx0 + (cs - 250) // 2, cy0 + 46
+    isz = 280
+    halo = glow(320, color, 0.5)
+    img.paste(halo, (cx0 + (cs - 320) // 2, cy0 + (cs - 320) // 2 - 14), halo)
+    icon = _sprite(_kind(game["id"]), isz, color)
+    icon_x, icon_y = cx0 + (cs - isz) // 2, cy0 + 32
     img.paste(icon, (icon_x, icon_y), icon)
     # soft reflection, clipped inside the card
-    refl = icon.transpose(Image.FLIP_TOP_BOTTOM).crop((0, 250 - 56, 250, 250))
-    rmask = Image.linear_gradient("L").resize((250, 56)).transpose(Image.FLIP_TOP_BOTTOM)
-    refl.putalpha(rmask.point(lambda v: int(v * 0.18)))
-    img.paste(refl, (icon_x, icon_y + 250 + 6), refl)
+    refl = icon.transpose(Image.FLIP_TOP_BOTTOM).crop((0, isz - 58, isz, isz))
+    rmask = Image.linear_gradient("L").resize((isz, 58)).transpose(Image.FLIP_TOP_BOTTOM)
+    refl.putalpha(rmask.point(lambda v: int(v * 0.16)))
+    img.paste(refl, (icon_x, icon_y + isz + 4), refl)
 
     # ---------- title block ----------
     tx = M + cs + 46
