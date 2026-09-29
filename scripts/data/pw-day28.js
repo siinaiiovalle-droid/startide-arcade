@@ -153,6 +153,7 @@ async page => {
     await page.keyboard.up('Space');
     await page.waitForTimeout(300);
     await page.evaluate(() => document.querySelector('#stage canvas').__auto.setPaddle(60));
+    await page.evaluate(() => document.querySelector('#stage canvas').__auto.kill());
     g.breakout2.lose = await page.evaluate(() => new Promise((resolve) => {
       const a = document.querySelector('#stage canvas').__auto;
       const t0 = Date.now();
