@@ -192,7 +192,7 @@
       var mult = diff === 'easy' ? 0.8 : diff === 'hard' ? 1.3 : 1.0;
 
       var level, levelIdx, camX, tiles, items, enemies, parts, coinsFx, floats, theme;
-      var p, score, lives, coins, timeLeft, tSec, tAcc, state, deadT, flagX, flagAnim, winT;
+      var p, score, lives, coins, timeLeft, tSec, tAcc, state, deadT, flagX, flagAnim, winT, ended;
       var prevPad;
 
       function resetLevel(idx) {
@@ -203,7 +203,7 @@
         tiles = level.rows.map(function (r) { return r.slice(); });
         items = []; enemies = []; parts = []; coinsFx = []; floats = [];
         camX = 0; timeLeft = 320; tSec = 0; tAcc = 0;
-        deadT = 0; flagAnim = 0; winT = 0; state = 'play'; prevPad = {};
+        deadT = 0; flagAnim = 0; winT = 0; state = 'play'; prevPad = {}; ended = false;
         flagX = level.w - 10;
 
         for (var y = 0; y < ROWS; y++) {
@@ -303,7 +303,7 @@
           var ty = Math.floor((o.y + o.h) / TILE);
           for (var tx = l; tx <= r; tx++) if (solidAt(tx, ty)) {
             o.y = ty * TILE - o.h; o.vy = 0; o.onGround = true;
-            if (isPlayer && tiles[ty][tx] === 'J') { o.vy = -1050; o.onGround = false; sfx.play('jumpBig'); burst(o.x + o.w / 2, o.y + o.h, '#2ee6a8', 8); }
+            if (isPlayer && tiles[ty][tx] === 'J') { o.vy = -1050; o.onGround = false; o.noClamp = 0.3; sfx.play('jumpBig'); burst(o.x + o.w / 2, o.y + o.h, '#2ee6a8', 8); }
             break;
           }
         } else if (o.vy < 0) {
@@ -332,7 +332,7 @@
       }
       function nextLevel() {
         if (levelIdx + 1 < LEVELS.length) { resetLevel(levelIdx + 1); }
-        else { env.win({ score: Math.round(score * mult), detail: '三关全通' }); }
+        else if (!ended) { ended = true; env.win({ score: Math.round(score * mult), detail: '三关全通' }); }
       }
 
       function update(dt) {
@@ -370,7 +370,7 @@
         var jumpJust = jumpPressed && !prevPad.jump;
         if (jumpJust && p.onGround) { p.vy = JUMP_V; p.onGround = false; p.jumpHold = 1; sfx.play('jump'); }
         if (jumpPressed && p.jumpHold > 0 && p.vy < 0) p.jumpHold = Math.min(1, p.jumpHold + dt * 6);
-        if (!jumpPressed && p.vy < -160) { p.vy = Math.max(p.vy, -180); p.jumpHold = 0; }
+        if (!jumpPressed && p.vy < -160 && !(p.noClamp > 0)) { p.vy = Math.max(p.vy, -180); p.jumpHold = 0; }
 
         moveX(p, dt);
         moveY(p, dt, true);
@@ -378,6 +378,7 @@
 
         p.inv = Math.max(0, p.inv - dt);
         p.growT = Math.max(0, p.growT - dt);
+        p.noClamp = Math.max(0, (p.noClamp || 0) - dt);
 
         if (p.y > H + 40) { die(); return; }
 

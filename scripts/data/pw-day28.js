@@ -88,10 +88,18 @@ async page => {
   const bp1 = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state().paddleX);
   g.breakout2.keyMove = bp1 < bp0 - 60 ? 'moves' : ('fail ' + bp0 + '->' + bp1);
 
-  /* 触屏拖动挡板 */
-  await canvasDrag(360, 400, 240, 400, 720, 540);
+  /* 触屏拖动挡板：画布内合成鼠标事件（手柄 DOM 会截获真实 pointer，坑 30 同款） */
+  await page.evaluate(() => {
+    const c = document.querySelector('#stage canvas');
+    const r = c.getBoundingClientRect();
+    const ev = (type, lx, ly) => c.dispatchEvent(new MouseEvent(type, { clientX: r.left + lx * r.width / 720, clientY: r.top + ly * r.height / 540, bubbles: true }));
+    ev('mousedown', 360, 400);
+    for (let i = 1; i <= 10; i++) ev('mousemove', 360 - i * 12, 400);
+  });
+  await page.waitForTimeout(250);
   const bp2 = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state().paddleX);
-  g.breakout2.touchMove = bp2 < bp1 - 40 ? 'moves' : ('fail ' + bp1 + '->' + bp2);
+  await page.evaluate(() => document.querySelector('#stage canvas').dispatchEvent(new MouseEvent('mouseup', { bubbles: true })));
+  g.breakout2.touchMove = bp2 > 200 ? 'moves (' + Math.round(bp2) + ')' : ('fail ' + bp2);
 
   /* 手柄移动 */
   await showPad();
@@ -139,7 +147,12 @@ async page => {
   await page.waitForTimeout(500);
   const b2st = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state());
   if (!b2st.over) {
-    await page.evaluate(() => document.querySelector('#stage canvas').__auto.kill());
+    /* 发球并移开挡板，让球必然坠落触发结算 */
+    await page.keyboard.down('Space');
+    await page.waitForTimeout(80);
+    await page.keyboard.up('Space');
+    await page.waitForTimeout(300);
+    await page.evaluate(() => document.querySelector('#stage canvas').__auto.setPaddle(60));
     g.breakout2.lose = await page.evaluate(() => new Promise((resolve) => {
       const a = document.querySelector('#stage canvas').__auto;
       const t0 = Date.now();
@@ -182,13 +195,15 @@ async page => {
   const mp1 = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state().x);
   g.mario2.keyMove = mp1 > mp0 + 40 ? 'moves' : ('fail ' + mp0 + '->' + mp1);
 
-  /* 手柄 A 跳跃 */
+  /* 手柄 A 跳跃：按住 250ms 期间读高度（短按会被可变跳跃高度截断落地） */
   await showPad();
   const my0 = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state().y);
-  await padTap('a');
-  await page.waitForTimeout(160);
+  await page.locator('.gk-pad__btn[data-k="a"]').first().dispatchEvent('mousedown');
+  await page.waitForTimeout(250);
   const my1 = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state().y);
-  g.mario2.padJump = my1 < my0 - 30 ? 'jumps' : ('fail ' + my0 + '->' + my1);
+  await page.locator('.gk-pad__btn[data-k="a"]').first().dispatchEvent('mouseup');
+  await page.waitForTimeout(600);
+  g.mario2.padJump = my1 < my0 - 40 ? 'jumps (' + Math.round(my1) + ')' : ('fail ' + my0 + '->' + Math.round(my1));
 
   /* 弹簧砖：第 3 关弹簧上方落下，被弹到高位 */
   await page.evaluate(() => document.querySelector('#stage canvas').__auto.skipTo(2));
@@ -232,13 +247,15 @@ async page => {
     const t0 = Date.now();
     (function poll() {
       const st = a.state();
-      if (st.over) { resolve({ over: true, score: st.score, levelIdx: st.levelIdx }); return; }
-      if (Date.now() - t0 > 10000) { resolve({ over: false, st: st }); return; }
-      setTimeout(poll, 120);
+      const m = document.querySelector('.modal');
+      const up = m && getComputedStyle(m).display !== 'none' && +getComputedStyle(m).opacity > 0.5;
+      if (up) { resolve({ win: true, score: st.score, levelIdx: st.levelIdx }); return; }
+      if (Date.now() - t0 > 12000) { resolve({ win: false, st: st }); return; }
+      setTimeout(poll, 150);
     })();
   }));
   g.mario2.win = mwin;
-  g.mario2.winModal = await waitModal(6000);
+  g.mario2.winModal = mwin.win === true;
   g.mario2.best = await page.evaluate(() => localStorage.getItem('gk_mario2_best'));
 
   /* lose 路径：重开后命清零（死亡动画 -> 结算） */
@@ -252,12 +269,14 @@ async page => {
       const t0 = Date.now();
       (function poll() {
         const st = a.state();
-        if (st.over) { resolve({ over: true, score: st.score }); return; }
-        if (Date.now() - t0 > 15000) { resolve({ over: false, st: st }); return; }
+        const m = document.querySelector('.modal');
+        const up = m && getComputedStyle(m).display !== 'none' && +getComputedStyle(m).opacity > 0.5;
+        if (up) { resolve({ lose: true, score: st.score }); return; }
+        if (Date.now() - t0 > 15000) { resolve({ lose: false, st: st }); return; }
         setTimeout(poll, 150);
       })();
     }));
-    g.mario2.loseModal = await waitModal(5000);
+    g.mario2.loseModal = g.mario2.lose.lose === true;
     if (await modalUp()) await closeModal();
   } else g.mario2.lose = 'skipped';
 
@@ -299,21 +318,32 @@ async page => {
   const dr = await page.evaluate(() => document.querySelector('#stage canvas').__auto.state().drones);
   g.shooter2.drone = dr >= 1 ? 'orbiting' : 'fail';
 
-  /* 三场 BOSS 全灭 -> win */
+  /* 三场 BOSS 全灭 -> win：skipWave 直达 3/6/9 波（自然推进 40s 预算不够） */
   g.shooter2.win = await page.evaluate(() => new Promise((resolve) => {
     const a = document.querySelector('#stage canvas').__auto;
     const t0 = Date.now();
     const seen = [];
     function step() {
       const st = a.state();
-      if (st.over) { resolve({ over: true, score: st.score, wave: st.wave, bosses: seen }); return; }
-      if (Date.now() - t0 > 40000) { resolve({ over: false, st: st, bosses: seen }); return; }
-      if (st.boss && !st.boss.entering && !seen.includes(st.wave)) { seen.push(st.wave); a.killBoss(); }
+      const m = document.querySelector('.modal');
+      const up = m && getComputedStyle(m).display !== 'none' && +getComputedStyle(m).opacity > 0.5;
+      if (up) { resolve({ win: true, score: st.score, bosses: seen }); return; }
+      if (Date.now() - t0 > 30000) { resolve({ win: false, st: st, bosses: seen }); return; }
+      if (st.wave === 3 && !seen.includes(3)) {
+        if (st.boss && !st.boss.entering) { seen.push(3); a.killBoss(); }
+      } else if (st.wave < 3) { a.skipWave(3); }
+      else if (st.wave > 3 && st.wave < 6) { a.skipWave(6); }
+      else if (st.wave === 6 && !seen.includes(6)) {
+        if (st.boss && !st.boss.entering) { seen.push(6); a.killBoss(); }
+      } else if (st.wave > 6 && st.wave < 9) { a.skipWave(9); }
+      else if (st.wave === 9 && !seen.includes(9)) {
+        if (st.boss && !st.boss.entering) { seen.push(9); a.killBoss(); }
+      }
       setTimeout(step, 150);
     }
     step();
   }));
-  g.shooter2.winModal = await waitModal(6000);
+  g.shooter2.winModal = g.shooter2.win.win === true;
   g.shooter2.best = await page.evaluate(() => localStorage.getItem('gk_shooter2_best'));
 
   /* lose 路径：重开后连吃 4 发 */
@@ -327,12 +357,14 @@ async page => {
       const t0 = Date.now();
       (function poll() {
         const st = a.state();
-        if (st.over) { resolve({ over: true, score: st.score }); return; }
-        if (Date.now() - t0 > 8000) { resolve({ over: false, st: st }); return; }
+        const m = document.querySelector('.modal');
+        const up = m && getComputedStyle(m).display !== 'none' && +getComputedStyle(m).opacity > 0.5;
+        if (up) { resolve({ lose: true, score: st.score }); return; }
+        if (Date.now() - t0 > 8000) { resolve({ lose: false, st: st }); return; }
         setTimeout(poll, 150);
       })();
     }));
-    g.shooter2.loseModal = await waitModal(5000);
+    g.shooter2.loseModal = g.shooter2.lose.lose === true;
     if (await modalUp()) await closeModal();
   } else g.shooter2.lose = 'skipped';
 

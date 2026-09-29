@@ -76,6 +76,60 @@ def gradient_text(img, xy, text, font, c1, c2):
         x += tw(d, ch, font)
 
 
+def shadow(d, box, radius, layers=7):
+    x0, y0, x1, y1 = box
+    for i in range(layers, 0, -1):
+        o = i * 3
+        d.rounded_rectangle([x0 - 6 + o, y0 + o, x1 + 6 + o, y1 + o], radius=radius, fill=(0, 0, 0, 14))
+
+
+def gradient_text(img, xy, text, font, c1, c2, glow_col=None, blur=9):
+    from PIL import ImageFilter
+    x, y = xy
+    n = max(1, len(text) - 1)
+    if glow_col:
+        layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ld = ImageDraw.Draw(layer)
+        cx = x
+        for ch in text:
+            ld.text((cx, y), ch, font=font, fill=glow_col + (255,))
+            cx += ld.textlength(ch, font=font)
+        layer = layer.filter(ImageFilter.GaussianBlur(blur))
+        glow_img = Image.new("RGBA", img.size, glow_col + (0,))
+        glow_img.putalpha(layer.split()[3].point(lambda v: int(v * 0.5)))
+        img.paste(glow_img, (0, 0), glow_img)
+    d = ImageDraw.Draw(img)
+    cx = x
+    for i, ch in enumerate(text):
+        d.text((cx, y), ch, font=font, fill=mix(c1, c2, i / n))
+        cx += d.textlength(ch, font=font)
+
+
+def qr_dots(url, target):
+    """Rounded-dot QR: finder patterns stay solid so scanners still lock on."""
+    qr = qrcode.QRCode(version=None, error_correction=qrcode.constants.ERROR_CORRECT_H, box_size=1, border=3)
+    qr.add_data(url)
+    qr.make(fit=True)
+    m = qr.get_matrix()
+    n = len(m)
+    scale = max(1, target // n)
+    img = Image.new("RGB", (n * scale, n * scale), "white")
+    d = ImageDraw.Draw(img)
+    for r in range(n):
+        for c in range(n):
+            if not m[r][c]:
+                continue
+            x, y = c * scale, r * scale
+            col = mix((10, 16, 38), (72, 46, 140), r / n)
+            finder = (r < 7 and c < 7) or (r < 7 and c >= n - 7) or (r >= n - 7 and c < 7)
+            if finder:
+                d.rectangle([x, y, x + scale - 1, y + scale - 1], fill=col)
+            else:
+                pad = scale * 0.06
+                d.ellipse([x + pad, y + pad, x + scale - pad, y + scale - pad], fill=col)
+    return img
+
+
 def draw_icon(kind, box):
     """White glyph on a gradient tile."""
     size = box
@@ -174,7 +228,7 @@ def main():
     d.line([(M, 196), (W - M, 196)], fill=(255, 255, 255, 26), width=2)
 
     # ---------- hero ----------
-    d.text((M, 250), "打开就能玩", font=f(F_BOLD, 118), fill=TEXT)
+    gradient_text(img, (M, 250), "打开就能玩", f(F_BOLD, 118), WHITE, mix(CYAN, WHITE, 0.55), glow_col=CYAN)
     gradient_text(img, (M, 400), "60 秒上手 · 零下载", f(F_BOLD, 62), CYAN, PINK)
     d.text((M, 496), "超级玛丽 · 打飞机 · 打砖块 · 贪吃蛇 · 俄罗斯方块 · 2048", font=f(F_REG, 30), fill=MUTED)
     d.text((M, 552), "每天新增 2-3 款经典小游戏，手机 · 平板 · 电脑全端即点即玩", font=f(F_REG, 26), fill=(125, 145, 180))
@@ -202,6 +256,7 @@ def main():
         col, row = i % 3, i // 3
         x = M + col * (cw + 30)
         y = 700 + row * (ch + 30)
+        shadow(d, [x, y, x + cw, y + ch], 24, layers=5)
         d.rounded_rectangle([x, y, x + cw, y + ch], radius=24, fill=(16, 25, 46, 235))
         d.rounded_rectangle([x, y, x + cw, y + ch], radius=24, outline=(255, 255, 255, 26), width=2)
         # accent bar
@@ -216,7 +271,7 @@ def main():
     qy = 700 + 2 * (ch + 30) + 24
     qh = 470
     d.rounded_rectangle([M, qy, W - M, qy + qh], radius=30, fill=(245, 248, 255))
-    qr = make_qr(380)
+    qr = qr_dots(URL, 380)
     qs = qr.size[0]
     qx = W - M - 60 - qs
     qy_qr = qy + (qh - qs) // 2
