@@ -11,6 +11,7 @@
 09:20  开发   按 engine.js 接口实现：init / update / render / input / reset
 11:00  打磨   音效（sfx.js）、手感（帧率、输入延迟、难度曲线）、移动端触屏
 12:00  自测   跑一遍「上线验收清单」
+12:20  海报   为当天每款新游戏生成专属海报与二维码：python tools/make_game_poster.py <id1> <id2>
 12:30  上线   git commit → push → GitHub Pages 自动构建（约 40–60 秒）
 12:40  冒烟   线上打开 3 款新游戏各玩 1 分钟，确认无报错
 13:00  记录   更新 docs/dev-log/YYYY-MM-DD.md，写下明日选题
@@ -30,6 +31,8 @@
 - [ ] 无 console 报错，无内存泄漏（重开多次帧率稳定）
 - [ ] 中文 / 英文双语名称与说明齐全（`i18n.js`）
 - [ ] 后台「游戏管理」中可见并可上下架
+- [ ] 生成专属海报与二维码：`python tools/make_game_poster.py <id>`，产出 `assets/img/posters/<id>.png` 与 `assets/img/qr/<id>.png`
+- [ ] 二维码实测可扫，且解开后指向该游戏页 `play.html?g=<id>`
 - [ ] 提交信息格式：`game: 新增 XX 游戏`
 - [ ] 推送后线上实测通过
 
@@ -69,6 +72,7 @@
 ## 五、发布命令（备忘）
 
 ```bash
+python tools/make_game_poster.py XX YY      # 生成当天新游戏的专属海报 + 二维码
 git add -A
 git commit -m "game: add XX / YY games"      # 提交信息若含中文在部分终端会报编码错误，可用英文
 git push origin main
