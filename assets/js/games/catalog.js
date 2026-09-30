@@ -533,6 +533,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/shooter2.js',
       ratio: 'portrait', duration: '2-4 分钟'
+    },
+    {
+      id: 'tetris2',
+      name: { zh: '俄罗斯方块 2', en: 'Tetris Sprint' },
+      desc: { zh: '方块完全体：7-Bag 随机、幽灵落点、暂存 Hold、硬降冲刺！四连消 TETRIS 狂赚 800 分，每 10 行提速升级！', en: 'The full package: 7-Bag randomizer, ghost piece, Hold and hard drop! Score 800 for a TETRIS and level up every 10 lines!' },
+      genre: { zh: '益智消除', en: 'Puzzle' },
+      icon: '🧊', hue: '#38bdf8',
+      tags: [{ zh: '经典', en: 'Classic' }, { zh: '续作', en: 'Sequel' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/tetris2.js',
+      ratio: 'portrait', duration: '2-6 分钟'
+    },
+    {
+      id: 'maze',
+      name: { zh: '迷宫逃脱', en: 'Maze Escape' },
+      desc: { zh: '深入回溯迷宫，集齐 3 把黄金钥匙，赶在倒计时归零前冲向出口！路越短、走得越快，得分越高。迷路可点击目标自动寻路。', en: 'Dive into a perfect maze, collect 3 golden keys and reach the exit before time runs out! Fewer steps and faster runs score higher.' },
+      genre: { zh: '益智解谜', en: 'Brain' },
+      icon: '🗝️', hue: '#d97706',
+      tags: [{ zh: '解谜', en: 'Puzzle' }, { zh: '限时', en: 'Timed' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/maze.js',
+      ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'bullet',
+      name: { zh: '弹幕躲避', en: 'Bullet Bloom' },
+      desc: { zh: '东方系走位生存！瞄准弹流、侧向横雨、环形爆散三种弹幕交织成花海，活过 60 秒！捡星屑加分，被击中会清屏续命。', en: 'Danmaku survival! Weave through aimed streams, cross rain and ring bursts for 60 seconds. Grab stars for points — getting hit clears the screen!' },
+      genre: { zh: '弹幕射击', en: 'Shoot \'em up' },
+      icon: '🌸', hue: '#f472b6',
+      tags: [{ zh: '走位', en: 'Dodge' }, { zh: '生存', en: 'Survival' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/bullet.js',
+      ratio: 'portrait', duration: '1-2 分钟'
     }
   ];
 

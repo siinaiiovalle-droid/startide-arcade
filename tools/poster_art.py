@@ -12,7 +12,7 @@ KIND_HINTS = [
     ("ship", ["shoot", "plane", "raider", "space"]),
     ("brickbot", ["break", "brick", "pinball", "pong"]),
     ("worm", ["snake"]),
-    ("block", ["tetris", "klotski", "stack", "fifteen"]),
+    ("block", ["tetris", "klotski", "stack", "fifteen", "maze", "labyrinth"]),
     ("number", ["2048", "sudoku", "guessnum"]),
     ("mole", ["whack", "mole"]),
     ("bird", ["flappy", "bird"]),
@@ -20,7 +20,7 @@ KIND_HINTS = [
     ("fish", ["fishing", "fish"]),
     ("watermelon", ["suika", "fruit", "melon"]),
     ("balloon", ["balloon"]),
-    ("bubble", ["bubble", "shooter2"]),
+    ("bubble", ["bubble", "shooter2", "bullet", "danmaku"]),
     ("tank", ["tank"]),
     ("bomb", ["minesweeper", "mine", "bomb"]),
     ("cards", ["freecell", "memory", "link", "slot", "solitaire"]),
@@ -188,9 +188,9 @@ def sprite(kind, size, color):
         eyes(ey=-18, gap=12, r=6)
         smile(ey=-4, r=6)
     elif kind == "bubble":
-        for (bx0, by0, r0, c) in [(cx - 16, cy - 12, 20, color), (cx + 16, cy + 6, 16, light), (cx - 12, cy + 22, 12, mix(color, (255, 255, 255), 0.6))]:
-            d.ellipse([bx0 * u - r0 * u, by0 * u - r0 * u, bx0 * u + r0 * u, by0 * u + r0 * u], fill=c + (235,), outline=dark, width=w)
-            d.ellipse([bx0 * u - r0 * 0.55 * u, by0 * u - r0 * 0.6 * u, bx0 * u - r0 * 0.15 * u, by0 * u - r0 * 0.2 * u], fill=(255, 255, 255, 200))
+        for (bx0, by0, r0, c) in [(cx - 16 * u, cy - 12 * u, 20 * u, color), (cx + 16 * u, cy + 6 * u, 16 * u, light), (cx - 12 * u, cy + 22 * u, 12 * u, mix(color, (255, 255, 255), 0.6))]:
+            d.ellipse([bx0 - r0, by0 - r0, bx0 + r0, by0 + r0], fill=c + (235,), outline=dark, width=w)
+            d.ellipse([bx0 - r0 * 0.55, by0 - r0 * 0.6, bx0 - r0 * 0.15, by0 - r0 * 0.2], fill=(255, 255, 255, 200))
         eyes(ey=-14, gap=12, r=6)
         smile(ey=-2, r=6)
     elif kind == "tank":
