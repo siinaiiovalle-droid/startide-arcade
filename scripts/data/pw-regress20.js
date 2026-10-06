@@ -1,7 +1,7 @@
 async page => {
   const out = { errs: {}, regress: {} };
   const base = 'http://localhost:8820';
-  const ids = ['shooter', 'mario', 'breakout', 'snake', 'tetris', 'g2048', 'memory', 'ttt', 'pinball', 'gomoku', 'flappy', 'whack', 'bubble', 'gem', 'jump', 'tank', 'dino', 'fruit', 'link', 'sudoku', 'klotski', 'pool', 'fishing', 'suika', 'minesweeper', 'sokoban', 'freecell', 'balloon', 'bowling', 'duck', 'racer', 'helicopter', 'stack', 'archery', 'towerdef', 'flappy2', 'puzzle', 'spotdiff', 'reflex', 'rich', 'slot', 'guessnum', 'pong', 'sumo', 'fifteen', 'breakout2', 'mario2', 'shooter2', 'tetris2', 'maze', 'bullet'];
+  const ids = ['shooter', 'mario', 'breakout', 'snake', 'tetris', 'g2048', 'memory', 'ttt', 'pinball', 'gomoku', 'flappy', 'whack', 'bubble', 'gem', 'jump', 'tank', 'dino', 'fruit', 'link', 'sudoku', 'klotski', 'pool', 'fishing', 'suika', 'minesweeper', 'sokoban', 'freecell', 'balloon', 'bowling', 'duck', 'racer', 'helicopter', 'stack', 'archery', 'towerdef', 'flappy2', 'puzzle', 'spotdiff', 'reflex', 'rich', 'slot', 'guessnum', 'pong', 'sumo', 'fifteen', 'breakout2', 'mario2', 'shooter2', 'tetris2', 'maze', 'bullet', 'pipe', 'nonogram', 'rhythm'];
 
   /* 全量加载冒烟：每款收集 pageerror/console.error */
   for (const id of ids) {
