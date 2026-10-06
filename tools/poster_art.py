@@ -12,7 +12,9 @@ KIND_HINTS = [
     ("ship", ["shoot", "plane", "raider", "space"]),
     ("brickbot", ["break", "brick", "pinball", "pong"]),
     ("worm", ["snake"]),
-    ("block", ["tetris", "klotski", "stack", "fifteen", "maze", "labyrinth"]),
+    ("block", ["tetris", "klotski", "stack", "fifteen", "maze", "labyrinth", "nonogram"]),
+    ("pipe", ["pipe", "plumb"]),
+    ("music", ["rhythm", "music", "beat"]),
     ("number", ["2048", "sudoku", "guessnum"]),
     ("mole", ["whack", "mole"]),
     ("bird", ["flappy", "bird"]),
@@ -295,6 +297,26 @@ def sprite(kind, size, color):
         d.ellipse([cx - 20 * u, cy - 20 * u, cx - 4 * u, cy - 4 * u], fill=(24, 28, 40, 255), outline=dark, width=max(1, int(1 * u)))
         d.ellipse([cx + 4 * u, cy + 4 * u, cx + 20 * u, cy + 20 * u], fill=(255, 255, 255, 255), outline=dark, width=max(1, int(1 * u)))
         d.ellipse([cx + 4 * u, cy - 20 * u, cx + 20 * u, cy - 4 * u], fill=(255, 255, 255, 255), outline=dark, width=max(1, int(1 * u)))
+    elif kind == "pipe":
+        pw = 13 * u
+        d.line([(cx - 44 * u, cy + 22 * u), (cx - 10 * u, cy + 22 * u)], fill=light, width=max(2, int(pw)))
+        d.line([(cx - 10 * u, cy + 22 * u), (cx - 10 * u, cy - 22 * u)], fill=light, width=max(2, int(pw)))
+        d.line([(cx - 10 * u, cy - 22 * u), (cx + 30 * u, cy - 22 * u)], fill=light, width=max(2, int(pw)))
+        d.line([(cx + 30 * u, cy - 22 * u), (cx + 30 * u, cy + 34 * u)], fill=color, width=max(2, int(pw)))
+        d.line([(cx + 30 * u, cy + 34 * u), (cx + 44 * u, cy + 34 * u)], fill=color, width=max(2, int(pw)))
+        for (fx, fy) in [(-44, 22), (30, -22), (30, 34)]:
+            d.rounded_rectangle([cx + fx * u - 5 * u, cy + fy * u - 8 * u, cx + fx * u + 5 * u, cy + fy * u + 8 * u],
+                                radius=3 * u, fill=dark)
+        d.ellipse([cx - 16 * u, cy - 2 * u, cx - 4 * u, cy + 10 * u], fill=(120, 200, 255, 255), outline=dark, width=max(1, int(1.1 * u)))
+        d.ellipse([cx - 13 * u, cy, cx - 9 * u, cy + 4 * u], fill=(255, 255, 255, 255))
+    elif kind == "music":
+        d.line([(cx + 14 * u, cy - 40 * u), (cx + 14 * u, cy + 22 * u)], fill=dark, width=max(2, int(4.5 * u)))
+        d.polygon([(cx + 14 * u, cy - 40 * u), (cx + 44 * u, cy - 30 * u), (cx + 14 * u, cy - 18 * u)],
+                  fill=color, outline=dark, width=max(1, int(1.4 * u)))
+        d.ellipse([cx - 14 * u, cy + 8 * u, cx + 18 * u, cy + 44 * u], fill=color, outline=dark, width=w)
+        d.ellipse([cx - 6 * u, cy + 20 * u, cx + 4 * u, cy + 30 * u], fill=(255, 255, 255, 170))
+        d.line([(cx - 40 * u, cy - 6 * u), (cx - 28 * u, cy - 24 * u)], fill=light, width=max(1, int(3 * u)))
+        d.ellipse([cx - 48 * u, cy - 18 * u, cx - 32 * u, cy - 2 * u], fill=light, outline=dark, width=max(1, int(1.4 * u)))
     else:  # pad
         d.rounded_rectangle([cx - 42 * u, cy - 26 * u, cx + 42 * u, cy + 28 * u], radius=18 * u, fill=color, outline=dark, width=w)
         d.ellipse([cx - 28 * u, cy - 12 * u, cx - 8 * u, cy + 8 * u], fill=light, outline=dark, width=max(1, int(1.2 * u)))

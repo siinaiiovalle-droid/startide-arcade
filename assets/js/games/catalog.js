@@ -566,6 +566,39 @@
       plays: 5000, hot: false, isNew: true,
       script: 'assets/js/games/bullet.js',
       ratio: 'portrait', duration: '1-2 分钟'
+    },
+    {
+      id: 'pipe',
+      name: { zh: '水管连接', en: 'Pipe Connect' },
+      desc: { zh: '点击旋转水管，把水从左上源头一路接到右下出口！限时完成，步数越少分越高，卡住了就按 B 或点「提示」让老师傅帮你拧一段。', en: 'Tap pipes to rotate them and route water from the source to the drain before time runs out! Fewer moves score higher — stuck? Call the hint!' },
+      genre: { zh: '益智解谜', en: 'Brain' },
+      icon: '🔧', hue: '#38bdf8',
+      tags: [{ zh: '旋转', en: 'Rotate' }, { zh: '接水', en: 'Plumb' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/pipe.js',
+      ratio: 'portrait', duration: '1-3 分钟'
+    },
+    {
+      id: 'nonogram',
+      name: { zh: '数织', en: 'Nonogram' },
+      desc: { zh: '按行列数字提示填色，还原隐藏的像素画！点按填色、长按格或按 B 标记✘；填错扣心，三颗心用完前把画完成！', en: 'Fill cells using row & column number clues to reveal the pixel art! Tap to fill, B or right-click to mark ✘. Three mistakes and it\'s over!' },
+      genre: { zh: '益智解谜', en: 'Brain' },
+      icon: '🧩', hue: '#34d399',
+      tags: [{ zh: '逻辑', en: 'Logic' }, { zh: '填色', en: 'Paint' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/nonogram.js',
+      ratio: 'portrait', duration: '2-5 分钟'
+    },
+    {
+      id: 'rhythm',
+      name: { zh: '节奏点击', en: 'Rhythm Tap' },
+      desc: { zh: '四轨下落式音击！D F J K 对应四条轨道，触屏直接点轨道，Perfect 判定攒连击加成；Miss 满 10 次出局，撑到曲终就是胜利！', en: '4-lane falling-note rhythm game! Hit D F J K or tap the lanes — chain Perfects for combo bonus. 10 misses and you\'re out; survive till the song ends to win!' },
+      genre: { zh: '音乐节奏', en: 'Music' },
+      icon: '🎵', hue: '#fbbf24',
+      tags: [{ zh: '节奏', en: 'Rhythm' }, { zh: '反应', en: 'Reflex' }],
+      plays: 5000, hot: false, isNew: true,
+      script: 'assets/js/games/rhythm.js',
+      ratio: 'portrait', duration: '1-2 分钟'
     }
   ];
 
